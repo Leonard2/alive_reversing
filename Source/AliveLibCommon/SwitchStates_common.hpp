@@ -20,7 +20,7 @@ enum class SwitchOp : s16
     eDecrement_4 = 4,
 };
 
-struct SwitchStates final
+struct SwitchStates
 {
 public:
     s8 Get(SwitchId id);
@@ -33,7 +33,7 @@ public:
     void Save(u8 *to);
     void Load(const u8 *from);
 
-private:
+protected:
     s8 mData[256];
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(SwitchStates, 256);

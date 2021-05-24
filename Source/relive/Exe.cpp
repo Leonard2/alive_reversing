@@ -80,7 +80,8 @@ extern "C"
 #endif
 
 #ifdef _WIN32
-    EXPORT constexpr AEGameInfo kAeInfo = {
+    EXPORT constexpr AEGameInfo kAeInfo =
+    {
         "{DBC2AE1C-A5DE-465F-A89A-C385BE1DEFCC}",
         // 2 byte padding (32bit)
         &gameType,
@@ -91,14 +92,16 @@ extern "C"
         &LocalVar_sGnFrame_5C1B84,
         &LocalVar_spAbe_554D5C,
         offsetof(Abe, field_BC_ypos),
-        &LocalVar_sDisableFontFlicker_5C9304};
+        &LocalVar_sDisableFontFlicker_5C9304,
+    };
 
     EXPORT const void* GetAeInfo()
     {
         return &kAeInfo;
     }
 
-    EXPORT constexpr AOGameInfo kAoInfo = {
+    EXPORT constexpr AOGameInfo kAoInfo =
+    {
         "{1D2E2B5A-19EE-4776-A0EE-98F49F781370}",
         // 2 byte padding (32bit)
         &gameType,
@@ -109,7 +112,8 @@ extern "C"
         &AO::LocalVar_sActiveHero_507678,
         offsetof(AO::Abe, field_AC_ypos) + sizeof(s16), // +2 for exp only
         &AO::LocalVar_sDisableFontFlicker_5080E4,
-        &AO::LocalVar_sSwitchStates_505568.mData[70]};
+        AO::SwitchStates::GetAOBeaten(&AO::LocalVar_sSwitchStates_505568),
+    };
 
     EXPORT const void* GetAoInfo()
     {
