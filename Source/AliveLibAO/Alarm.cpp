@@ -17,7 +17,7 @@ void Alarm_ForceLink()
 
 ALIVE_VAR(1, 0x5076A8, s16, alarmInstanceCount_5076A8, 0);
 
-EXPORT Alarm* Alarm::ctor_402570(s16 duration_timer, s16 switchId, s16 timer, Layer layer)
+EXPORT Alarm* Alarm::ctor_402570(s16 duration_timer, SwitchId switchId, s16 timer, Layer layer)
 {
     ctor_461550(layer, TPageAbr::eBlend_1);
 
@@ -52,7 +52,7 @@ BaseGameObject* Alarm::dtor_402630()
 {
     SetVTable(this, 0x4BA060);
     alarmInstanceCount_5076A8--;
-    SwitchStates_Set(field_74_switch_id, 0);
+    sSwitchStates_505568.Set(field_74_switch_id, 0);
     return dtor_461630();
 }
 
@@ -118,9 +118,9 @@ void Alarm::VUpdate_402660()
 
                 SFX_Play_43AD70(SoundEffect::Alarm_45, 0, 0);
 
-                if (field_74_switch_id)
+                if (field_74_switch_id.mId)
                 {
-                    SwitchStates_Set(field_74_switch_id, 1);
+                    sSwitchStates_505568.Set(field_74_switch_id, 1);
                 }
             }
             break;

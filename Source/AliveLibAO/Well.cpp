@@ -70,7 +70,7 @@ void Well::VUpdate_48B270()
     if (field_100_emit_leaves)
     {
         // Always on or has been enabled?
-        if (!field_E8_trigger_id || SwitchStates_Get(field_E8_trigger_id))
+        if (!field_E8_trigger_id.mId || sSwitchStates_505568.Get(field_E8_trigger_id))
         {
             // Random chance of leaves emitting
             if (Well_NextRandom() < 10)

@@ -1190,7 +1190,7 @@ void Abe::vUpdate_41FDB0()
                     auto pMusicTrigger = ao_new<MusicTrigger>();
                     if (pMusicTrigger)
                     {
-                        pMusicTrigger->ctor_443A60(1, 1, 0, 90);
+                        pMusicTrigger->ctor_443A60(1, 1, { 0 }, 90);
                     }
                 }
 
@@ -7792,7 +7792,7 @@ void Abe::State_78_InsideWellLocal_4310A0()
         }
         else
         {
-            if (SwitchStates_Get(pWellBase->field_1A_trigger_id))
+            if (sSwitchStates_505568.Get(pWellBase->field_1A_trigger_id))
             {
                 auto pLocalWell = static_cast<Path_WellLocal*>(field_F0_pTlv);
                 field_B4_velx = (field_BC_sprite_scale * FP_FromInteger(pLocalWell->field_28_on_dx) / FP_FromInteger(100));
@@ -7914,7 +7914,7 @@ void Abe::State_81_InsideWellExpress_431320()
     }
 
     Path_WellExpress* pExpressWell = static_cast<Path_WellExpress*>(field_F0_pTlv);
-    if (SwitchStates_Get(pExpressWell->field_1A_trigger_id))
+    if (sSwitchStates_505568.Get(pExpressWell->field_1A_trigger_id))
     {
         field_190_level = pExpressWell->field_2C_on_level;
         field_192_path = pExpressWell->field_2E_on_path;
@@ -8224,7 +8224,7 @@ void Abe::State_88_HandstoneBegin_430590()
                                 Code_Convert_476000(field_174_pathStone.dataBellsong.code1, field_174_pathStone.dataBellsong.code2));
                         }
 
-                        SwitchStates_Do_Operation_436A10(field_174_pathStone.dataBellsong.id, SwitchOp::eSetTrue_0);
+                        sSwitchStates_505568.Operation(field_174_pathStone.dataBellsong.id, SwitchOp::eSetTrue_0);
                         field_110_state.stone = StoneStates::eBellSongDone_4;
                         break;
                     }
@@ -9746,11 +9746,11 @@ void Abe::State_156_DoorEnter_42D370()
                 {
                     if (pTlv->field_18_clearIds)
                     {
-                        for (s16 i = pTlv->field_1A_from; i <= pTlv->field_1C_to; i++)
+                        for (SwitchId i = pTlv->field_1A_from; i.mId <= pTlv->field_1C_to.mId; i.mId++)
                         {
-                            if (i != pTlv->field_1E_exclude && i > 1)
+                            if (i.mId != pTlv->field_1E_exclude.mId && i.mId > 1)
                             {
-                                SwitchStates_Set(i, 0);
+                                sSwitchStates_505568.Set(i, 0);
                             }
                         }
                     }

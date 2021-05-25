@@ -5,6 +5,7 @@
 #include "FixedPoint_common.hpp"
 #include "PathData.hpp"
 #include "BaseGameObject.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -135,7 +136,7 @@ struct Path_EnemyStopper final : public Path_TLV
         Both_2 = 2,
     };
     StopDirection field_18_direction;
-    s16 field_1A_id;
+    SwitchId field_1A_id;
 };
 
 struct Path_Change final : public Path_TLV

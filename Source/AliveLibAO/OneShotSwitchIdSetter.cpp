@@ -40,13 +40,13 @@ BaseGameObject* OneShotSwitchIdSetter::ctor_432E10(Path_OneShotSwitchIdSetter* p
 
     field_10_tlvInfo = tlvInfo;
 
-    if (!SwitchStates_Get(236))
+    if (!sSwitchStates_505568.Get({ 236 }))
     {
         for (auto id : pTlv->field_18_ids_to_clear)
         {
-            SwitchStates_Do_Operation_436A10(id, SwitchOp::eSetTrue_0);
+            sSwitchStates_505568.Operation(id, SwitchOp::eSetTrue_0);
         }
-        SwitchStates_Do_Operation_436A10(236, SwitchOp::eSetTrue_0);
+        sSwitchStates_505568.Operation({ 236 }, SwitchOp::eSetTrue_0);
     }
 
     return this;

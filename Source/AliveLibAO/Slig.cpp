@@ -1496,7 +1496,7 @@ s16 Slig::HandleEnemyStopper_46BF30(s32 gridBlocks)
     }
 
     //TODO different from Exoddus (inverted) - watch out!
-    if (SwitchStates_Get(pStopper->field_1A_id))
+    if (sSwitchStates_505568.Get(pStopper->field_1A_id))
     {
         return 0;
     }
@@ -4436,7 +4436,8 @@ s16 Slig::Brain_Sleeping_46B4E0()
         }
     }
 
-    if (SwitchStates_Get(120) && field_114_timer <= static_cast<s32>(gnFrameCount_507670) && gMap_507BA8.Is_Point_In_Current_Camera_4449C0(field_B2_lvl_number, field_B0_path_number, field_A8_xpos, field_AC_ypos, 0) && !Event_Get_417250(kEventResetting_6))
+    // TODO: Should probably give a name to those odd switch id constants.
+    if (sSwitchStates_505568.Get({ 120 }) && field_114_timer <= static_cast<s32>(gnFrameCount_507670) && gMap_507BA8.Is_Point_In_Current_Camera_4449C0(field_B2_lvl_number, field_B0_path_number, field_A8_xpos, field_AC_ypos, 0) && !Event_Get_417250(kEventResetting_6))
     {
         WakeUp();
         return 102;

@@ -3,6 +3,7 @@
 #include "FunctionFwd.hpp"
 #include "BaseAliveGameObject.hpp"
 #include "Map.hpp"
+#include "SwitchStates.hpp"
 
 void Slog_ForceLink();
 
@@ -18,7 +19,7 @@ struct Path_Slog final : public Path_TLV
     s16 field_22_chase_anger;
     s16 field_24_jump_attack_delay;
     s16 field_26_disabled_resources;
-    s16 field_28_anger_trigger_id;
+    SwitchId field_28_anger_trigger_id;
     s16 field_2A_pad;
 };
 ALIVE_ASSERT_SIZEOF(Path_Slog, 0x2C);
@@ -170,7 +171,7 @@ public:
     s16 field_15E;
     s32 field_160;
     s32 field_164_timer;
-    s16 field_168_anger_switch_id;
+    SwitchId field_168_anger_switch_id;
     s16 field_16A;
     BaseAliveGameObject* field_16C;
     s16 field_170;

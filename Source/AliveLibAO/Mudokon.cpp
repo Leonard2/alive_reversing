@@ -2318,7 +2318,7 @@ void Mudokon::State_44_JumpMid_43E960()
         auto pMusicMem = ao_new<MusicTrigger>();
         if (pMusicMem)
         {
-            pMusicMem->ctor_443A60(5, 0, 0, 300);
+            pMusicMem->ctor_443A60(5, 0, { 0 }, 300);
         }
 
         sRescuedMudokons_5076C0++;
@@ -2328,9 +2328,9 @@ void Mudokon::State_44_JumpMid_43E960()
             field_1AC_pBirdPortal->VMudSaved();
         }
 
-        if (field_1B2_switch_id)
+        if (field_1B2_switch_id.mId)
         {
-            SwitchStates_Set(field_1B2_switch_id, 1);
+            sSwitchStates_505568.Set(field_1B2_switch_id, 1);
         }
     }
 

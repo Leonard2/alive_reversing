@@ -463,7 +463,7 @@ DoorFlame* DoorFlame::ctor_432860(Path_DoorFlame* pTlv, s32 tlvInfo)
 
     field_F8_pFireBackgroundGlow = 0;
 
-    if (SwitchStates_Get(pTlv->field_18_id))
+    if (sSwitchStates_505568.Get(pTlv->field_18_id))
     {
         field_10_anim.field_4_flags.Set(AnimFlags::eBit3_Render);
         field_EC_state = States::eEnabled_1;
@@ -497,7 +497,7 @@ void DoorFlame::VUpdate_432BA0()
                 field_FC_pFlameSparks->field_E4_bRender = 0;
             }
 
-            if (SwitchStates_Get(field_E8_switch_id))
+            if (sSwitchStates_505568.Get(field_E8_switch_id))
             {
                 field_EC_state = States::eEnabled_1;
             }
@@ -532,7 +532,7 @@ void DoorFlame::VUpdate_432BA0()
                 field_FC_pFlameSparks->field_E4_bRender = 1;
             }
 
-            if (!SwitchStates_Get(field_E8_switch_id))
+            if (!sSwitchStates_505568.Get(field_E8_switch_id))
             {
                 field_EC_state = States::eDisabled_0;
             }

@@ -3,12 +3,13 @@
 #include "FunctionFwd.hpp"
 #include "Map.hpp"
 #include "PlatformBase.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
 struct Path_TrapDoor final : public Path_TLV
 {
-    s16 field_18_id;
+    SwitchId field_18_id;
     s16 field_1A_start_state;
     s16 field_1C_self_closing;
     s16 field_1E_scale;
@@ -63,7 +64,7 @@ public:
     s16 field_12C_flag;
     s16 field_12E_pad;
     s32 field_130_stay_open_time;
-    s16 field_134_switch_idx;
+    SwitchId field_134_switch_idx;
     s16 field_136_state;
     s16 field_138_switch_state;
     s16 field_13A_xOff;

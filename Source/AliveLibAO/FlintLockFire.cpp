@@ -211,7 +211,7 @@ FlintLockFire* FlintLockFire::ctor_41AA90(Path_FlintLockFire* pTlv, s32 tlvInfo)
         field_220_anim.field_C_layer = layer;
     }
 
-    if (SwitchStates_Get(pTlv->field_1A_id))
+    if (sSwitchStates_505568.Get(pTlv->field_1A_id))
     {
         field_E4_state = States::eActivated_2;
         field_10_anim.Set_Animation_Data_402A40(sFlintLockFireData_4BAC70[cur_lvl].field_18_fireFrameTable, nullptr);
@@ -246,7 +246,7 @@ void FlintLockFire::VUpdate_41AEE0()
     switch (field_E4_state)
     {
         case States::eDisabled_0:
-            if (SwitchStates_Get(field_E6_switch_id))
+            if (sSwitchStates_505568.Get(field_E6_switch_id))
             {
                 field_E4_state = States::eActivating_1;
                 field_10_anim.Set_Animation_Data_402A40(
@@ -284,7 +284,7 @@ void FlintLockFire::VUpdate_41AEE0()
                 auto pMusicTrigger = ao_new<MusicTrigger>();
                 if (pMusicTrigger)
                 {
-                    pMusicTrigger->ctor_443A60(6, 1, 0, 15);
+                    pMusicTrigger->ctor_443A60(6, 1, { 0 }, 15);
                 }
             }
             break;

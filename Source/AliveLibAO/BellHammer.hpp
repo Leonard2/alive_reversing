@@ -3,12 +3,13 @@
 #include "FunctionFwd.hpp"
 #include "Map.hpp"
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
 struct Path_BellHammer final : public Path_TLV
 {
-    s16 field_18_id;
+    SwitchId field_18_id;
     s16 field_1A_action;
     s16 field_1C_scale;
     s16 field_1E_direction;
@@ -44,7 +45,7 @@ public:
     s32 field_DC;
     s32 field_E0;
     BellHammerStates field_E4_state;
-    s16 field_E6_switch_id;
+    SwitchId field_E6_switch_id;
     s32 field_E8_tlvInfo;
     s32 field_EC_pending_resource_count;
     s32 field_F0_bSpawnElum;

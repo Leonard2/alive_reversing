@@ -86,7 +86,7 @@ void TrapDoor::VScreenChanged_488740()
 
         if (field_13C_set_switch_on_dead)
         {
-            SwitchStates_Set(field_134_switch_idx, field_138_switch_state == 0);
+            sSwitchStates_505568.Set(field_134_switch_idx, field_138_switch_state == 0);
         }
     }
 }
@@ -175,7 +175,7 @@ TrapDoor* TrapDoor::ctor_488010(Path_TrapDoor* pTlv, Map* pMap, s32 tlvInfo)
     const s32 cur_lvl = static_cast<s32>(gMap_507BA8.field_0_current_level);
 
     s32 frame_table_offset_1 = 0;
-    if (field_138_switch_state == SwitchStates_Get(pTlv->field_18_id))
+    if (field_138_switch_state == sSwitchStates_505568.Get(pTlv->field_18_id))
     {
         field_136_state = 2;
         frame_table_offset_1 = sTrapDoorData_4BD4A0[cur_lvl].field_0;
@@ -255,7 +255,7 @@ void TrapDoor::VUpdate_4883E0()
     switch (field_136_state)
     {
         case 0:
-            if (SwitchStates_Get(field_134_switch_idx) == field_138_switch_state)
+            if (sSwitchStates_505568.Get(field_134_switch_idx) == field_138_switch_state)
             {
                 Open();
                 field_136_state = 1;
@@ -285,7 +285,7 @@ void TrapDoor::VUpdate_4883E0()
 
         case 2:
             field_130_stay_open_time--;
-            if ((field_13C_set_switch_on_dead && !field_130_stay_open_time) || SwitchStates_Get(field_134_switch_idx) != SwitchStates_Get(field_138_switch_state))
+            if ((field_13C_set_switch_on_dead && !field_130_stay_open_time) || sSwitchStates_505568.Get(field_134_switch_idx) != sSwitchStates_505568.Get({ static_cast<u8>(field_138_switch_state) }))
             {
                 const s32 cur_lvl = static_cast<s32>(gMap_507BA8.field_0_current_level);
 
@@ -315,7 +315,7 @@ void TrapDoor::VUpdate_4883E0()
                     32);
                 ObjListPlatforms_50766C->Push_Back(this);
                 field_136_state = 0;
-                SwitchStates_Set(field_134_switch_idx, field_138_switch_state == 0);
+                sSwitchStates_505568.Set(field_134_switch_idx, field_138_switch_state == 0);
             }
             break;
 

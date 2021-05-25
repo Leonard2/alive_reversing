@@ -51,7 +51,7 @@ ElectricWall* ElectricWall::ctor_40FCF0(Path_ElectricWall* pTlv, s32 tlvInfo)
     field_E8_switch_id = pTlv->field_1A_id;
     field_EA_start_state = pTlv->field_1C_start_state;
 
-    if (SwitchStates_Get(pTlv->field_1A_id) == field_EA_start_state)
+    if (sSwitchStates_505568.Get(pTlv->field_1A_id) == field_EA_start_state)
     {
         field_10_anim.field_4_flags.Clear(AnimFlags::eBit3_Render);
     }
@@ -113,7 +113,7 @@ void ElectricWall::VUpdate_40FEF0()
         field_6_flags.Set(Options::eDead_Bit3);
     }
 
-    if (SwitchStates_Get(field_E8_switch_id) == field_EA_start_state)
+    if (sSwitchStates_505568.Get(field_E8_switch_id) == field_EA_start_state)
     {
         field_10_anim.field_4_flags.Clear(AnimFlags::eBit3_Render);
     }

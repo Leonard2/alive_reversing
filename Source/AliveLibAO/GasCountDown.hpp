@@ -4,12 +4,13 @@
 #include "Font.hpp"
 #include "FunctionFwd.hpp"
 #include "Map.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
 struct Path_GasCountDown final : public Path_TLV
 {
-    s16 field_18_start_id;
+    SwitchId field_18_start_id;
     s16 field_1A_pad;
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Path_GasCountDown, 0x1C);
@@ -44,7 +45,7 @@ public:
     s32 field_58_tlvInfo;
     s16 field_5C_xpos;
     s16 field_5E_ypos;
-    u16 field_60_switch_id;
+    SwitchId field_60_switch_id;
     s16 field_62_time_left;
 };
 ALIVE_ASSERT_SIZEOF(GasCountDown, 0x64);

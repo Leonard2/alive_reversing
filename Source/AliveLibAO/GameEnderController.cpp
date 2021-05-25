@@ -82,7 +82,7 @@ void GameEnderController::VUpdate_41C860()
     switch (field_14_state)
     {
         case 0:
-            if (sSwitchStates_505568.mData[70])
+            if (sSwitchStates_505568.Get({70}))
             {
                 field_14_state = 1;
                 field_10_timer = gnFrameCount_507670 + 50;

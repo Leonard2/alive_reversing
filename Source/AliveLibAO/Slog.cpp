@@ -180,7 +180,7 @@ Slog* Slog::ctor_473050(FP xpos, FP ypos, FP scale)
     field_158_bark_anger = 0;
 
     field_170 = 0;
-    field_168_anger_switch_id = 0;
+    field_168_anger_switch_id.mId = 0;
     field_FC_current_motion = 0;
     field_138_tlvInfo = 0xFFFF;
     field_114_brain_idx = 2;
@@ -990,7 +990,7 @@ s16 Slog::HandleEnemyStopper_473BD0()
         return 0;
     }
 
-    if (!SwitchStates_Get(pStopper->field_1A_id))
+    if (!sSwitchStates_505568.Get(pStopper->field_1A_id))
     {
         return 1;
     }
@@ -2274,7 +2274,7 @@ s16 Slog::Brain_1_Idle_4719C0()
         return 0;
     }
 
-    if (SwitchStates_Get(field_168_anger_switch_id))
+    if (sSwitchStates_505568.Get(field_168_anger_switch_id))
     {
         // Slog triggered, not gonna listen to you anymore, you gotta die
         field_114_brain_idx = 2;

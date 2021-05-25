@@ -83,9 +83,9 @@ void Switch::VUpdate_4812D0()
 
             field_10_anim.Set_Animation_Data_402A40(frameTable, nullptr);
 
-            const auto oldSwitchState = SwitchStates_Get(field_E4_switchId);
-            SwitchStates_Do_Operation_436A10(field_E4_switchId, field_F2_operation);
-            const auto newSwitchState = SwitchStates_Get(field_E4_switchId);
+            const auto oldSwitchState = sSwitchStates_505568.Get(field_E4_switchId);
+            sSwitchStates_505568.Operation(field_E4_switchId, field_F2_operation);
+            const auto newSwitchState = sSwitchStates_505568.Get(field_E4_switchId);
 
             if (oldSwitchState != newSwitchState)
             {
@@ -103,7 +103,7 @@ void Switch::VUpdate_4812D0()
                     rightVol = 1;
                 }
 
-                if (SwitchStates_Get(field_E4_switchId))
+                if (sSwitchStates_505568.Get(field_E4_switchId))
                 {
                     switch (field_F4_on_sound)
                     {
@@ -271,7 +271,7 @@ s32 Switch::vPull_481640(s16 a2)
             field_F0 = 0;
         }
     }
-    return SwitchStates_Get(field_E4_switchId);
+    return sSwitchStates_505568.Get(field_E4_switchId);
 }
 
 } // namespace AO

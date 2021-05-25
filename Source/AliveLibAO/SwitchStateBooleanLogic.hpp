@@ -3,6 +3,7 @@
 #include "FunctionFwd.hpp"
 #include "Map.hpp"
 #include "BaseGameObject.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -16,9 +17,9 @@ enum class BooleanOperatorType : s16
 
 struct Path_SwitchStateBooleanLogic final : public Path_TLV
 {
-    s16 field_18_input1;
-    s16 field_1A_input2;
-    s16 field_1C_output;
+    SwitchId field_18_input1;
+    SwitchId field_1A_input2;
+    SwitchId field_1C_output;
     BooleanOperatorType field_1E_operator;
 };
 ALIVE_ASSERT_SIZEOF(Path_SwitchStateBooleanLogic, 0x20);
@@ -42,9 +43,9 @@ public:
 
     EXPORT void VUpdate_436B60();
 
-    u16 field_10_input_1;
-    u16 field_12_input_2;
-    u16 field_14_output;
+    SwitchId field_10_input_1;
+    SwitchId field_12_input_2;
+    SwitchId field_14_output;
     BooleanOperatorType field_16_operator;
     s32 field_18_tlvInfo;
 };

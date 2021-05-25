@@ -150,7 +150,7 @@ void BellHammer::VUpdate_405320()
     switch (field_E4_state)
     {
         case BellHammerStates::eWaitForActivation_0:
-            if (SwitchStates_Get(field_E6_switch_id))
+            if (sSwitchStates_505568.Get(field_E6_switch_id))
             {
                 field_E4_state = BellHammerStates::eSmashingBell_1;
                 field_10_anim.Set_Animation_Data_402A40(4500, nullptr);
@@ -162,7 +162,7 @@ void BellHammer::VUpdate_405320()
             {
                 field_E4_state = BellHammerStates::eWaitForActivation_0;
                 field_10_anim.Set_Animation_Data_402A40(4488, nullptr);
-                SwitchStates_Set(field_E6_switch_id, 0);
+                sSwitchStates_505568.Set(field_E6_switch_id, 0);
 
                 // Spawn the foo if he ain't already here
                 if (gElum_507680 == nullptr)

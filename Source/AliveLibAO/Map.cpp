@@ -883,9 +883,9 @@ Path_TLV* Map::Get_First_TLV_For_Offsetted_Camera_4463B0(s16 cam_x_idx, s16 cam_
 
 void Map::SaveBlyData_446900(u8* pSaveBuffer)
 {
-    memcpy(pSaveBuffer, sSwitchStates_505568.mData, sizeof(sSwitchStates_505568.mData));
+    sSwitchStates_505568.Save(pSaveBuffer);
+    pSaveBuffer += sizeof(sSwitchStates_505568);
 
-    u8* pAfterSwitchStates = pSaveBuffer + sizeof(sSwitchStates_505568.mData);
     for (s16 i = 1; i <= gMapData_4CAB58.paths[static_cast<s32>(field_0_current_level)].field_18_num_paths; i++)
     {
         const PathBlyRec* pPathRec = Path_Get_Bly_Record_434650(field_0_current_level, i);
@@ -918,10 +918,10 @@ void Map::SaveBlyData_446900(u8* pSaveBuffer)
                         }
 
                         // Save the flags
-                        *pAfterSwitchStates = flags.Raw().all;
-                        pAfterSwitchStates++;
-                        *pAfterSwitchStates = pTlv->field_1_unknown;
-                        pAfterSwitchStates++;
+                        *pSaveBuffer = flags.Raw().all;
+                        pSaveBuffer++;
+                        *pSaveBuffer = pTlv->field_1_unknown;
+                        pSaveBuffer++;
 
                         if (pTlv->field_0_flags.Get(eBit3_End_TLV_List))
                         {
@@ -939,8 +939,8 @@ void Map::SaveBlyData_446900(u8* pSaveBuffer)
 
 void Map::RestoreBlyData_446A90(const u8* pSaveData)
 {
-    memcpy(sSwitchStates_505568.mData, pSaveData, sizeof(sSwitchStates_505568.mData));
-    const u8* pAfterSwitchStates = pSaveData + sizeof(sSwitchStates_505568.mData);
+    sSwitchStates_505568.Load(pSaveData);
+    pSaveData += sizeof(sSwitchStates_505568);
 
     for (s16 i = 1; i <= gMapData_4CAB58.paths[static_cast<s32>(field_0_current_level)].field_18_num_paths; i++)
     {
@@ -961,11 +961,11 @@ void Map::RestoreBlyData_446A90(const u8* pSaveData)
                     for (;;)
                     {
                         pTlv->RangeCheck();
-                        pTlv->field_0_flags.Raw().all = *pAfterSwitchStates;
-                        pAfterSwitchStates++;
+                        pTlv->field_0_flags.Raw().all = *pSaveData;
+                        pSaveData++;
 
-                        pTlv->field_1_unknown = *pAfterSwitchStates;
-                        pAfterSwitchStates++;
+                        pTlv->field_1_unknown = *pSaveData;
+                        pSaveData++;
                         if (pTlv->field_0_flags.Get(eBit3_End_TLV_List))
                         {
                             break;
@@ -1746,11 +1746,7 @@ void Map::GoTo_Camera_445050()
         auto pBackgroundMusic = ao_new<BackgroundMusic>();
         pBackgroundMusic->ctor_476370(rPathRoot.field_12_bg_music_id);
 
-        // TODO: Re-add function
-        for (s32 i = 0; i < 236; i++)
-        {
-            sSwitchStates_505568.mData[i] = 0;
-        }
+        sSwitchStates_505568.ClearRange({0}, {236});
 
         if (field_DC_free_all_anim_and_palts)
         {

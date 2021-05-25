@@ -14,9 +14,9 @@ namespace AO {
 struct Path_ResetPath final : public Path_TLV
 {
     s16 field_18_clearIds;
-    s16 field_1A_from;
-    s16 field_1C_to;
-    s16 field_1E_exclude;
+    SwitchId field_1A_from;
+    SwitchId field_1C_to;
+    SwitchId field_1E_exclude;
     s16 field_20_clearObjects;
     s16 field_22_path;
 };
@@ -392,7 +392,7 @@ struct Path_BellsongStone_data final
     BellsongTypes type;
     s16 code1;
     s16 code2;
-    s16 id;
+    SwitchId id;
     s16 pad;
 };
 ALIVE_ASSERT_SIZEOF(Path_BellsongStone_data, 12);

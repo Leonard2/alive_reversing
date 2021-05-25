@@ -1067,7 +1067,7 @@ s16 Paramite::Brain_Patrol_447A10()
                 auto pStopper = static_cast<Path_EnemyStopper*>(field_F0_pTlv);
                 if ((pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Left_0 && sActiveHero_507678->field_A8_xpos < field_A8_xpos) || (pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Right_1 && sActiveHero_507678->field_A8_xpos > field_A8_xpos))
                 {
-                    if (!SwitchStates_Get(pStopper->field_1A_id))
+                    if (!sSwitchStates_505568.Get(pStopper->field_1A_id))
                     {
                         return AI_Patrol::eState0_IdleForAbe_1;
                     }
@@ -1583,7 +1583,7 @@ s16 Paramite::Brain_SurpriseWeb_448D00()
                     field_AC_ypos,
                     1))
             {
-                if (!SwitchStates_Get(field_13C_id))
+                if (!sSwitchStates_505568.Get(field_13C_id))
                 {
                     return field_110_state;
                 }
@@ -1602,7 +1602,7 @@ s16 Paramite::Brain_SurpriseWeb_448D00()
                     field_AC_ypos,
                     1))
             {
-                if (!SwitchStates_Get(field_13C_id))
+                if (!sSwitchStates_505568.Get(field_13C_id))
                 {
                     return field_110_state;
                 }
@@ -2024,7 +2024,7 @@ s16 Paramite::Brain_ChasingAbe_449170()
                 auto pStopper = static_cast<Path_EnemyStopper*>(field_F0_pTlv);
                 if ((pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Left_0 && sActiveHero_507678->field_A8_xpos < field_A8_xpos) || (pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Right_1 && sActiveHero_507678->field_A8_xpos > field_A8_xpos))
                 {
-                    if (!SwitchStates_Get(pStopper->field_1A_id))
+                    if (!sSwitchStates_505568.Get(pStopper->field_1A_id))
                     {
                         return AI_ChasingAbe::eState2_ToChasing_5;
                     }
@@ -2649,7 +2649,7 @@ s16 Paramite::HandleEnemyStopper(s16 numGridBlocks, Path_EnemyStopper::StopDirec
     {
         // No stopper or its disabled
         auto pEnemyStopper = static_cast<Path_EnemyStopper*>(field_F0_pTlv);
-        if (!pEnemyStopper || !SwitchStates_Get(pEnemyStopper->field_1A_id))
+        if (!pEnemyStopper || !sSwitchStates_505568.Get(pEnemyStopper->field_1A_id))
         {
             return 0;
         }

@@ -4,6 +4,7 @@
 #include "BaseAliveGameObject.hpp"
 #include "Map.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
 
 void Paramite_ForceLink();
 
@@ -55,7 +56,7 @@ struct Path_Paramite final : public Path_TLV
     s16 field_20_meat_eating_time;
     s16 field_22_attack_duration;
     s16 field_24_disabled_resources; // Not actually used
-    s16 field_26_id;
+    SwitchId field_26_id;
     Choice_short field_28_hiss_before_attack;
     Choice_short field_2A_delete_when_far_away;
 };
@@ -194,7 +195,7 @@ public:
     s32 field_130_not_used;
     s32 field_134_attack_duration;
     s32 field_138_attack_timer;
-    s16 field_13C_id;
+    SwitchId field_13C_id;
     Choice_short field_13E_hiss_before_attack;
     s16 field_140_use_prev_motion;
     s16 field_142_bSnapped;

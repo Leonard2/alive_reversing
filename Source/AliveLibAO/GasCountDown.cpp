@@ -128,13 +128,13 @@ void GasCountDown::VUpdate_40C0E0()
     }
 
     // Enable
-    if (!sGasTimer_507700 && SwitchStates_Get(field_60_switch_id) && !SwitchStates_Get(70))
+    if (!sGasTimer_507700 && sSwitchStates_505568.Get(field_60_switch_id) && !sSwitchStates_505568.Get({ 70 }))
     {
         sGasTimer_507700 = gnFrameCount_507670;
         auto pAlarm = ao_new<Alarm>();
         if (pAlarm)
         {
-            pAlarm->ctor_402570(3600, 0, 0, Layer::eLayer_Above_FG1_39);
+            pAlarm->ctor_402570(3600, { 0 }, 0, Layer::eLayer_Above_FG1_39);
         }
     }
 
@@ -146,7 +146,7 @@ void GasCountDown::VUpdate_40C0E0()
     else
     {
         // Running
-        if (SwitchStates_Get(70))
+        if (sSwitchStates_505568.Get({ 70 }))
         {
             sGasTimer_507700 = 0;
             return;

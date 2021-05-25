@@ -113,9 +113,9 @@ ChimeLock* ChimeLock::ctor_40AB20(Path_ChimeLock* pTlv, s32 tlvInfo)
     field_14C_increase_vely_by = FP_FromInteger(1);
 
     field_130_song_matching = 0;
-    if (SwitchStates_Get(pTlv->field_20_id))
+    if (sSwitchStates_505568.Get(pTlv->field_20_id))
     {
-        if (!SwitchStates_Get(pTlv->field_1A_solve_id))
+        if (!sSwitchStates_505568.Get(pTlv->field_1A_solve_id))
         {
             field_130_song_matching = 1;
         }
@@ -427,12 +427,12 @@ void ChimeLock::VUpdate_40AEF0()
                 if (DoNote_40BB20(static_cast<s16>(Bell)))
                 {
                     field_110_state = ChimeLockStates::eNeverRead_6;
-                    SwitchStates_Do_Operation_436A10(field_132_solve_id, SwitchOp::eSetTrue_0);
+                    sSwitchStates_505568.Operation(field_132_solve_id, SwitchOp::eSetTrue_0);
                     VUnPosses();
                     auto pMusic = ao_new<MusicTrigger>();
                     if (pMusic)
                     {
-                        pMusic->ctor_443A60(6, 1, 0, 15);
+                        pMusic->ctor_443A60(6, 1, { 0 }, 15);
                     }
                     return;
                 }

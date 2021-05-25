@@ -96,13 +96,13 @@ void InvisibleSwitch::VUpdate_4335A0()
         case 1:
             if (field_18_delay_timer <= static_cast<s32>(gnFrameCount_507670))
             {
-                SwitchStates_Do_Operation_436A10(field_10_id, field_12_action);
+                sSwitchStates_505568.Operation(field_10_id, field_12_action);
                 if (field_2A_set_off_alarm)
                 {
                     auto pAlarm = ao_new<Alarm>();
                     if (pAlarm)
                     {
-                        pAlarm->ctor_402570(150, 0, 30, Layer::eLayer_Above_FG1_39);
+                        pAlarm->ctor_402570(150, { 0 }, 30, Layer::eLayer_Above_FG1_39);
                     }
                 }
                 field_28_state = 0;

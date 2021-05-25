@@ -3,6 +3,7 @@
 #include "FunctionFwd.hpp"
 #include "BaseGameObject.hpp"
 #include "Map.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -25,7 +26,7 @@ private:
 
 private:
     s32 field_10_tlvInfo;
-    u16 field_14_slig_id;
+    SwitchId field_14_slig_id;
     s16 field_16_flags;
     Path_TLV field_18_tlv;
 };

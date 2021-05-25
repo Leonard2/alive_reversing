@@ -82,7 +82,7 @@ void LiftMover::VUpdate_4055C0()
     switch (field_20_state)
     {
         case 0:
-            if (SwitchStates_Get(field_10_enabled_by_switch_id))
+            if (sSwitchStates_505568.Get(field_10_enabled_by_switch_id))
             {
                 if (pLiftPoint)
                 {
@@ -178,7 +178,7 @@ void LiftMover::VUpdate_4055C0()
             break;
 
         case 5:
-            if (!SwitchStates_Get(field_10_enabled_by_switch_id))
+            if (!sSwitchStates_505568.Get(field_10_enabled_by_switch_id))
             {
                 field_20_state = 3;
                 field_1C_speed = -field_1C_speed;

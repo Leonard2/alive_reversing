@@ -51,7 +51,7 @@ EXPORT void SligSpawner::VUpdate_4028A0()
         field_6_flags.Set(BaseGameObject::eDead_Bit3);
     }
 
-    if (SwitchStates_Get(field_14_slig_id))
+    if (sSwitchStates_505568.Get(field_14_slig_id))
     {
         auto pTlv = static_cast<Path_Slig*>(gMap_507BA8.TLV_Get_At_446260(
             field_18_tlv.field_10_top_left.field_0_x,

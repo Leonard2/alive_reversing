@@ -3,6 +3,7 @@
 #include "FunctionFwd.hpp"
 #include "BaseAliveGameObject.hpp"
 #include "Map.hpp"
+#include "SwitchStates.hpp"
 
 void Mud_ForceLink();
 
@@ -85,7 +86,7 @@ struct Path_Mudokon final : public Path_TLV
     s16 field_1A_job;
     s16 field_1C_direction;
     s16 field_1E_voice_adjust;
-    s16 field_20_rescue_id;
+    SwitchId field_20_rescue_id;
     s16 field_22_deaf;
     s16 field_24_disabled_resources;
     s16 field_26_persist;
@@ -339,7 +340,7 @@ public:
     u16 field_1AA;
     BirdPortal* field_1AC_pBirdPortal;
     s16 field_1B0;
-    s16 field_1B2_switch_id;
+    SwitchId field_1B2_switch_id;
     s16 field_1B4_idle_time;
     s16 field_1B6;
     s16 field_1B8_brain_idx;

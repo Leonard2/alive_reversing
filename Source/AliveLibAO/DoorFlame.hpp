@@ -3,6 +3,7 @@
 #include "FunctionFwd.hpp"
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "Map.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -11,7 +12,7 @@ class FlameSparks;
 
 struct Path_DoorFlame final : public Path_TLV
 {
-    s16 field_18_id;
+    SwitchId field_18_id;
     u16 field_1A_scale;
     enum class Colour : s16
     {
@@ -46,7 +47,7 @@ public:
 
     s32 field_D4_padding[4];
     s32 field_E4_tlvInfo;
-    s16 field_E8_switch_id;
+    SwitchId field_E8_switch_id;
     s16 field_EA_frame_count;
     enum class States : u16
     {

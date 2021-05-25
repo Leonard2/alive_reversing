@@ -35,7 +35,7 @@ FootSwitch* FootSwitch::ctor_4887F0(Path_FootSwitch* pTlv, s32 tlvInfo)
     field_A8_xpos = FP_FromInteger(pTlv->field_10_top_left.field_0_x + 12);
     field_AC_ypos = FP_FromInteger(pTlv->field_10_top_left.field_2_y);
 
-    SwitchStates_Set(field_EA_id, 0);
+    sSwitchStates_505568.Set(field_EA_id, 0);
 
     field_E4_tlvInfo = tlvInfo;
     return this;
@@ -139,7 +139,7 @@ void FootSwitch::VUpdate_4888E0()
             if (field_F0_pStoodOnMe)
             {
                 field_F0_pStoodOnMe->field_C_refCount++;
-                SwitchStates_Do_Operation_436A10(field_EA_id, field_EC_action);
+                sSwitchStates_505568.Operation(field_EA_id, field_EC_action);
                 field_E8_state = States::eWaitForGetOffMe_1;
                 field_10_anim.Set_Animation_Data_402A40(756, 0);
                 SFX_Play_43AD70(SoundEffect::FootSwitchPress_64, 0, 0);

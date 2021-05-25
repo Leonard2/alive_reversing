@@ -419,13 +419,13 @@ struct Path_Door final : public TlvObjectBaseAO
         ADD("StartState", mTlv.field_26_start_state);
         ADD("DoorClosed", mTlv.field_28_door_closed);
         ADD("Hub1", mTlv.field_2A_hub1);
-        ADD("Hub2", mTlv.field_2A_hub2);
-        ADD("Hub3", mTlv.field_2A_hub3);
-        ADD("Hub4", mTlv.field_2A_hub4);
-        ADD("Hub5", mTlv.field_2A_hub5);
-        ADD("Hub6", mTlv.field_2A_hub6);
-        ADD("Hub7", mTlv.field_2A_hub7);
-        ADD("Hub8", mTlv.field_2A_hub8);
+        ADD("Hub2", mTlv.field_2C_hub2);
+        ADD("Hub3", mTlv.field_2E_hub3);
+        ADD("Hub4", mTlv.field_30_hub4);
+        ADD("Hub5", mTlv.field_32_hub5);
+        ADD("Hub6", mTlv.field_34_hub6);
+        ADD("Hub7", mTlv.field_36_hub7);
+        ADD("Hub8", mTlv.field_38_hub8);
         ADD("WipeEffect", mTlv.field_3A_wipe_effect);
         ADD("MovieNumber", mTlv.field_3C_movie_number);
         ADD("XOffset", mTlv.field_3E_x_offset);
@@ -863,9 +863,9 @@ struct Path_IdSplitter final : public TlvObjectBaseAO
         ADD("source_id", mTlv.field_18_source_id);
         ADD("delay", mTlv.field_1A_delay);
         ADD("id_1", mTlv.field_1C_id1);
-        ADD("id_2", mTlv.field_1C_id2);
-        ADD("id_3", mTlv.field_1C_id3);
-        ADD("id_4", mTlv.field_1C_id4);
+        ADD("id_2", mTlv.field_1E_id2);
+        ADD("id_3", mTlv.field_21_id3);
+        ADD("id_4", mTlv.field_23_id4);
     }
 };
 

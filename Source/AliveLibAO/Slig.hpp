@@ -3,6 +3,7 @@
 #include "FunctionFwd.hpp"
 #include "Map.hpp"
 #include "BaseAliveGameObject.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -62,7 +63,7 @@ struct Path_Slig final : public Path_TLV
     s16 field_4E_stay_awake;
     BitField16<SligFlags_DisabledRes> field_50_disable_resources;
     s16 field_52_noise_wake_up_distance;
-    s16 field_54_id;
+    SwitchId field_54_id;
     s16 field_56_pad;
 };
 ALIVE_ASSERT_SIZEOF(Path_Slig, 0x58);

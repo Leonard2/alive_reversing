@@ -3,6 +3,7 @@
 #include "FunctionFwd.hpp"
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "Map.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -15,7 +16,7 @@ union OffLevelOrDx
 struct Path_WellBase : public Path_TLV
 {
     s16 field_18_scale;
-    s16 field_1A_trigger_id;
+    SwitchId field_1A_trigger_id;
     s16 field_1C_well_id;
     s16 field_1E_res_id;
     s16 field_20_exit_x;
@@ -81,7 +82,7 @@ public:
 
     s32 field_D4[4];
     s32 field_E4_tlvInfo;
-    s16 field_E8_trigger_id;
+    SwitchId field_E8_trigger_id;
     // pad
     FP field_EC_scale;
     FP field_F0_exit_x;

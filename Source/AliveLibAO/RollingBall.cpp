@@ -140,7 +140,7 @@ RollingBall* RollingBall::ctor_4578C0(Path_RollingBall* pTlv, s32 tlvInfo)
     // Looks strange, it just bumps the res ref count
     ResourceManager::GetLoadedResource_4554F0(ResourceManager::Resource_Animation, ResourceID::kDebrisID00, 1, 0);
 
-    if (!SwitchStates_Get(field_110_release_switch_id))
+    if (!sSwitchStates_505568.Get(field_110_release_switch_id))
     {
         return this;
     }
@@ -162,7 +162,7 @@ void RollingBall::VUpdate_457AF0()
     switch (field_112_state)
     {
         case States::eInactive_0:
-            if (SwitchStates_Get(field_110_release_switch_id))
+            if (sSwitchStates_505568.Get(field_110_release_switch_id))
             {
                 field_B8_vely = FP_FromDouble(2.5);
                 field_112_state = States::eStartRolling_1;

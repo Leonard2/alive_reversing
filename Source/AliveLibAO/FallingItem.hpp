@@ -4,6 +4,7 @@
 #include "BaseAliveGameObject.hpp"
 #include "Map.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -18,7 +19,7 @@ ALIVE_ASSERT_SIZEOF(FallingItem_Data, 0xC);
 
 struct Path_FallingItem final : public Path_TLV
 {
-    s16 field_18_id;
+    SwitchId field_18_id;
     Scale_short field_1A_scale;
     s16 field_1C_delay_time;
     s16 field_1E_number_of_items;
@@ -64,7 +65,7 @@ private:
 public:
     s32 field_10C_tlvInfo;
     State field_110_state;
-    u16 field_112_id;
+    SwitchId field_112_id;
     s16 field_114_num_items;
     s16 field_116_num_items_remaining;
     s16 field_118_delay_time;

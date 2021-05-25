@@ -120,7 +120,7 @@ MotionDetector* MotionDetector::ctor_437A50(Path_MotionDetector* pTlv, s32 tlvIn
 
     field_F0_disable_id = pTlv->field_24_disable_id;
 
-    field_108_pLaser->field_10_anim.field_4_flags.Set(AnimFlags::eBit3_Render, SwitchStates_Get(field_F0_disable_id) == 0);
+    field_108_pLaser->field_10_anim.field_4_flags.Set(AnimFlags::eBit3_Render, sSwitchStates_505568.Get(field_F0_disable_id) == 0);
 
     field_10_anim.field_4_flags.Set(AnimFlags::eBit3_Render, pTlv->field_22_draw_flare & 1);
 
@@ -199,7 +199,7 @@ void MotionDetector::VUpdate_437E90()
 
     if (!sNumCamSwappers_507668)
     {
-        if (SwitchStates_Get(field_F0_disable_id))
+        if (sSwitchStates_505568.Get(field_F0_disable_id))
         {
             field_108_pLaser->field_10_anim.field_4_flags.Clear(AnimFlags::eBit3_Render);
         }
@@ -336,7 +336,7 @@ void MotionDetector::VRender_438250(PrimHeader** ppOt)
     BaseAnimatedWithPhysicsGameObject::VRender(ppOt);
     field_A8_xpos -= FP_FromInteger(11);
 
-    if (!SwitchStates_Get(field_F0_disable_id))
+    if (!sSwitchStates_505568.Get(field_F0_disable_id))
     {
         const s16 screen_top = FP_GetExponent(pScreenManager_4FF7C8->field_10_pCamPos->field_4_y - FP_FromInteger(pScreenManager_4FF7C8->field_16_ypos));
 

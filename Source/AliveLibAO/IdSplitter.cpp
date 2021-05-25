@@ -57,16 +57,16 @@ IdSplitter* IdSplitter::ctor_479B40(Path_IdSplitter* pTlv, s32 tlvInfo)
     field_24_delay = pTlv->field_1A_delay;
 
     field_14_ids[0] = pTlv->field_1C_id1;
-    field_14_ids[1] = pTlv->field_1C_id2;
-    field_14_ids[2] = pTlv->field_1C_id3;
-    field_14_ids[3] = pTlv->field_1C_id4;
+    field_14_ids[1] = pTlv->field_1E_id2;
+    field_14_ids[2] = pTlv->field_21_id3;
+    field_14_ids[3] = pTlv->field_23_id4;
 
     field_10_source_id = pTlv->field_18_source_id;
     field_12_state = State::eState_0;
 
-    if (field_10_source_id)
+    if (field_10_source_id.mId)
     {
-        field_28_source_switch_value = SwitchStates_Get(field_10_source_id);
+        field_28_source_switch_value = sSwitchStates_505568.Get(field_10_source_id);
     }
     else
     {
@@ -82,7 +82,7 @@ void IdSplitter::VUpdate_479C40()
     {
         case State::eState_0:
             // If the value changes from what we first saw...
-            if (SwitchStates_Get(field_10_source_id) != field_28_source_switch_value)
+            if (sSwitchStates_505568.Get(field_10_source_id) != field_28_source_switch_value)
             {
                 field_12_state = State::eState_1;
                 field_20_delay_timer = gnFrameCount_507670 + field_24_delay;
@@ -94,9 +94,9 @@ void IdSplitter::VUpdate_479C40()
             {
                 for (const auto& id : field_14_ids)
                 {
-                    if (id > 1)
+                    if (id.mId > 1)
                     {
-                        SwitchStates_Do_Operation_436A10(id, SwitchOp::eToggle_2);
+                        sSwitchStates_505568.Operation(id, SwitchOp::eToggle_2);
                     }
                 }
                 field_12_state = State::eState_2;
@@ -104,7 +104,7 @@ void IdSplitter::VUpdate_479C40()
             break;
 
         case State::eState_2:
-            if (SwitchStates_Get(field_10_source_id) == field_28_source_switch_value)
+            if (sSwitchStates_505568.Get(field_10_source_id) == field_28_source_switch_value)
             {
                 field_12_state = State::eState_3;
                 field_20_delay_timer = gnFrameCount_507670 + field_24_delay;
@@ -116,9 +116,9 @@ void IdSplitter::VUpdate_479C40()
             {
                 for (const auto& id : field_14_ids)
                 {
-                    if (id > 1)
+                    if (id.mId > 1)
                     {
-                        SwitchStates_Do_Operation_436A10(id, SwitchOp::eToggle_2);
+                        sSwitchStates_505568.Operation(id, SwitchOp::eToggle_2);
                     }
                 }
                 field_12_state = State::eState_0;

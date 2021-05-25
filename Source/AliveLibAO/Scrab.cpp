@@ -2785,7 +2785,7 @@ s16 Scrab::Brain_ChasingEnemy_45CC90()
                 const bool bLeft = pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Left_0 && field_120_pTarget->field_A8_xpos < field_A8_xpos;
                 const bool bRight = pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Right_1 && field_120_pTarget->field_A8_xpos > field_A8_xpos;
                 const bool bBoth = pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2;
-                const bool bSwitchOn = SwitchStates_Get(pStopper->field_1A_id) ? true : false;
+                const bool bSwitchOn = sSwitchStates_505568.Get(pStopper->field_1A_id) ? true : false;
                 if ((bLeft || bRight || bBoth) && !bSwitchOn)
                 {
                     if (field_FC_current_motion == eScrabStates::State_1_Stand_45E620 && Math_NextRandom() < 26u && (field_188_flags & 0x20) && (gnFrameCount_507670 - field_140_last_shriek_timer) > 60)
@@ -2864,7 +2864,7 @@ s16 Scrab::Brain_ChasingEnemy_45CC90()
                 {
                     if (pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Right_1 || pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2)
                     {
-                        if (!SwitchStates_Get(pStopper->field_1A_id))
+                        if (!sSwitchStates_505568.Get(pStopper->field_1A_id))
                         {
                             field_FE_next_state = eScrabStates::State_1_Stand_45E620;
                             return 1;
@@ -2907,7 +2907,7 @@ s16 Scrab::Brain_ChasingEnemy_45CC90()
                 {
                     if (pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Left_0 || pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2)
                     {
-                        if (!SwitchStates_Get(pStopper->field_1A_id))
+                        if (!sSwitchStates_505568.Get(pStopper->field_1A_id))
                         {
                             field_FE_next_state = eScrabStates::State_1_Stand_45E620;
                             return 1;
@@ -3057,7 +3057,7 @@ s16 Scrab::Brain_ChasingEnemy_45CC90()
                 const bool bLeft = pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Left_0 && field_120_pTarget->field_A8_xpos < field_A8_xpos;
                 const bool bRight = pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Right_1 && field_120_pTarget->field_A8_xpos > field_A8_xpos;
                 const bool bBoth = pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2;
-                const bool bSwitchOn = SwitchStates_Get(pStopper->field_1A_id) ? true : false;
+                const bool bSwitchOn = sSwitchStates_505568.Get(pStopper->field_1A_id) ? true : false;
                 if ((bLeft || bRight || bBoth) && !bSwitchOn)
                 {
                     return 1;
@@ -3358,7 +3358,7 @@ s16 Scrab::Brain_Patrol_460020()
 
             if (pStopper)
             {
-                if (!SwitchStates_Get(pStopper->field_1A_id))
+                if (!sSwitchStates_505568.Get(pStopper->field_1A_id))
                 {
                     if (pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Right_1 && !field_10_anim.field_4_flags.Get(AnimFlags::eBit5_FlipX))
                     {
@@ -3677,7 +3677,7 @@ s16 Scrab::Brain_WalkAround_460D80()
 
                 if (pStopper)
                 {
-                    if ((pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Left_0 || pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2) && !SwitchStates_Get(pStopper->field_1A_id))
+                    if ((pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Left_0 || pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2) && !sSwitchStates_505568.Get(pStopper->field_1A_id))
                     {
                         field_FE_next_state = eScrabStates::State_4_Turn_45EF30;
                         return 4;
@@ -3705,7 +3705,7 @@ s16 Scrab::Brain_WalkAround_460D80()
 
                 if (pStopper)
                 {
-                    if ((pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Right_1 || pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2) && !SwitchStates_Get(pStopper->field_1A_id))
+                    if ((pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Right_1 || pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2) && !sSwitchStates_505568.Get(pStopper->field_1A_id))
                     {
                         field_FE_next_state = eScrabStates::State_4_Turn_45EF30;
                         return 4;
@@ -3736,7 +3736,7 @@ s16 Scrab::Brain_WalkAround_460D80()
 
             if (pStopper)
             {
-                if ((pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Left_0 || pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2) && !SwitchStates_Get(pStopper->field_1A_id))
+                if ((pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Left_0 || pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2) && !sSwitchStates_505568.Get(pStopper->field_1A_id))
                 {
                     field_FE_next_state = eScrabStates::State_4_Turn_45EF30;
                     return 4;
@@ -3791,7 +3791,7 @@ s16 Scrab::Brain_WalkAround_460D80()
 
             if (pStopper)
             {
-                if ((pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Right_1 || pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2) && !SwitchStates_Get(pStopper->field_1A_id))
+                if ((pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Right_1 || pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2) && !sSwitchStates_505568.Get(pStopper->field_1A_id))
                 {
                     field_FE_next_state = eScrabStates::State_4_Turn_45EF30;
                     return 4;
@@ -3900,7 +3900,7 @@ s16 Scrab::HandleRunning()
     {
         if ((pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Left_0 && field_120_pTarget->field_A8_xpos < field_A8_xpos) || (pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Right_1 && field_120_pTarget->field_A8_xpos > field_A8_xpos) || pStopper->field_18_direction == Path_EnemyStopper::StopDirection::Both_2)
         {
-            if (!SwitchStates_Get(pStopper->field_1A_id))
+            if (!sSwitchStates_505568.Get(pStopper->field_1A_id))
             {
                 return 1;
             }

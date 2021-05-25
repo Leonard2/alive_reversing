@@ -3,12 +3,13 @@
 #include "FunctionFwd.hpp"
 #include "Map.hpp"
 #include "BaseGameObject.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
 struct Path_OneShotSwitchIdSetter final : public Path_TLV
 {
-    s16 field_18_ids_to_clear[8];
+    SwitchId field_18_ids_to_clear[8];
 };
 ALIVE_ASSERT_SIZEOF(Path_OneShotSwitchIdSetter, 0x28);
 

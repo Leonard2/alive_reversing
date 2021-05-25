@@ -79,7 +79,7 @@ void SlogHut::VUpdate_472D50()
         field_6_flags.Set(BaseGameObject::eDead_Bit3);
     }
 
-    if (!SwitchStates_Get(field_20_switch_id) && static_cast<s32>(gnFrameCount_507670) > field_24_timer)
+    if (!sSwitchStates_505568.Get(field_20_switch_id) && static_cast<s32>(gnFrameCount_507670) > field_24_timer)
     {
         auto pSnoozeParticle = ao_new<SnoozeParticle>();
         if (pSnoozeParticle)

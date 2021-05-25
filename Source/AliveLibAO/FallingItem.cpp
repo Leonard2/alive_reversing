@@ -187,7 +187,7 @@ void FallingItem::VUpdate_41A120()
     switch (field_110_state)
     {
         case State::eState_0_WaitForIdEnable:
-            if (!SwitchStates_Get(field_112_id))
+            if (!sSwitchStates_505568.Get(field_112_id))
             {
                 return;
             }
@@ -332,11 +332,11 @@ void FallingItem::VUpdate_41A120()
                 SFX_Play_43AE60(SoundEffect::FallingItemHit_53, 110, -1536, 0);
             }
 
-            if (field_112_id)
+            if (field_112_id.mId)
             {
                 if (field_120_reset_id)
                 {
-                    SwitchStates_Do_Operation_436A10(field_112_id, SwitchOp::eSetFalse_1);
+                    sSwitchStates_505568.Operation(field_112_id, SwitchOp::eSetFalse_1);
                 }
             }
 

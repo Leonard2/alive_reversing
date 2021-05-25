@@ -4,6 +4,7 @@
 #include "Map.hpp"
 #include "BaseAliveGameObject.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -11,7 +12,7 @@ struct Path_RollingBall final : public Path_TLV
 {
     Scale_short field_18_scale;
     XDirection_short field_1A_roll_direction;
-    s16 field_1C_release;
+    SwitchId field_1C_release;
     u16 field_1E_speed;
     u16 field_20_acceleration;
     s16 field_22_pad;
@@ -41,7 +42,7 @@ public:
     EXPORT void CrushThingsInTheWay_458310();
 
     s32 field_10C_tlvInfo;
-    u16 field_110_release_switch_id;
+    SwitchId field_110_release_switch_id;
     enum class States : s16
     {
         eInactive_0,

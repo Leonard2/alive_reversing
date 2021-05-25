@@ -3,13 +3,14 @@
 #include "FunctionFwd.hpp"
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "Map.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
 struct Path_ElectricWall final : public Path_TLV
 {
     s16 field_18_scale;
-    s16 field_1A_id;
+    SwitchId field_1A_id;
     s16 field_1C_start_state;
     s16 field_1E_pad;
 };
@@ -37,7 +38,7 @@ public:
 
     s32 field_D4_padding[4];
     s32 field_E4_tlv;
-    s16 field_E8_switch_id;
+    SwitchId field_E8_switch_id;
     s16 field_EA_start_state;
     s32 field_EC_sound_timer;
 };

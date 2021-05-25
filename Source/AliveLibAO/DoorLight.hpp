@@ -3,6 +3,7 @@
 #include "FunctionFwd.hpp"
 #include "Map.hpp"
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -19,7 +20,7 @@ struct Path_LightEffect final : public Path_TLV
     };
     Type field_18_type;
     s16 field_1A_size;
-    s16 field_1C_id;
+    SwitchId field_1C_id;
     s16 field_1E_flip_x;
 };
 ALIVE_ASSERT_SIZEOF(Path_LightEffect, 0x20);
@@ -49,7 +50,7 @@ public:
     s16 field_EA_height;
     s16 field_EC_bHasID;
     s16 field_EE_switch_value;
-    s16 field_F0_id;
+    SwitchId field_F0_id;
     s16 field_F2_padding;
 };
 ALIVE_ASSERT_SIZEOF(DoorLight, 0xF4);

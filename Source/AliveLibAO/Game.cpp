@@ -328,7 +328,7 @@ EXPORT void CC Init_Sound_DynamicArrays_And_Others_41CD20()
 
     // TODO: The switch state clearing is done in Init_GameStates in AE
     // check this is not an AO bug
-    SwitchStates_ClearAll();
+    sSwitchStates_505568.Clear();
 }
 
 EXPORT void CC Game_Init_LoadingIcon_445E30()

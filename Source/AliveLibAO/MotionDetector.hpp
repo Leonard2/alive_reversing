@@ -4,6 +4,7 @@
 #include "Map.hpp"
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "Primitives.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -20,8 +21,8 @@ struct Path_MotionDetector final : public Path_TLV
     };
     StartMoveDirection field_20_start_move_direction;
     s16 field_22_draw_flare;
-    s16 field_24_disable_id;
-    s16 field_26_alarm_id;
+    SwitchId field_24_disable_id;
+    SwitchId field_26_alarm_id;
     s16 field_28_alarm_ticks;
     s16 field_2A_padding;
 };
@@ -79,8 +80,8 @@ public:
     States field_E8_state;
     s16 field_EA_pad;
     s32 field_EC_timer;
-    u16 field_F0_disable_id;
-    s16 field_F2_alarm_trigger;
+    SwitchId field_F0_disable_id;
+    SwitchId field_F2_alarm_trigger;
     s16 field_F4_alarm_time;
     s16 field_F6_bDontComeBack;
     FP field_F8_top_left_x;

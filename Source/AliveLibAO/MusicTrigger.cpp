@@ -9,11 +9,11 @@
 
 namespace AO {
 
-MusicTrigger* MusicTrigger::ctor_443A60(s16 type, s16 enabledBy, s32 id, s16 delay)
+MusicTrigger* MusicTrigger::ctor_443A60(s16 type, s16 enabledBy, SwitchId id, s16 delay)
 {
     ctor_487E10(1);
     SetVTable(this, 0x4BBBC0);
-    Init_443AD0(type, enabledBy, static_cast<s16>(id), delay);
+    Init_443AD0(type, enabledBy, id, delay);
     field_10_tlvInfo = -1;
     return this;
 }
@@ -27,7 +27,7 @@ MusicTrigger* MusicTrigger::ctor_4439F0(Path_MusicTrigger* pTlv, s32 tlvInfo)
     return this;
 }
 
-void MusicTrigger::Init_443AD0(s16 type, s16 enabledBy, u16 id, s16 delay)
+void MusicTrigger::Init_443AD0(s16 type, s16 enabledBy, SwitchId id, s16 delay)
 {
     field_14_flags &= ~7u;
     field_4_typeId = Types::eNone_0;
@@ -88,9 +88,9 @@ void MusicTrigger::Init_443AD0(s16 type, s16 enabledBy, u16 id, s16 delay)
             field_1E_id = id;
             field_8_update_delay = 0;
             field_18_counter = delay;
-            if (id > 1)
+            if (id.mId > 1)
             {
-                if (SwitchStates_Get(id))
+                if (sSwitchStates_505568.Get(id))
                 {
                     field_6_flags.Set(BaseGameObject::eDead_Bit3);
                 }
@@ -166,7 +166,7 @@ void MusicTrigger::VUpdate_443C90()
 
     if (field_14_flags & 1)
     {
-        if (SwitchStates_Get(field_1E_id))
+        if (sSwitchStates_505568.Get(field_1E_id))
         {
             field_14_flags &= ~1u;
 
@@ -195,7 +195,7 @@ void MusicTrigger::VUpdate_443C90()
 
         if (field_18_counter < 0)
         {
-            if (!SwitchStates_Get(field_1E_id))
+            if (!sSwitchStates_505568.Get(field_1E_id))
             {
                 field_6_flags.Set(BaseGameObject::eDead_Bit3);
                 return;

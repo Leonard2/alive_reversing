@@ -5,6 +5,7 @@
 #include "Map.hpp"
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -25,18 +26,18 @@ struct Path_Door final : public Path_TLV
     s16 field_1C_camera;
     Scale_short field_1E_scale;
     u16 field_20_door_number;
-    s16 field_22_id;
+    SwitchId field_22_id;
     s16 field_24_target_door_number;
     DoorStates field_26_start_state;
     Choice_short field_28_door_closed;
-    s16 field_2A_hub1;
-    s16 field_2A_hub2;
-    s16 field_2A_hub3;
-    s16 field_2A_hub4;
-    s16 field_2A_hub5;
-    s16 field_2A_hub6;
-    s16 field_2A_hub7;
-    s16 field_2A_hub8;
+    SwitchId field_2A_hub1;
+    SwitchId field_2C_hub2;
+    SwitchId field_2E_hub3;
+    SwitchId field_30_hub4;
+    SwitchId field_32_hub5;
+    SwitchId field_34_hub6;
+    SwitchId field_36_hub7;
+    SwitchId field_38_hub8;
     s16 field_3A_wipe_effect;
     s16 field_3C_movie_number;
     s16 field_3E_x_offset;
@@ -84,8 +85,8 @@ public:
     s16 field_EA_door_number;
     DoorStates field_EC_current_state;
     Choice_short field_EE_door_closed;
-    s16 field_F0_switch_id;
-    s16 field_F2_hubs_ids[8];
+    SwitchId field_F0_switch_id;
+    SwitchId field_F2_hubs_ids[8];
     s16 field_102_pad;
 };
 ALIVE_ASSERT_SIZEOF(Door, 0x104);

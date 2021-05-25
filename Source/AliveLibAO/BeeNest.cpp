@@ -111,7 +111,7 @@ void BeeNest::VUpdate_480F30()
     switch (field_2E_state)
     {
         case BeeNestStates::eWaitForTrigger_0:
-            if (SwitchStates_Get(field_28_switch_id))
+            if (sSwitchStates_505568.Get(field_28_switch_id))
             {
                 field_34_pBeeSwarm = ao_new<BeeSwarm>();
                 if (field_34_pBeeSwarm)
@@ -136,7 +136,7 @@ void BeeNest::VUpdate_480F30()
                 field_2E_state = BeeNestStates::eWaitForTrigger_0;
                 field_34_pBeeSwarm->field_C_refCount--;
                 field_34_pBeeSwarm = nullptr;
-                SwitchStates_Set(field_28_switch_id, 0);
+                sSwitchStates_505568.Set(field_28_switch_id, 0);
             }
             break;
 

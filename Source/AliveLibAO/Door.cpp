@@ -61,14 +61,14 @@ Door* Door::ctor_40E010(Path_Door* pTlv, s32 tlvInfo)
     field_EE_door_closed = pTlv->field_28_door_closed;
     field_F0_switch_id = pTlv->field_22_id;
 
-    if (field_F0_switch_id == 1)
+    if (field_F0_switch_id.mId == 1)
     {
-        field_F0_switch_id = 0;
+        field_F0_switch_id.mId = 0;
     }
 
     field_EA_door_number = pTlv->field_20_door_number;
 
-    field_EC_current_state = (field_EE_door_closed == Choice_short::eNo_0) == SwitchStates_Get(field_F0_switch_id) ? DoorStates::eClosed_1 : DoorStates::eOpen_0;
+    field_EC_current_state = (field_EE_door_closed == Choice_short::eNo_0) == sSwitchStates_505568.Get(field_F0_switch_id) ? DoorStates::eClosed_1 : DoorStates::eOpen_0;
 
     if ((sActiveHero_507678->field_FC_current_motion == eAbeStates::State_156_DoorEnter_42D370 || sActiveHero_507678->field_FC_current_motion == eAbeStates::State_157_DoorExit_42D780) && field_EC_current_state == DoorStates::eClosed_1 && field_EA_door_number == sActiveHero_507678->field_196_door_id)
     {
@@ -279,13 +279,13 @@ Door* Door::ctor_40E010(Path_Door* pTlv, s32 tlvInfo)
                     field_BC_sprite_scale = FP_FromInteger(1);
 
                     field_F2_hubs_ids[0] = pTlv->field_2A_hub1;
-                    field_F2_hubs_ids[1] = pTlv->field_2A_hub2;
-                    field_F2_hubs_ids[2] = pTlv->field_2A_hub3;
-                    field_F2_hubs_ids[3] = pTlv->field_2A_hub4;
-                    field_F2_hubs_ids[4] = pTlv->field_2A_hub5;
-                    field_F2_hubs_ids[5] = pTlv->field_2A_hub6;
-                    field_F2_hubs_ids[6] = pTlv->field_2A_hub7;
-                    field_F2_hubs_ids[7] = pTlv->field_2A_hub8;
+                    field_F2_hubs_ids[1] = pTlv->field_2C_hub2;
+                    field_F2_hubs_ids[2] = pTlv->field_2E_hub3;
+                    field_F2_hubs_ids[3] = pTlv->field_30_hub4;
+                    field_F2_hubs_ids[4] = pTlv->field_32_hub5;
+                    field_F2_hubs_ids[5] = pTlv->field_34_hub6;
+                    field_F2_hubs_ids[6] = pTlv->field_36_hub7;
+                    field_F2_hubs_ids[7] = pTlv->field_38_hub8;
                     break;
                 }
             }
@@ -416,23 +416,23 @@ void Door::VUpdate_40E870()
 
         if (field_E8_start_state == DoorStates::eOpening_2)
         {
-            if (SwitchStates_Get(field_F2_hubs_ids[0]) && SwitchStates_Get(field_F2_hubs_ids[1]) && SwitchStates_Get(field_F2_hubs_ids[2]) && SwitchStates_Get(field_F2_hubs_ids[3]) && SwitchStates_Get(field_F2_hubs_ids[4]) && SwitchStates_Get(field_F2_hubs_ids[5]) && SwitchStates_Get(field_F2_hubs_ids[6]) && SwitchStates_Get(field_F2_hubs_ids[7]))
+            if (sSwitchStates_505568.Get(field_F2_hubs_ids[0]) && sSwitchStates_505568.Get(field_F2_hubs_ids[1]) && sSwitchStates_505568.Get(field_F2_hubs_ids[2]) && sSwitchStates_505568.Get(field_F2_hubs_ids[3]) && sSwitchStates_505568.Get(field_F2_hubs_ids[4]) && sSwitchStates_505568.Get(field_F2_hubs_ids[5]) && sSwitchStates_505568.Get(field_F2_hubs_ids[6]) && sSwitchStates_505568.Get(field_F2_hubs_ids[7]))
 
             {
-                if (!SwitchStates_Get(field_F0_switch_id))
+                if (!sSwitchStates_505568.Get(field_F0_switch_id))
                 {
                     SND_SEQ_Play_477760(SeqId::eSecretMusic_46, 1, 127, 127);
                     auto pMusicTrigger = ao_new<MusicTrigger>();
                     if (pMusicTrigger)
                     {
-                        pMusicTrigger->ctor_443A60(5, 0, 0, 300);
+                        pMusicTrigger->ctor_443A60(5, 0, { 0 }, 300);
                     }
                 }
-                SwitchStates_Do_Operation_436A10(field_F0_switch_id, SwitchOp::eSetTrue_0);
+                sSwitchStates_505568.Operation(field_F0_switch_id, SwitchOp::eSetTrue_0);
             }
             else
             {
-                SwitchStates_Do_Operation_436A10(field_F0_switch_id, SwitchOp::eSetFalse_1);
+                sSwitchStates_505568.Operation(field_F0_switch_id, SwitchOp::eSetFalse_1);
             }
         }
 
@@ -443,7 +443,7 @@ void Door::VUpdate_40E870()
             case DoorStates::eOpen_0:
                 field_10_anim.field_4_flags.Clear(AnimFlags::eBit3_Render);
 
-                if ((field_EE_door_closed == Choice_short::eNo_0 && SwitchStates_Get(field_F0_switch_id)) || (field_EE_door_closed == Choice_short::eYes_1 && !SwitchStates_Get(field_F0_switch_id)))
+                if ((field_EE_door_closed == Choice_short::eNo_0 && sSwitchStates_505568.Get(field_F0_switch_id)) || (field_EE_door_closed == Choice_short::eYes_1 && !sSwitchStates_505568.Get(field_F0_switch_id)))
                 {
                     field_EC_current_state = DoorStates::eClosing_3;
 
@@ -472,7 +472,7 @@ void Door::VUpdate_40E870()
                 field_10_anim.field_4_flags.Set(AnimFlags::eBit3_Render);
                 field_10_anim.field_4_flags.Set(AnimFlags::eBit2_Animate);
 
-                if ((field_EE_door_closed == Choice_short::eYes_1 && SwitchStates_Get(field_F0_switch_id)) || (field_EE_door_closed == Choice_short::eNo_0 && !SwitchStates_Get(field_F0_switch_id)))
+                if ((field_EE_door_closed == Choice_short::eYes_1 && sSwitchStates_505568.Get(field_F0_switch_id)) || (field_EE_door_closed == Choice_short::eNo_0 && !sSwitchStates_505568.Get(field_F0_switch_id)))
                 {
                     field_EC_current_state = DoorStates::eOpening_2;
 

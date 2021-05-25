@@ -4,13 +4,14 @@
 #include "Map.hpp"
 #include "BaseGameObject.hpp"
 #include "Layer.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
 struct Path_SlogHut final : public Path_TLV
 {
     u16 field_18_scale;
-    s16 field_1A_switch_id;
+    SwitchId field_1A_switch_id;
     s16 field_1C_z_delay;
     s16 field_1E_pad;
 };
@@ -39,7 +40,7 @@ public:
     FP field_14_ypos;
     FP field_18_scale;
     s32 field_1C_tlvInfo;
-    s16 field_20_switch_id;
+    SwitchId field_20_switch_id;
     s16 field_22;
     s32 field_24_timer;
     s16 field_28_z_delay;

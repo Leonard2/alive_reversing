@@ -61,8 +61,8 @@ EXPORT RollingBallStopper* RollingBallStopper::ctor_43BCE0(Path_RollingBallStopp
     else
     {
         field_112_state = States::eWaitForTrigger_0;
-        SwitchStates_Set(pTlv->field_1C_id_off, 0);
-        SwitchStates_Set(pTlv->field_18_id_on, 0);
+        sSwitchStates_505568.Set(pTlv->field_1C_id_off, 0);
+        sSwitchStates_505568.Set(pTlv->field_18_id_on, 0);
     }
 
     const auto oldXPos = field_A8_xpos;
@@ -128,7 +128,7 @@ void RollingBallStopper::VScreenChanged_43C130()
 {
     if (field_112_state == States::eMoveStopper_1)
     {
-        SwitchStates_Set(field_116_switch_id_off, 1);
+        sSwitchStates_505568.Set(field_116_switch_id_off, 1);
     }
     field_6_flags.Set(Options::eDead_Bit3);
 }
@@ -138,7 +138,7 @@ void RollingBallStopper::VUpdate_43BF70()
     switch (field_112_state)
     {
         case States::eWaitForTrigger_0:
-            if (SwitchStates_Get(field_114_switch_on_id))
+            if (sSwitchStates_505568.Get(field_114_switch_on_id))
             {
                 Rect_Clear_40C920(&field_118_pLine->field_0_rect);
                 field_118_pLine = nullptr;
@@ -158,7 +158,7 @@ void RollingBallStopper::VUpdate_43BF70()
             else
             {
                 field_112_state = States::eMovingDone_2;
-                SwitchStates_Set(field_116_switch_id_off, 1);
+                sSwitchStates_505568.Set(field_116_switch_id_off, 1);
             }
             break;
     }

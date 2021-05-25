@@ -30,7 +30,7 @@ DoorLight* DoorLight::ctor_405D90(Path_LightEffect* pTlv, s32 tlvInfo)
     field_4_typeId = Types::eNone_0;
     field_EC_bHasID = 0;
     field_F0_id = pTlv->field_1C_id;
-    field_EE_switch_value = SwitchStates_Get(pTlv->field_1C_id);
+    field_EE_switch_value = sSwitchStates_505568.Get(pTlv->field_1C_id);
 
     s32 xOff = 0;
     switch (pTlv->field_18_type)
@@ -51,7 +51,7 @@ DoorLight* DoorLight::ctor_405D90(Path_LightEffect* pTlv, s32 tlvInfo)
         case Path_LightEffect::Type::Switchable_RedGreenDoorLights_4:
             field_E8_width = 0;
             field_EA_height = 0;
-            if (SwitchStates_Get(pTlv->field_1C_id))
+            if (sSwitchStates_505568.Get(pTlv->field_1C_id))
             {
                 Animation_Init_417FD0(448, 20, 11, ResourceManager::GetLoadedResource_4554F0(ResourceManager::Resource_Animation, ResourceID::kGreenDoorLightResID_6031, 1, 0), 1);
             }
@@ -65,7 +65,7 @@ DoorLight* DoorLight::ctor_405D90(Path_LightEffect* pTlv, s32 tlvInfo)
         case Path_LightEffect::Type::Switchable_RedGreenHubLight_5:
             field_E8_width = 0;
             field_EA_height = 0;
-            if (SwitchStates_Get(pTlv->field_1C_id))
+            if (sSwitchStates_505568.Get(pTlv->field_1C_id))
             {
                 Animation_Init_417FD0(460, 20, 11, ResourceManager::GetLoadedResource_4554F0(ResourceManager::Resource_Animation, ResourceID::kGreenDoorLightResID_6031, 1, 0), 1);
             }
@@ -178,7 +178,7 @@ void DoorLight::VUpdate_4060A0()
 
         if (field_EC_bHasID)
         {
-            if (SwitchStates_Get(field_F0_id))
+            if (sSwitchStates_505568.Get(field_F0_id))
             {
                 if (field_EE_switch_value == 0)
                 {
@@ -189,7 +189,7 @@ void DoorLight::VUpdate_4060A0()
                         auto pMusic = ao_new<MusicTrigger>();
                         if (pMusic)
                         {
-                            pMusic->ctor_443A60(6, 1, 0, 15);
+                            pMusic->ctor_443A60(6, 1, { 0 }, 15);
                         }
                     }
                     else

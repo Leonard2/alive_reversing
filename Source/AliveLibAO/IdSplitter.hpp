@@ -3,17 +3,18 @@
 #include "FunctionFwd.hpp"
 #include "Map.hpp"
 #include "BaseGameObject.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
 struct Path_IdSplitter final : public Path_TLV
 {
-    s16 field_18_source_id;
+    SwitchId field_18_source_id;
     u16 field_1A_delay;
-    s16 field_1C_id1;
-    s16 field_1C_id2;
-    s16 field_1C_id3;
-    s16 field_1C_id4;
+    SwitchId field_1C_id1;
+    SwitchId field_1E_id2;
+    SwitchId field_21_id3;
+    SwitchId field_23_id4;
 };
 ALIVE_ASSERT_SIZEOF(Path_IdSplitter, 0x24);
 
@@ -36,7 +37,7 @@ public:
 
     EXPORT void VUpdate_479C40();
 
-    u16 field_10_source_id;
+    SwitchId field_10_source_id;
 
     enum class State : s16
     {
@@ -46,7 +47,7 @@ public:
         eState_3 = 3,
     };
     State field_12_state;
-    s16 field_14_ids[4];
+    SwitchId field_14_ids[4];
     s32 field_1C_tlvInfo;
     s32 field_20_delay_timer;
     s32 field_24_delay;

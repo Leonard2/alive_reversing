@@ -152,7 +152,7 @@ s16 PullRingRope::Pull_454CB0(BaseAliveGameObject* pFrom)
     field_B8_vely = FP_FromInteger(2);
     field_E4_stay_in_state_ticks = 6;
 
-    SwitchStates_Do_Operation_436A10(field_EE_id, field_F0_action);
+    sSwitchStates_505568.Operation(field_EE_id, field_F0_action);
 
     if (gMap_507BA8.field_0_current_level == LevelIds::eRuptureFarms_1 || gMap_507BA8.field_0_current_level == LevelIds::eRemoved_11 || gMap_507BA8.field_0_current_level == LevelIds::eBoardRoom_12 || gMap_507BA8.field_0_current_level == LevelIds::eRuptureFarmsReturn_13)
     {
@@ -209,9 +209,9 @@ void PullRingRope::VUpdate_4549A0()
                     SFX_Play_43AD70(SoundEffect::IndustrialTrigger_97, 0);
                 }
 
-                const auto oldSwitchValue = SwitchStates_Get(field_EE_id);
+                const auto oldSwitchValue = sSwitchStates_505568.Get(field_EE_id);
                 // TODO: OG bug - operation isn't applied to the switch ??
-                const auto switchValAfterOperation = SwitchStates_Get(field_EE_id);
+                const auto switchValAfterOperation = sSwitchStates_505568.Get(field_EE_id);
 
                 // Due to seemingly OG bug this can never execute
                 if (oldSwitchValue != switchValAfterOperation)
@@ -229,7 +229,7 @@ void PullRingRope::VUpdate_4549A0()
                         volRight = 1;
                     }
 
-                    if (SwitchStates_Get(field_EE_id))
+                    if (sSwitchStates_505568.Get(field_EE_id))
                     {
                         switch (field_FC_on_sound)
                         {

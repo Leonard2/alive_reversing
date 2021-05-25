@@ -3,6 +3,7 @@
 #include "FunctionFwd.hpp"
 #include "EffectBase.hpp"
 #include "Layer.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -12,7 +13,7 @@ void Alarm_ForceLink();
 class Alarm final : public EffectBase
 {
 public:
-    EXPORT Alarm* ctor_402570(s16 a2, s16 switchId, s16 a4, Layer layer);
+    EXPORT Alarm* ctor_402570(s16 a2, SwitchId switchId, s16 a4, Layer layer);
 
     EXPORT BaseGameObject* dtor_402630();
 
@@ -45,7 +46,7 @@ private:
     States field_6A_state;
     s32 field_6C_15_timer;
     s32 field_70_duration_timer;
-    s16 field_74_switch_id;
+    SwitchId field_74_switch_id;
     s16 field_76_padding;
     s32 field_78_padding;
 };

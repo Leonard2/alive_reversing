@@ -69,8 +69,8 @@ SwitchStateBooleanLogic* SwitchStateBooleanLogic::ctor_436AB0(Path_SwitchStateBo
 
 void SwitchStateBooleanLogic::VUpdate_436B60()
 {
-    const s16 id1_value = SwitchStates_Get(field_10_input_1);
-    const s16 id2_value = SwitchStates_Get(field_12_input_2);
+    const s16 id1_value = sSwitchStates_505568.Get(field_10_input_1);
+    const s16 id2_value = sSwitchStates_505568.Get(field_12_input_2);
 
     s8 id_value = 0;
     switch (field_16_operator)
@@ -124,7 +124,7 @@ void SwitchStateBooleanLogic::VUpdate_436B60()
             break;
     }
 
-    SwitchStates_Set(field_14_output, id_value);
+    sSwitchStates_505568.Set(field_14_output, id_value);
 
     if (Event_Get_417250(kEventDeathReset_4))
     {

@@ -3,6 +3,7 @@
 #include "FunctionFwd.hpp"
 #include "Map.hpp"
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
@@ -12,7 +13,7 @@ struct Path_MeatSaw final : public Path_TLV
     s16 field_1A_min_time_off1;
     s16 field_1C_max_time_off1;
     s16 field_1E_max_rise_time;
-    s16 field_20_id;
+    SwitchId field_20_id;
     s16 field_22_type;
     s16 field_24_speed;
     s16 field_26_start_state;
@@ -61,7 +62,7 @@ public:
     s16 field_E8_speed2;
     s16 field_EA_speed1;
     s16 field_EC_off_speed;
-    u16 field_EE_switch_id;
+    SwitchId field_EE_switch_id;
     s16 field_F0_switch_value;
     s16 field_F2_switch_value;
     s16 field_F4;

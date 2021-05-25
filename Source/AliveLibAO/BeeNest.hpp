@@ -3,12 +3,13 @@
 #include "FunctionFwd.hpp"
 #include "Map.hpp"
 #include "BaseGameObject.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
 struct Path_BeeNest final : public Path_TLV
 {
-    s16 field_18_id;
+    SwitchId field_18_id;
     s16 field_1A_swarm_size;
     s16 field_1C_chase_time;
     s16 field_1E_speed;
@@ -53,7 +54,7 @@ public:
     s32 field_1C_tlvInfo;
     PSX_Point field_20_top_left;
     PSX_Point field_24_bottom_right;
-    u16 field_28_switch_id;
+    SwitchId field_28_switch_id;
     s16 field_2A_swarm_size;
     u16 field_2C_chase_ticks;
     BeeNestStates field_2E_state;

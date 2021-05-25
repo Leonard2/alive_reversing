@@ -4,14 +4,13 @@
 #include "Map.hpp"
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "ScopedSeq.hpp"
+#include "SwitchStates.hpp"
 
 namespace AO {
 
-enum class SwitchOp : s16;
-
 struct Path_Switch final : public Path_TLV
 {
-    s16 field_18_trigger_object;
+    SwitchId field_18_trigger_object;
     SwitchOp field_1A_trigger_object_action;
     u16 field_1C_scale;
     s16 field_1E_on_sound;
@@ -46,7 +45,7 @@ public:
     EXPORT s32 vPull_481640(s16 a2);
 
     s32 field_D4[4];
-    s16 field_E4_switchId;
+    SwitchId field_E4_switchId;
     s16 field_E6_pad;
     s16 field_E8_state;
     s16 field_EA_pad;
