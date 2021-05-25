@@ -385,7 +385,7 @@ void MovingBomb::vUpdate_4701E0()
             break;
 
         case States::eTriggeredBySwitch_1:
-            if (SwitchStates_Get_466020(field_128_switch_id))
+            if (sSwitchStates_5C1A28.Get(field_128_switch_id))
             {
                 field_118_state = States::eMoving_2;
             }

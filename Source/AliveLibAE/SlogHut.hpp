@@ -3,11 +3,13 @@
 #include "BaseGameObject.hpp"
 #include "Path.hpp"
 #include "FunctionFwd.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_SlogHut final : public Path_TLV
 {
     Scale_short field_10_scale;
-    s16 field_12_switch_id;
+    SwitchId field_12_switch_id;
     s16 field_14_Zzz_delay;
     s16 field_16_padding;
 };
@@ -33,7 +35,7 @@ private:
     FP field_24_ypos;
     FP field_28_scale;
     s32 field_2C_tlvInfo;
-    s16 field_30_switch_id;
+    SwitchId field_30_switch_id;
     s16 field_32_padding;
     s32 field_34_Zzz_timer;
     s16 field_38_Zzz_delay;

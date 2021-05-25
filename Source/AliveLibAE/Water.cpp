@@ -331,7 +331,7 @@ void Water::vUpdate_4E0B50()
         {
             case WaterState::eInit_0:
                 field_138_splash_time = 0;
-                if (!SwitchStates_Get_466020(field_124_tlv_data.field_12_id))
+                if (!sSwitchStates_5C1A28.Get(field_124_tlv_data.field_12_id))
                 {
                     field_FC_state = WaterState::eInactive_4;
                 }
@@ -388,7 +388,7 @@ void Water::vUpdate_4E0B50()
                     Add_Water_Particle_4E09A0();
                 }
 
-                if (!SwitchStates_Get_466020(field_124_tlv_data.field_12_id))
+                if (!sSwitchStates_5C1A28.Get(field_124_tlv_data.field_12_id))
                 {
                     field_FC_state = WaterState::eStopping_3;
                     field_110_current_drops = field_124_tlv_data.field_10_max_drops >> 5;
@@ -452,7 +452,7 @@ void Water::vUpdate_4E0B50()
                         }
                     }
                 }
-                else if (SwitchStates_Get_466020(field_124_tlv_data.field_12_id))
+                else if (sSwitchStates_5C1A28.Get(field_124_tlv_data.field_12_id))
                 {
                     field_110_current_drops = 0;
                     field_FC_state = WaterState::eStarting_1;

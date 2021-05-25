@@ -1693,7 +1693,7 @@ s16 Mudokon::TurningWheelHelloOrAllYaResponse()
         FP_GetExponent(field_BC_ypos),
         TlvTypes::WorkWheel_79));
 
-    if (SwitchStates_Get_466020(pWheelTlv->field_12_id))
+    if (sSwitchStates_5C1A28.Get(pWheelTlv->field_12_id))
     {
         if (field_198_turning_wheel_timer == 0)
         {
@@ -1702,7 +1702,7 @@ s16 Mudokon::TurningWheelHelloOrAllYaResponse()
     }
 
     // OG Bug: The second condition can never resolve to true because field_198_turning_wheel_timer will always be reset to zero before it can happen.
-    if (!SwitchStates_Get_466020(pWheelTlv->field_12_id) || field_198_turning_wheel_timer > static_cast<s32>(sGnFrame_5C1B84))
+    if (!sSwitchStates_5C1A28.Get(pWheelTlv->field_12_id) || field_198_turning_wheel_timer > static_cast<s32>(sGnFrame_5C1B84))
     {
         return field_190_sub_state;
     }
@@ -2179,7 +2179,7 @@ s16 Mudokon::AI_Chisel_1_47C5F0()
 
     if (field_180_emo_tbl != Mud_Emotion::eAngry_1 && !field_128_angry_timer)
     {
-        if (SwitchStates_Get_466020(field_120_angry_trigger))
+        if (sSwitchStates_5C1A28.Get(field_120_angry_trigger))
         {
             field_128_angry_timer = sGnFrame_5C1B84 + 20;
         }
@@ -2625,7 +2625,7 @@ s16 Mudokon::AI_Scrub_2_47D270()
 
     if (field_180_emo_tbl != Mud_Emotion::eAngry_1 && !field_128_angry_timer)
     {
-        if (SwitchStates_Get_466020(field_120_angry_trigger))
+        if (sSwitchStates_5C1A28.Get(field_120_angry_trigger))
         {
             field_128_angry_timer = sGnFrame_5C1B84 + 20;
         }
@@ -3295,7 +3295,7 @@ s16 Mudokon::AI_ListeningToAbe_4_477B40()
 
     if (field_180_emo_tbl != Mud_Emotion::eAngry_1 && !field_128_angry_timer)
     {
-        if (SwitchStates_Get_466020(field_120_angry_trigger))
+        if (sSwitchStates_5C1A28.Get(field_120_angry_trigger))
         {
             field_128_angry_timer = sGnFrame_5C1B84 + 15;
         }
@@ -6434,9 +6434,9 @@ void Mudokon::M_JumpMid_36_474570()
             pBirdPortal->VMudSaved_499A50();
         }
 
-        if (field_17A_rescue_id)
+        if (field_17A_rescue_id.mId)
         {
-            SwitchStates_Set_465FF0(field_17A_rescue_id, 1);
+            sSwitchStates_5C1A28.Set(field_17A_rescue_id, 1);
         }
     }
 
@@ -7235,7 +7235,7 @@ s16 Mudokon::FindWheel_4777B0(FP xpos, FP ypos)
 
     if (pWheelTlv)
     {
-        if (!SwitchStates_Get_466020(pWheelTlv->field_12_id))
+        if (!sSwitchStates_5C1A28.Get(pWheelTlv->field_12_id))
         {
             return FindObjectOfType_425180(AETypes::eWheel_148, xpos, ypos - (field_CC_sprite_scale * FP_FromInteger(50))) != 0;
         }

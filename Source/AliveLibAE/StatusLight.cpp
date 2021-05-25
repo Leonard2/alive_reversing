@@ -102,9 +102,9 @@ void StatusLight::vUpdate_4D5530()
     field_B8_xpos = FP_FromInteger(sTweakX_5C1BD0) + field_108_xpos;
     field_BC_ypos = FP_FromInteger(sTweakY_5C1BD4) + field_10C_ypos;
 
-    if (SwitchStates_Get_466020(field_F8_input_id))
+    if (sSwitchStates_5C1A28.Get(field_F8_input_id))
     {
-        if ((!SwitchStates_Get_466020(field_FA_id1) && field_FA_id1) || (!SwitchStates_Get_466020(field_FC_id2) && field_FC_id2) || (!SwitchStates_Get_466020(field_FE_id3) && field_FE_id3) || (!SwitchStates_Get_466020(field_100_id4) && field_100_id4) || (!SwitchStates_Get_466020(field_102_id5) && field_102_id5)
+        if ((!sSwitchStates_5C1A28.Get(field_FA_id1) && field_FA_id1.mId) || (!sSwitchStates_5C1A28.Get(field_FC_id2) && field_FC_id2.mId) || (!sSwitchStates_5C1A28.Get(field_FE_id3) && field_FE_id3.mId) || (!sSwitchStates_5C1A28.Get(field_100_id4) && field_100_id4.mId) || (!sSwitchStates_5C1A28.Get(field_102_id5) && field_102_id5.mId)
             || (sGnFrame_5C1B84 % 8) >= 4)
         {
             field_20_animation.field_4_flags.Set(AnimFlags::eBit3_Render);
@@ -116,7 +116,7 @@ void StatusLight::vUpdate_4D5530()
         const AnimRecord& animRec = AnimRec(AnimId::Status_Light_Green);
         field_20_animation.Set_Animation_Data_409C80(animRec.mFrameTableOffset, nullptr);
     }
-    else if (SwitchStates_Get_466020(field_FA_id1) || SwitchStates_Get_466020(field_FC_id2) || SwitchStates_Get_466020(field_FE_id3) || SwitchStates_Get_466020(field_100_id4) || SwitchStates_Get_466020(field_102_id5))
+    else if (sSwitchStates_5C1A28.Get(field_FA_id1) || sSwitchStates_5C1A28.Get(field_FC_id2) || sSwitchStates_5C1A28.Get(field_FE_id3) || sSwitchStates_5C1A28.Get(field_100_id4) || sSwitchStates_5C1A28.Get(field_102_id5))
     {
         if ((sGnFrame_5C1B84 % 8) >= 4)
         {

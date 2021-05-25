@@ -3,10 +3,12 @@
 #include "FunctionFwd.hpp"
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_DoorFlame final : public Path_TLV
 {
-    s16 field_10_id;
+    SwitchId field_10_id;
     Scale_short field_12_scale;
     s16 field_14_colour;
     s16 field_16_pad;
@@ -51,7 +53,7 @@ private:
 
 private:
     s32 field_F4_tlvInfo;
-    s16 field_F8_switch_id;
+    SwitchId field_F8_switch_id;
     s16 field_FA_frame_count;
     enum class States : s16
     {

@@ -4,9 +4,11 @@
 #include "Psx.hpp"
 #include "BitField.hpp"
 #include "FixedPoint.hpp"
+#include "SwitchStates.hpp"
 #include <type_traits>
 
 struct PathData;
+
 
 enum TLV_Flags
 {
@@ -204,7 +206,7 @@ struct Path_EnemyStopper final : public Path_TLV
         Both_2 = 2,
     };
     StopDirection field_10_stop_direction;
-    s16 field_12_id;
+    SwitchId field_12_id;
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Path_EnemyStopper, 0x14);
 
@@ -261,7 +263,7 @@ struct Path_Teleporter_Data
     s16 field_14_camera;
     s16 field_16_path;
     LevelIds field_18_level;
-    s16 field_1A_trigger_id;
+    SwitchId field_1A_trigger_id;
     Scale_short field_1C_scale;
     s16 field_1E_cam_swap_effect;
     s16 field_20_movie_number;
@@ -319,19 +321,20 @@ struct Path_Edge final : public Path_TLV
 
 struct Path_SoftLanding final : public Path_TLV
 {
-    s32 field_10_id;
+    SwitchId field_10_id;
+    u16 field_12_padding; // Switch ID was stored as 32 bits.
 };
-// TODO: Size
+ALIVE_ASSERT_SIZEOF_ALWAYS(Path_SoftLanding, 0x14);
 
 
 struct Path_WellBase : public Path_TLV
 {
-    Scale_short field_0_scale;
-    s16 field_2_trigger_id;
-    s16 field_4_well_id;
-    s16 field_6_res_id;
+    Scale_short field_10_scale;
+    SwitchId field_12_trigger_id;
+    s16 field_14_well_id;
+    s16 field_16_res_id;
 };
-// TODO: Size
+ALIVE_ASSERT_SIZEOF_ALWAYS(Path_WellBase, 0x18);
 
 struct Path_WellLocal final : public Path_WellBase
 {
@@ -367,7 +370,7 @@ struct Path_WellExpress final : public Path_WellBase
 
 struct Path_Alarm final : public Path_TLV
 {
-    s16 field_10_id;
+    SwitchId field_10_id;
     u16 field_12_duration;
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Path_Alarm, 0x14);
@@ -376,7 +379,8 @@ struct Path_MovieStone final : public Path_TLV
 {
     s16 field_10_movie_number;
     Scale_short field_12_scale;
-    s32 field_14_id;
+    SwitchId field_14_id;
+    u16 field_18_padding; // Switch ID was 32 bits.
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Path_MovieStone, 0x18);
 
@@ -386,7 +390,8 @@ struct Path_HandStone final : public Path_TLV
     s16 field_12_camera_id1;
     s16 field_12_camera_id2;
     s16 field_12_camera_id3;
-    s32 field_18_trigger_id;
+    SwitchId field_18_trigger_id;
+    u16 field_1A_padding; // Switch ID was stored as 32 bits.
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Path_HandStone, 0x1C);
 

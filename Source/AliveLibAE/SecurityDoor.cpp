@@ -322,7 +322,7 @@ void SecurityDoor::vUpdate_4AC380()
                 return;
             }
             field_12A_unused = 1;
-            SwitchStates_Set_465FF0(field_FA_id, 1);
+            sSwitchStates_5C1A28.Set(field_FA_id, 1);
             field_20_animation.field_4_flags.Clear(AnimFlags::eBit3_Render);
             SFX_Play_46FBA0(SoundEffect::GlukkonSwitchBleh_88, 127, -700);
             field_F8_state = SecurityDoorStates::eSuccessChime_1;

@@ -197,9 +197,9 @@ void PullRingRope::vUpdate_49B720()
                 field_F4_stay_in_state_ticks = 3;
                 field_20_animation.Set_Animation_Data_409C80(3092, 0);
 
-                const s32 oldSwitchValue = SwitchStates_Get_466020(field_102_id);
-                SwitchStates_Do_Operation_465F00(field_102_id, field_104_target_action);
-                if (oldSwitchValue != SwitchStates_Get_466020(field_102_id))
+                const s32 oldSwitchValue = sSwitchStates_5C1A28.Get(field_102_id);
+                sSwitchStates_5C1A28.Operation(field_102_id, field_104_target_action);
+                if (oldSwitchValue != sSwitchStates_5C1A28.Get(field_102_id))
                 {
                     s32 leftVol = 0;
                     s32 rightVol = 0;
@@ -219,7 +219,7 @@ void PullRingRope::vUpdate_49B720()
                         rightVol = 1;
                     }
 
-                    if (SwitchStates_Get_466020(field_102_id))
+                    if (sSwitchStates_5C1A28.Get(field_102_id))
                     {
                         switch (field_106_on_sound)
                         {

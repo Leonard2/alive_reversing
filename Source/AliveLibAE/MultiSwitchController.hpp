@@ -3,20 +3,20 @@
 #include "BaseGameObject.hpp"
 #include "Path.hpp"
 #include "FunctionFwd.hpp"
+#include "SwitchStates.hpp"
 
-enum class SwitchOp : s16;
 
 struct Path_MultiSwitchController final : public Path_TLV
 {
-    s16 field_10_id;
+    SwitchId field_10_id;
     SwitchOp field_12_operation;
     u16 field_14_delay;
-    u16 field_16_id1;
-    u16 field_18_id2;
-    u16 field_1A_id3;
-    u16 field_1C_id4;
-    u16 field_1E_id5;
-    u16 field_20_id6;
+    SwitchId field_16_id1;
+    SwitchId field_18_id2;
+    SwitchId field_1A_id3;
+    SwitchId field_1C_id4;
+    SwitchId field_1E_id5;
+    SwitchId field_20_id6;
     s16 field_22_pad;
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Path_MultiSwitchController, 0x24);
@@ -38,13 +38,13 @@ private:
     EXPORT void WaitingForAllOff_4D65B0();
 
 private:
-    u16 field_20_id1;
-    u16 field_22_id2;
-    u16 field_24_id3;
-    u16 field_26_id4;
-    u16 field_28_id5;
-    u16 field_2A_id6;
-    u16 field_2C_id;
+    SwitchId field_20_id1;
+    SwitchId field_22_id2;
+    SwitchId field_24_id3;
+    SwitchId field_26_id4;
+    SwitchId field_28_id5;
+    SwitchId field_2A_id6;
+    SwitchId field_2C_id;
     SwitchOp field_2E_operation;
     s32 field_30_tlvInfo;
     s32 field_34_last_switch_on_time;

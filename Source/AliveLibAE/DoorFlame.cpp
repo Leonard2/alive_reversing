@@ -393,7 +393,7 @@ DoorFlame* DoorFlame::ctor_45E460(Path_DoorFlame* pTlv, s32 tlvInfo)
     field_108_fire_background_glow_id = -1;
     field_BC_ypos = FP_FromInteger(pTlv->field_8_top_left.field_2_y) + (FP_FromInteger(15) * field_CC_sprite_scale);
 
-    if (SwitchStates_Get_466020(field_F8_switch_id))
+    if (sSwitchStates_5C1A28.Get(field_F8_switch_id))
     {
         field_20_animation.field_4_flags.Set(AnimFlags::eBit3_Render);
         field_FC_state = States::eEnabled_1;
@@ -496,7 +496,7 @@ void DoorFlame::vUpdate_45E830()
                 pFlameSparks->SetRenderEnabled_45E240(0);
             }
 
-            if (SwitchStates_Get_466020(field_F8_switch_id))
+            if (sSwitchStates_5C1A28.Get(field_F8_switch_id))
             {
                 field_FC_state = States::eEnabled_1;
             }
@@ -532,7 +532,7 @@ void DoorFlame::vUpdate_45E830()
                 pFlameSparks->SetRenderEnabled_45E240(1);
             }
 
-            if (!SwitchStates_Get_466020(field_F8_switch_id))
+            if (!sSwitchStates_5C1A28.Get(field_F8_switch_id))
             {
                 field_FC_state = States::eDisabled_0;
             }

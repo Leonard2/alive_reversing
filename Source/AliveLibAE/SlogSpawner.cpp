@@ -74,7 +74,7 @@ void SlogSpawner::vUpdate_4C80D0()
 
     if (static_cast<s32>(sGnFrame_5C1B84) > field_30_spawn_timer && sSlogCount_BAF7F2 < field_38_max_slogs_at_a_time)
     {
-        if (SwitchStates_Get_466020(field_3E_switch_id))
+        if (sSwitchStates_5C1A28.Get(field_3E_switch_id))
         {
             field_30_spawn_timer = (field_3C_slog_spawn_delay + sGnFrame_5C1B84) + Math_NextRandom() % 8;
             auto pSlog = ae_new<Slog>();

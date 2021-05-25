@@ -3,6 +3,8 @@
 #include "BaseAliveGameObject.hpp"
 #include "Path.hpp"
 #include "FunctionFwd.hpp"
+#include "SwitchStates.hpp"
+
 
 struct FallingItem_Data final
 {
@@ -15,7 +17,7 @@ ALIVE_ASSERT_SIZEOF(FallingItem_Data, 0xC);
 
 struct Path_FallingItem final : public Path_TLV
 {
-    s16 field_10_id;
+    SwitchId field_10_id;
     Scale_short field_12_scale;
     s16 field_14_fall_delay;
     s16 field_16_max_falling_items;
@@ -29,7 +31,7 @@ class FallingItem final : public BaseAliveGameObject
 public:
     EXPORT FallingItem* ctor_4272C0(Path_FallingItem* pTlv, s32 tlvInfo);
 
-    EXPORT FallingItem* ctor_427560(s16 xpos, s16 ypos, s16 scale, s16 id, s16 delayTime, s16 numItems, s16 resetId);
+    EXPORT FallingItem* ctor_427560(s16 xpos, s16 ypos, s16 scale, SwitchId id, s16 delayTime, s16 numItems, s16 resetId);
 
     virtual BaseGameObject* VDestructor(s32 flags) override;
 
@@ -64,7 +66,7 @@ private:
         eState_4_Smashed = 4,
     };
     State field_11C_state;
-    s16 field_11E_id;
+    SwitchId field_11E_id;
     s16 field_120_max_falling_items;
     s16 field_122_remaining_falling_items;
     s16 field_124_fall_delay;

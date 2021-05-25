@@ -142,7 +142,7 @@ LCDScreen* LCDScreen::ctor_460680(Path_LCDScreen* params, TlvItemInfoUnion itemI
 
     field_2AA_message_1_id = params->field_10_message_1_id;
     field_2B0_message_2_id = params->field_16_message_2_id;
-    field_2B2_toggle_message_switch_id = static_cast<u16>(params->field_18_toggle_message_switch_id);
+    field_2B2_toggle_message_switch_id = params->field_18_toggle_message_switch_id;
     field_2BC_tlv_item_info = itemInfo;
 
     if (!sFontType2LoadCount_5BC5E8)
@@ -167,7 +167,7 @@ LCDScreen* LCDScreen::ctor_460680(Path_LCDScreen* params, TlvItemInfoUnion itemI
 
     IRenderer::GetRenderer()->PalSetData(rec, sLCDScreen_Palette2);
 
-    if (SwitchStates_Get_466020(field_2B2_toggle_message_switch_id))
+    if (sSwitchStates_5C1A28.Get(field_2B2_toggle_message_switch_id))
     {
         field_A0_message = sLCDMessageTable_555768[field_2B0_message_2_id];
     }
@@ -223,7 +223,7 @@ void LCDScreen::Update_460A00()
             else
             {
                 field_2B4 = 0;
-                if (SwitchStates_Get_466020(field_2B2_toggle_message_switch_id))
+                if (sSwitchStates_5C1A28.Get(field_2B2_toggle_message_switch_id))
                 {
                     field_A0_message = sLCDMessageTable_555768[field_2B0_message_2_id];
                 }

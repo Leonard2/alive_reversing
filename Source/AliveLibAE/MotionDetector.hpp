@@ -4,6 +4,8 @@
 #include "Path.hpp"
 #include "FunctionFwd.hpp"
 #include "Layer.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_MotionDetector final : public Path_TLV
 {
@@ -18,8 +20,8 @@ struct Path_MotionDetector final : public Path_TLV
     };
     InitialMoveDirection field_18_initial_move_direction;
     Choice_short field_1A_draw_flare;
-    s16 field_1C_disable_id;
-    s16 field_1E_alarm_id;
+    SwitchId field_1C_disable_id;
+    SwitchId field_1E_alarm_id;
     s16 field_20_alarm_duration;
     s16 field_22_padding;
 };
@@ -75,8 +77,8 @@ private:
 
     s16 field_102_pad;
     s32 field_104_timer;
-    s16 field_108_disable_id;
-    s16 field_10A_alarm_id;
+    SwitchId field_108_disable_id;
+    SwitchId field_10A_alarm_id;
     s16 field_10C_alarm_ticks;
     s16 field_10E_bUnknown;
     s16 field_110_bDontComeBack;

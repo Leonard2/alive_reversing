@@ -4,6 +4,8 @@
 #include "Path.hpp"
 #include "BitField.hpp"
 #include "FunctionFwd.hpp"
+#include "SwitchStates.hpp"
+
 
 enum class GrinderDirection : s16
 {
@@ -24,7 +26,7 @@ struct Path_Grinder_Data final
     Scale_short field_10_scale;
     s16 field_12_min_off_time;
     s16 field_14_max_off_time;
-    s16 field_16_id;
+    SwitchId field_16_id;
     GrinderBehavior field_18_behavior;
     s16 field_1A_speed;
     Choice_short field_1C_bStart_state_on;
@@ -90,7 +92,7 @@ private:
 private:
     GrinderStates field_F4_state;
     s16 field_F6_width;
-    s16 field_F8_id;
+    SwitchId field_F8_id;
     GrinderDirection field_FA_direction;
     s16 field_FC_min_off_time;
     s16 field_FE_max_off_time;

@@ -3,8 +3,10 @@
 #include "BaseGameObject.hpp"
 #include "Path.hpp"
 #include "FunctionFwd.hpp"
+#include "SwitchStates.hpp"
 
 class LiftPoint;
+
 
 enum class LiftMoverStates : s16
 {
@@ -27,7 +29,7 @@ ALIVE_ASSERT_SIZEOF_ALWAYS(LiftMover_State, 0xC);
 
 struct Path_LiftMover final : public Path_TLV
 {
-    s16 field_10_switch_id;
+    SwitchId field_10_switch_id;
     s16 field_12_lift_id;
     enum class YDirection : s16
     {
@@ -57,7 +59,7 @@ private:
     EXPORT LiftPoint* GetLiftPoint_40D0F0();
 
 private:
-    s16 field_20_enabled_by_switch_id;
+    SwitchId field_20_enabled_by_switch_id;
     s16 field_22_target_lift_point_id;
     s32 field_24_tlvInfo;
     s32 field_28_lift_id;

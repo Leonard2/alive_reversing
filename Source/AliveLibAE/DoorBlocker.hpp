@@ -3,11 +3,13 @@
 #include "FunctionFwd.hpp"
 #include "BaseAliveGameObject.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_DoorBlocker final : public Path_TLV
 {
     Scale_short field_10_scale;
-    s16 field_12_id;
+    SwitchId field_12_id;
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Path_DoorBlocker, 0x14);
 
@@ -26,7 +28,7 @@ private:
 
 private:
     s16 field_118_bDone;
-    s16 field_11A_switch_id;
+    SwitchId field_11A_switch_id;
     s32 field_11C_tlvInfo;
     s16 field_120;
     s16 field_122;

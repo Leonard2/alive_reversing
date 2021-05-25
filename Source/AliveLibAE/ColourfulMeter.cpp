@@ -50,7 +50,7 @@ ColourfulMeter* ColourfulMeter::ctor_43CE40(Path_ColourfulMeter* pTlv, s32 tlvIn
 
     field_78_count = 15;
 
-    field_7E_starting_switch_state = static_cast<s16>(SwitchStates_Get_466020(field_72_switch_id));
+    field_7E_starting_switch_state = static_cast<s16>(sSwitchStates_5C1A28.Get(field_72_switch_id));
     field_84_bStartFilled = pTlv->field_16_bStartFilled;
     field_7C_mines_alarm_countdown = pTlv->field_14_mines_alarm_countdown;
 
@@ -139,7 +139,7 @@ void ColourfulMeter::vUpdate_43D140()
     {
         gbDrawMeterCountDown_5C1BF8 = 0;
 
-        if (SwitchStates_Get_466020(field_72_switch_id))
+        if (sSwitchStates_5C1A28.Get(field_72_switch_id))
         {
             if (field_70_polys_to_render_count > 0)
             {
@@ -156,7 +156,7 @@ void ColourfulMeter::vUpdate_43D140()
     {
         if (!field_7E_starting_switch_state)
         {
-            if (SwitchStates_Get_466020(field_72_switch_id))
+            if (sSwitchStates_5C1A28.Get(field_72_switch_id))
             {
                 gTotalMeterBars_5C1BFA++;
                 field_80 = 1;

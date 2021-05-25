@@ -3,6 +3,8 @@
 #include "FunctionFwd.hpp"
 #include "Path.hpp"
 #include "BaseAliveGameObject.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_NakedSlig final : public Path_TLV
 {
@@ -24,7 +26,7 @@ struct Path_NakedSlig final : public Path_TLV
         eRandom_2 = 2,
     };
     CrawlDirection field_16_crawl_direction;
-    s16 field_18_panic_id;
+    SwitchId field_18_panic_id;
     Choice_short field_1A_reset_on_death;
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Path_NakedSlig, 0x1C);
@@ -238,7 +240,7 @@ private:
     s8 field_1C1_padding;
     s16 field_1C2_pitch;
     s16 field_1C4_unused_counter;
-    s16 field_1C6_unused;
+    SwitchId field_1C6_unused;
     s32 field_1C8_say_help_timer;
     s16 field_1CC_unused;
     s16 field_1CE_padding;

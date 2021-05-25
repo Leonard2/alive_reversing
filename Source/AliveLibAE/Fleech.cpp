@@ -154,7 +154,7 @@ Fleech* Fleech::ctor_429DC0(Path_Fleech* pTlv, s32 tlvInfo)
     field_142_attack_anger_increaser = pTlv->field_1A_attack_anger_increaser + 2;
     field_144_wake_up_id = pTlv->field_1E_wake_up_id1;
     field_146_tlv_28 = pTlv->field_28_unused;
-    field_148_wake_up_switch_value = SwitchStates_Get_466020(pTlv->field_1E_wake_up_id1) & 0xFFFF;
+    field_148_wake_up_switch_value = sSwitchStates_5C1A28.Get(pTlv->field_1E_wake_up_id1) & 0xFFFF;
     field_14A_use_wake_up_id = pTlv->field_2A_wake_up_id2;
     field_150_patrol_range = FP_GetExponent(FP_FromInteger(pTlv->field_26_patrol_range_in_grids) * ScaleToGridSize_4498B0(field_CC_sprite_scale));
     field_15C_lost_target_timeout = pTlv->field_22_lost_target_timeout;
@@ -2191,7 +2191,7 @@ s16 Fleech::HandleEnemyStopperOrSlamDoor_42ADC0(s32 velX)
         FP_GetExponent(field_BC_ypos),
         TlvTypes::EnemyStopper_47));
 
-    if (pStopper && (pStopper->field_10_stop_direction == (nextXPos >= field_B8_xpos ? Path_EnemyStopper::StopDirection::Right_1 : Path_EnemyStopper::StopDirection::Left_0)) && SwitchStates_Get_466020(pStopper->field_12_id))
+    if (pStopper && (pStopper->field_10_stop_direction == (nextXPos >= field_B8_xpos ? Path_EnemyStopper::StopDirection::Right_1 : Path_EnemyStopper::StopDirection::Left_0)) && sSwitchStates_5C1A28.Get(pStopper->field_12_id))
     {
         return 1;
     }
@@ -2214,12 +2214,12 @@ s16 Fleech::HandleEnemyStopperOrSlamDoor_42ADC0(s32 velX)
         FP_GetExponent(field_BC_ypos),
         TlvTypes::SlamDoor_85));
 
-    return (pSlamDoor && ((pSlamDoor->field_10_bStart_closed == Choice_short::eYes_1 && !SwitchStates_Get_466020(pSlamDoor->field_14_id)) || (pSlamDoor->field_10_bStart_closed == Choice_short::eNo_0 && SwitchStates_Get_466020(pSlamDoor->field_14_id))));
+    return (pSlamDoor && ((pSlamDoor->field_10_bStart_closed == Choice_short::eYes_1 && !sSwitchStates_5C1A28.Get(pSlamDoor->field_14_id)) || (pSlamDoor->field_10_bStart_closed == Choice_short::eNo_0 && sSwitchStates_5C1A28.Get(pSlamDoor->field_14_id))));
 }
 
 s32 Fleech::UpdateWakeUpSwitchValue_4308B0()
 {
-    const s16 curSwitchValue = static_cast<s16>(SwitchStates_Get_466020(field_144_wake_up_id));
+    const s16 curSwitchValue = static_cast<s16>(sSwitchStates_5C1A28.Get(field_144_wake_up_id));
     const s16 wakeUpValue = field_148_wake_up_switch_value;
 
     if (curSwitchValue == wakeUpValue)
@@ -2834,7 +2834,7 @@ s16 Fleech::AI_Patrol_State_0()
 
 s16 Fleech::AI_Patrol_State_1()
 {
-    if (!SwitchStates_Get_466020(field_14A_use_wake_up_id))
+    if (!sSwitchStates_5C1A28.Get(field_14A_use_wake_up_id))
     {
         return field_126_state;
     }

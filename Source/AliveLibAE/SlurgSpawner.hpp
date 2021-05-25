@@ -2,12 +2,14 @@
 
 #include "BaseGameObject.hpp"
 #include "Slurg.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Slurg_Spawner_Path_Data final
 {
     s16 field_8_spawn_delay_between_slurgs;
     s16 field_A_max_slurgs;
-    s16 field_C_switch_id;
+    SwitchId field_C_switch_id;
     s16 field_E_padding;
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Slurg_Spawner_Path_Data, 0x8);

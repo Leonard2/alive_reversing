@@ -5,6 +5,7 @@
 #include "BitField.hpp"
 #include "Input.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
 
 
 #define ABE_STATES_ENUM(ENTRY)                      \
@@ -184,9 +185,9 @@ struct Path_ContinuePoint final : public Path_TLV
 struct Path_ResetSwitchRange final : public Path_TLV
 {
     s16 field_10_set_switches;
-    s16 field_12_start_id;
-    s16 field_14_end_id;
-    s16 field_16_skip_id;
+    SwitchId field_12_start_id;
+    SwitchId field_14_end_id;
+    SwitchId field_16_skip_id;
     s16 field_18_free_path_res;
     s16 field_1A_path_to_free_id;
     s16 field_1C_bEnabled;
@@ -397,7 +398,7 @@ struct Abe_SaveState final
     u16 cam_id_1;
     u16 cam_id_2;
     u16 cam_id_3;
-    u16 field_B4_unused;
+    SwitchId field_B4_unused;
     u16 field_B6_unused;
     u16 field_B8_unused;
     u16 field_BA_unused;
@@ -693,7 +694,7 @@ public:
     TlvTypes32 field_180_hand_stone_type;
     s16 field_184_fmv_id;
     s16 field_186_to_camera_id[3];
-    s16 field_18C_unused;
+    SwitchId field_18C_unused;
     s16 field_18E_unused;
     s16 field_190_unused;
     s16 field_192_unused;

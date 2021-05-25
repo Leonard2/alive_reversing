@@ -4,11 +4,13 @@
 #include "Path.hpp"
 #include "BaseGameObject.hpp"
 #include "Primitives.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_ExplosionSet final : public Path_TLV
 {
     Choice_short field_10_bStart_enabled;
-    s16 field_12_switch_id;
+    SwitchId field_12_switch_id;
     Choice_short field_14_big_rocks;
     s16 field_16_start_delay;
     XDirection_short field_18_direction;
@@ -54,7 +56,7 @@ private:
     s16 field_46_spacing_multiplicator;
     PSX_RECT field_48_tlv_rect;
     FP field_50_scale;
-    s16 field_54_switch_id;
+    SwitchId field_54_switch_id;
     s16 field_56_delay;
     s16 field_58_grid_spacing;
     s16 field_5A_increasing_grid_spacing;

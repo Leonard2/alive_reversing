@@ -3,11 +3,13 @@
 #include "BaseAliveGameObject.hpp"
 #include "Path.hpp"
 #include "FunctionFwd.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_MovingBomb final : public Path_TLV
 {
     u16 field_10_speed;
-    s16 field_12_id;
+    SwitchId field_12_id;
     Choice_short field_14_bStart_type_triggered_by_alarm;
     Scale_short field_16_scale;
     s16 field_18_max_rise;
@@ -65,7 +67,7 @@ private:
     s32 field_11C_tlvInfo;
     s32 field_120_timer;
     FP field_124_speed;
-    s16 field_128_switch_id;
+    SwitchId field_128_switch_id;
     s16 field_12A_min;
     s16 field_12C_max;
     s16 field_12E_padding;

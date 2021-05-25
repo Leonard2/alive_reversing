@@ -227,9 +227,9 @@ void Slurg::Burst_4C8AE0()
     Event_Broadcast_422BC0(kEventLoudNoise, this);
     SFX_Play_46FA90(SoundEffect::SlurgKill_89, 127, field_130_scale);
 
-    if (field_11A_switch_id > 1)
+    if (field_11A_switch_id.mId > 1)
     {
-        SwitchStates_Add_466060(field_11A_switch_id, 1);
+        sSwitchStates_5C1A28.Add(field_11A_switch_id, 1);
     }
 }
 

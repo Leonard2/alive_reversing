@@ -3,6 +3,8 @@
 #include "FunctionFwd.hpp"
 #include "BaseAliveGameObject.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
+
 
 #define PARAMITE_MOTIONS_ENUM(ENTRY)        \
     ENTRY(M_Idle_0_489FB0)                  \
@@ -75,7 +77,7 @@ struct Path_Paramite final : public Path_TLV
     s16 field_18_meat_eating_time;
     u16 field_1A_group_wait_before_chase_timer;
     s16 field_1C_disabled_resources;
-    s16 field_1E_id;
+    SwitchId field_1E_id;
     s16 field_20_hiss_before_attack;
     s16 field_22_delete_when_far_away;
     s16 field_24_bAttack_fleeches;
@@ -437,7 +439,7 @@ private:
     s32 field_140_tlvInfo;
     s32 field_144_group_wait_before_chase_timer;
     s32 field_148_timer;
-    s16 field_14C_id;
+    SwitchId field_14C_id;
     LevelIds field_14E_return_level;
     s16 field_150_return_path;
     s16 field_152_return_camera;

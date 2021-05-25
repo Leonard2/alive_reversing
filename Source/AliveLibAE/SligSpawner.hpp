@@ -4,6 +4,8 @@
 #include "FunctionFwd.hpp"
 #include "Psx.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_Slig;
 
@@ -38,7 +40,7 @@ private:
 
 private:
     s32 field_20_tlv_info;
-    s16 field_24_slig_id;
+    SwitchId field_24_slig_id;
     s16 field_26_flags;
     Path_TLV field_28_tlv;
     s16 field_38_state;

@@ -4,6 +4,8 @@
 #include "FunctionFwd.hpp"
 #include "Factory.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
+
 
 void SlamDoor_ForceLink();
 
@@ -20,7 +22,7 @@ struct Path_SlamDoor final : public Path_TLV
 {
     Choice_short field_10_bStart_closed;
     Scale_short field_12_scale;
-    s16 field_14_id;
+    SwitchId field_14_id;
     Choice_short field_16_bStart_inverted;
     Choice_short field_18_bDelete;
     s16 field_1A_padding;
@@ -54,7 +56,7 @@ private:
     PathLine* field_120_pCollisionLine_5_1;
     s16 field_124_x1;
     s16 field_126_y1;
-    s16 field_128_switch_id;
+    SwitchId field_128_switch_id;
     s16 field_12A_padding;
     TlvItemInfoUnion field_12C_tlvInfo;
     s32 field_130_padding;

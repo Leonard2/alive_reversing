@@ -5,6 +5,8 @@
 #include "Font.hpp"
 #include "Path.hpp"
 #include "Factory.hpp"
+#include "SwitchStates.hpp"
+
 
 extern const char_type* sLCDMessageTable_555768[101];
 
@@ -14,7 +16,8 @@ struct Path_LCDScreen final : public Path_TLV
     s16 field_12_message_rand_min_id;
     s16 field_14_message_rand_max_id;
     s16 field_16_message_2_id;
-    s32 field_18_toggle_message_switch_id;
+    SwitchId field_18_toggle_message_switch_id;
+    u16 field_1A_padding; // Switch ID was stored as 32 bits here.
 };
 
 class LCDScreen final : public BaseGameObject
@@ -44,7 +47,7 @@ public:
     s16 field_2AC_x_offset;
     u16 field_2AE_character_width;
     u16 field_2B0_message_2_id;
-    u16 field_2B2_toggle_message_switch_id;
+    SwitchId field_2B2_toggle_message_switch_id;
     u16 field_2B4;
     u16 field_2B6_message_rand_min_id;
     u16 field_2B8_message_rand_max_id;

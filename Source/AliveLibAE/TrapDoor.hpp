@@ -3,10 +3,12 @@
 #include "FunctionFwd.hpp"
 #include "PlatformBase.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_TrapDoor final : public Path_TLV
 {
-    s16 field_10_id;
+    SwitchId field_10_id;
     s16 field_12_start_state;
     Choice_short field_14_self_closing;
     Scale_short field_16_scale;
@@ -72,7 +74,7 @@ private:
     s16 field_12C_unused;
     s16 field_12E_padding;
     s32 field_130_stay_open_time2;
-    s16 field_134_switch_idx;
+    SwitchId field_134_switch_idx;
     TrapDoorState field_136_state;
     s16 field_138_switch_state;
     s16 field_13A_xOff;

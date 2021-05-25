@@ -93,7 +93,7 @@ void LiftMover::vUpdate_40CE20()
         switch (field_30_state)
         {
             case LiftMoverStates::eInactive_0:
-                if (SwitchStates_Get_466020(field_20_enabled_by_switch_id))
+                if (sSwitchStates_5C1A28.Get(field_20_enabled_by_switch_id))
                 {
                     if (!pLift)
                     {
@@ -198,7 +198,7 @@ void LiftMover::vUpdate_40CE20()
                 break;
 
             case LiftMoverStates::eMovingDone_5:
-                if (!SwitchStates_Get_466020(field_20_enabled_by_switch_id))
+                if (!sSwitchStates_5C1A28.Get(field_20_enabled_by_switch_id))
                 {
                     field_30_state = LiftMoverStates::eStartMovingUp_3;
                     field_2C_speed = -field_2C_speed;

@@ -557,7 +557,7 @@ s16 NakedSlig::HandleEnemyStopper_41C740(FP /*velX*/)
         TlvTypes::SlamDoor_85));
     field_FC_pPathTLV = pSlamDoor;
 
-    if (pSlamDoor && ((pSlamDoor->field_10_bStart_closed == Choice_short::eYes_1 && !SwitchStates_Get_466020(pSlamDoor->field_14_id)) || (pSlamDoor->field_10_bStart_closed == Choice_short::eNo_0 && SwitchStates_Get_466020(pSlamDoor->field_14_id))))
+    if (pSlamDoor && ((pSlamDoor->field_10_bStart_closed == Choice_short::eYes_1 && !sSwitchStates_5C1A28.Get(pSlamDoor->field_14_id)) || (pSlamDoor->field_10_bStart_closed == Choice_short::eNo_0 && sSwitchStates_5C1A28.Get(pSlamDoor->field_14_id))))
     {
         return 1;
     }
@@ -570,7 +570,7 @@ s16 NakedSlig::HandleEnemyStopper_41C740(FP /*velX*/)
         TlvTypes::EnemyStopper_47));
     field_FC_pPathTLV = pStopper;
 
-    return pStopper && (pStopper->field_10_stop_direction == direction || pStopper->field_10_stop_direction == Path_EnemyStopper::StopDirection::Both_2) && SwitchStates_Get_466020(pStopper->field_12_id);
+    return pStopper && (pStopper->field_10_stop_direction == direction || pStopper->field_10_stop_direction == Path_EnemyStopper::StopDirection::Both_2) && sSwitchStates_5C1A28.Get(pStopper->field_12_id);
 }
 
 Path_TLV* NakedSlig::FindPantsOrWings_419750()
@@ -776,7 +776,7 @@ NakedSlig* NakedSlig::vdtor_418FB0(s32 flags)
 
 BOOL NakedSlig::PanicOn_419810()
 {
-    return SwitchStates_Get_466020(field_1E8_tlv.field_18_panic_id) != 0;
+    return sSwitchStates_5C1A28.Get(field_1E8_tlv.field_18_panic_id) != 0;
 }
 
 void NakedSlig::ToIdle_41C070()

@@ -2,18 +2,20 @@
 
 #include "BaseGameObject.hpp"
 #include "FixedPoint.hpp"
+#include "SwitchStates.hpp"
+
 
 struct SlapLockWhirlWind_State final
 {
     AETypes field_0_type;
-    s16 field_2_switch_id;
+    SwitchId field_2_switch_id;
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(SlapLockWhirlWind_State, 0x4);
 
 class SlapLockWhirlWind final : public BaseGameObject
 {
 public:
-    EXPORT SlapLockWhirlWind* ctor_43D7E0(s16 doorNumber, s16 switchId, FP xpos, FP ypos, FP scale);
+    EXPORT SlapLockWhirlWind* ctor_43D7E0(s16 doorNumber, SwitchId switchId, FP xpos, FP ypos, FP scale);
     virtual BaseGameObject* VDestructor(s32 flags) override;
     virtual void VUpdate() override;
     virtual s32 VGetSaveState(u8* pSaveBuffer) override;
@@ -26,7 +28,7 @@ private:
     EXPORT void vUpdate_43DA90();
 
 public:
-    s16 SwitchId() const;
+    SwitchId GetSwitch() const;
 
 private:
     FP field_20_xpos;
@@ -39,7 +41,7 @@ private:
     s16 field_3C_state;
     s16 field_3E_padding;
     s32 field_40_timer;
-    s16 field_44_switch_id;
+    SwitchId field_44_switch_id;
     s16 field_46_padding;
 };
 ALIVE_ASSERT_SIZEOF(SlapLockWhirlWind, 0x48);

@@ -3,6 +3,8 @@
 #include "FunctionFwd.hpp"
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_Door final : public Path_TLV
 {
@@ -11,18 +13,18 @@ struct Path_Door final : public Path_TLV
     s16 field_14_camera;
     Scale_short field_16_scale;
     s16 field_18_door_number;
-    s16 field_1A_id;
+    SwitchId field_1A_id;
     s16 field_1C_target_door_number;
     s16 field_1E_type;
     s16 field_20_start_state;
-    s16 field_22_hub1;
-    s16 field_22_hub2;
-    s16 field_22_hub3;
-    s16 field_22_hub4;
-    s16 field_22_hub5;
-    s16 field_22_hub6;
-    s16 field_22_hub7;
-    s16 field_22_hub8;
+    SwitchId field_22_hub1;
+    SwitchId field_22_hub2;
+    SwitchId field_22_hub3;
+    SwitchId field_22_hub4;
+    SwitchId field_22_hub5;
+    SwitchId field_22_hub6;
+    SwitchId field_22_hub7;
+    SwitchId field_22_hub8;
     s16 field_32_wipe_effect;
     s16 field_34_movie_number;
     s16 field_36_x_offset;
@@ -85,8 +87,8 @@ protected:
     s16 field_FC_current_state;
     s16 field_FE_start_state;
 
-    s16 field_100_switch_id;
-    s16 field_102_hub_ids[8];
+    SwitchId field_100_switch_id;
+    SwitchId field_102_hub_ids[8];
 };
 ALIVE_ASSERT_SIZEOF(Door, 0x114);
 

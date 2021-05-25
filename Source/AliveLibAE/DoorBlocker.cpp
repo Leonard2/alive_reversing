@@ -39,7 +39,7 @@ DoorBlocker* DoorBlocker::ctor_41F0A0(Path_DoorBlocker* pTlv, s32 tlvInfo)
         field_D6_scale = 1;
     }
 
-    if (SwitchStates_Get_466020(field_11A_switch_id))
+    if (sSwitchStates_5C1A28.Get(field_11A_switch_id))
     {
         field_6_flags.Set(BaseGameObject::eDead_Bit3);
     }
@@ -82,7 +82,7 @@ void DoorBlocker::vUpdate_41F250()
                 field_6_flags.Set(BaseGameObject::eDead_Bit3);
             }
         }
-        else if (SwitchStates_Get_466020(field_11A_switch_id))
+        else if (sSwitchStates_5C1A28.Get(field_11A_switch_id))
         {
             SFX_Play_46FBA0(SoundEffect::DoorEffect_57, 100, 900);
             SFX_Play_46FBA0(SoundEffect::DoorEffect_57, 100, -100);

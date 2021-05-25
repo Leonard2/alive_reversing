@@ -63,7 +63,7 @@ void InvisibleSwitch::vUpdate_45FBA0()
         if (field_28_delay_timer <= static_cast<s32>(sGnFrame_5C1B84))
         {
             // Timer expired, do the operation
-            SwitchStates_Do_Operation_465F00(field_20_id, field_22_action);
+            sSwitchStates_5C1A28.Operation(field_20_id, field_22_action);
 
             // Fire alarm if set
             if (field_3A_set_off_alarm == Choice_short::eYes_1)
@@ -71,7 +71,7 @@ void InvisibleSwitch::vUpdate_45FBA0()
                 auto pAlarm = ae_new<Alarm>();
                 if (pAlarm)
                 {
-                    pAlarm->ctor_4091F0(150, 0, 30, Layer::eLayer_Above_FG1_39);
+                    pAlarm->ctor_4091F0(150, {0}, 30, Layer::eLayer_Above_FG1_39);
                 }
             }
 
@@ -82,7 +82,7 @@ void InvisibleSwitch::vUpdate_45FBA0()
     else if (field_38_state == States::eState_WaitForTrigger_0)
     {
         // If not trying to turn off the target and the state is set
-        if (field_22_action != SwitchOp::eSetFalse_1 || SwitchStates_Get_466020(field_20_id))
+        if (field_22_action != SwitchOp::eSetFalse_1 || sSwitchStates_5C1A28.Get(field_20_id))
         {
             // Within X bounds?
             const FP charXPos = sControlledCharacter_5C1B8C->field_B8_xpos;

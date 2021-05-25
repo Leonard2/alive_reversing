@@ -218,7 +218,7 @@ void ExplosionSet::vUpdate_414E30()
             auto pFallingItem = ae_new<FallingItem>();
             if (pFallingItem)
             {
-                pFallingItem->ctor_427560(xpos, field_48_tlv_rect.y, field_50_scale < FP_FromInteger(1), 0, 0, 1, 0);
+                pFallingItem->ctor_427560(xpos, field_48_tlv_rect.y, field_50_scale < FP_FromInteger(1), {0}, 0, 1, 0);
             }
 
             field_46_spacing_multiplicator++;
@@ -240,9 +240,9 @@ void ExplosionSet::vUpdate_414E30()
     {
         if (field_5C_flags.Get(Flags_5C::eBit3))
         {
-            if (field_54_switch_id > 0)
+            if (field_54_switch_id.mId > 0)
             {
-                if (SwitchStates_Get_466020(field_54_switch_id))
+                if (sSwitchStates_5C1A28.Get(field_54_switch_id))
                 {
                     bEnabled_5C1BB6 = 1;
                 }

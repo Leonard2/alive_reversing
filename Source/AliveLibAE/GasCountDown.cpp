@@ -87,7 +87,7 @@ GasCountDown* GasCountDown::ctor_417010(Path_GasCountDown* pTlv, s32 tlvInfo)
         auto pAlarm = ae_new<Alarm>();
         if (pAlarm)
         {
-            pAlarm->ctor_4091F0(field_76_gas_countdown_timer, 0, 0, Layer::eLayer_Above_FG1_39);
+            pAlarm->ctor_4091F0(field_76_gas_countdown_timer, {0}, 0, Layer::eLayer_Above_FG1_39);
             return this;
         }
     }
@@ -230,13 +230,13 @@ void GasCountDown::vUpdate_4172E0()
     }
 
     // Enable
-    if (!sGasTimer_5C1BE8 && SwitchStates_Get_466020(field_70_start_trigger_id) && !SwitchStates_Get_466020(field_72_stop_trigger_id))
+    if (!sGasTimer_5C1BE8 && sSwitchStates_5C1A28.Get(field_70_start_trigger_id) && !sSwitchStates_5C1A28.Get(field_72_stop_trigger_id))
     {
         sGasTimer_5C1BE8 = sGnFrame_5C1B84;
         auto pAlarm = ae_new<Alarm>();
         if (pAlarm)
         {
-            pAlarm->ctor_4091F0(field_76_gas_countdown_timer, 0, 0, Layer::eLayer_Above_FG1_39);
+            pAlarm->ctor_4091F0(field_76_gas_countdown_timer, {0}, 0, Layer::eLayer_Above_FG1_39);
         }
     }
 
@@ -249,7 +249,7 @@ void GasCountDown::vUpdate_4172E0()
     else
     {
         // Running
-        if (SwitchStates_Get_466020(field_72_stop_trigger_id))
+        if (sSwitchStates_5C1A28.Get(field_72_stop_trigger_id))
         {
             sGasTimer_5C1BE8 = 0;
             return;

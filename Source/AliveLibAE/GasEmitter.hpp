@@ -3,6 +3,8 @@
 #include "BaseGameObject.hpp"
 #include "Path.hpp"
 #include "FunctionFwd.hpp"
+#include "SwitchStates.hpp"
+
 
 enum class GasColour : s16
 {
@@ -15,7 +17,7 @@ enum class GasColour : s16
 
 struct Path_GasEmitter final : public Path_TLV
 {
-    s16 field_10_switch_id;
+    SwitchId field_10_switch_id;
     GasColour field_12_colour;
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Path_GasEmitter, 0x14);
@@ -41,7 +43,7 @@ private:
     s32 field_20_tlvInfo;
     s32 field_24_emit_power;
     s16 field_28_draw_flipper;
-    s16 field_2A_switch_id;
+    SwitchId field_2A_switch_id;
     GasColour field_2C_gas_colour;
     s16 field_2E_pad;
     FP field_30_xpos;

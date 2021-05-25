@@ -149,7 +149,7 @@ Slog* Slog::ctor_4C4540(FP xpos, FP ypos, FP scale, s16 bListenToSligs, s16 chas
 
     field_144_wake_up_anger = 0;
     field_158_chase_delay = chaseDelay;
-    field_154_angry_id = 0;
+    field_154_angry_id = {0};
     field_106_current_motion = eSlogMotions::M_Idle_0_4C5F90;
     field_146_total_anger = 10;
     field_148_chase_anger = 20;
@@ -1684,7 +1684,7 @@ s16 Slog::AI_Idle_1_4C2830()
         }
     }
 
-    if (SwitchStates_Get_466020(field_154_angry_id))
+    if (sSwitchStates_5C1A28.Get(field_154_angry_id))
     {
         field_160_flags.Clear(Flags_160::eBit5_CommandedToAttack);
         field_120_brain_state_idx = 2;
@@ -3599,7 +3599,7 @@ s16 Slog::HandleEnemyStopper_4C5340()
             FP_GetExponent(xToUse), FP_GetExponent(field_BC_ypos),
             FP_GetExponent(width), FP_GetExponent(field_BC_ypos), TlvTypes::EnemyStopper_47));
 
-    return stopperPath != nullptr && stopperPath->field_10_stop_direction == (field_C4_velx > FP_FromInteger(0) ? Path_EnemyStopper::StopDirection::Right_1 : Path_EnemyStopper::StopDirection::Left_0) && SwitchStates_Get_466020(stopperPath->field_12_id) > 0;
+    return stopperPath != nullptr && stopperPath->field_10_stop_direction == (field_C4_velx > FP_FromInteger(0) ? Path_EnemyStopper::StopDirection::Right_1 : Path_EnemyStopper::StopDirection::Left_0) && sSwitchStates_5C1A28.Get(stopperPath->field_12_id) > 0;
 }
 
 s16 Slog::Facing_4C4020(FP xpos)

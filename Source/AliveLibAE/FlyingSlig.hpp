@@ -4,6 +4,8 @@
 #include "BaseAliveGameObject.hpp"
 #include "Path.hpp"
 #include "FlyingSligSpawner.hpp"
+#include "SwitchStates.hpp"
+
 
 enum class LevelIds : s16;
 
@@ -72,8 +74,7 @@ struct FlyingSlig_State final
     s16 field_32_delayed_state;
     s16 field_34_lastLineYPos;
     s16 field_36_line_idx;
-    u8 field_38_launch_id;
-    u8 field_39_padding;
+    SwitchId field_38_launch_id;
     enum Flags_3A
     {
         eBit1_bPossessed = 0x1,

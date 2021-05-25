@@ -2003,7 +2003,7 @@ s16 Paramite::AI_SurpriseWeb_3_4851B0()
             return ParamiteEnums::AI_SurpriseWeb::eState3_Appearing_1;
 
         case ParamiteEnums::AI_SurpriseWeb::eState3_Appearing_1:
-            if (field_14C_id != 0 && SwitchStates_Get_466020(field_14C_id))
+            if (field_14C_id.mId != 0 && sSwitchStates_5C1A28.Get(field_14C_id))
             {
                 field_114_flags.Set(Flags_114::e114_Bit3_Can_Be_Possessed);
                 field_20_animation.field_4_flags.Clear(AnimFlags::eBit5_FlipX);
@@ -2942,7 +2942,7 @@ s16 Paramite::AI_ParamiteSpawn_9_48ED80()
     switch (field_12C_brain_ret)
     {
         case ParamiteEnums::AI_ParamiteSpawn::eState9_Inactive_0:
-            if (field_14C_id)
+            if (field_14C_id.mId)
             {
                 field_12C_brain_ret = ParamiteEnums::AI_ParamiteSpawn::eState9_PreSpawn_1;
             }
@@ -2960,7 +2960,7 @@ s16 Paramite::AI_ParamiteSpawn_9_48ED80()
             break;
 
         case ParamiteEnums::AI_ParamiteSpawn::eState9_PreSpawn_1:
-            if (SwitchStates_Get_466020(field_14C_id))
+            if (sSwitchStates_5C1A28.Get(field_14C_id))
             {
                 field_178_flags.Set(Flags_178::eBit6_spawned);
                 SFX_Play_46FA90(SoundEffect::ParamiteSpawn_110, 0);
@@ -5749,7 +5749,7 @@ s16 Paramite::HandleEnemyStopper_4893B0(s16 numGridBlocks)
         TlvTypes::EnemyStopper_47));
 
     // No stopper or its disabled
-    if (!pEnemyStopper || !SwitchStates_Get_466020(pEnemyStopper->field_12_id))
+    if (!pEnemyStopper || !sSwitchStates_5C1A28.Get(pEnemyStopper->field_12_id))
     {
         return 0;
     }

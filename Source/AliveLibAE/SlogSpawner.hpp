@@ -3,6 +3,8 @@
 #include "BaseGameObject.hpp"
 #include "Path.hpp"
 #include "FunctionFwd.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_SlogSpawner final : public Path_TLV
 {
@@ -11,7 +13,7 @@ struct Path_SlogSpawner final : public Path_TLV
     s16 field_14_max_slogs_at_a_time;
     XDirection_short field_16_direction;
     s16 field_18_slog_spawn_delay;
-    s16 field_1A_id;
+    SwitchId field_1A_id;
     Choice_short field_1C_listen_to_sligs;
     s16 field_1E_chase_delay;
 };
@@ -43,7 +45,7 @@ private:
     s16 field_38_max_slogs_at_a_time;
     XDirection_short field_3A_direction;
     s16 field_3C_slog_spawn_delay;
-    s16 field_3E_switch_id;
+    SwitchId field_3E_switch_id;
     Choice_short field_40_listen_to_sligs;
     s16 field_42_chase_delay;
 };

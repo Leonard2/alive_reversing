@@ -151,7 +151,7 @@ void FootSwitch::vUpdate_4DE270()
         {
             field_100_obj_id = pStoodOnMeNow->field_8_object_id;
 
-            SwitchStates_Do_Operation_465F00(field_FA_id, field_FC_action);
+            sSwitchStates_5C1A28.Operation(field_FA_id, field_FC_action);
             field_F8_state = States::eWaitForGetOffMe_1;
 
             const AnimRecord& animRec = AnimRec(sFootSwitchData_547D60[static_cast<s32>(gMap_5C3030.field_0_current_level)][1]);

@@ -715,7 +715,7 @@ void Map::GoTo_Camera_481890()
 
         if (!field_8_force_load)
         {
-            SwitchStates_SetRange_465FA0(2, 255);
+            sSwitchStates_5C1A28.ClearRange({2}, {255});
         }
 
         if (field_CE_free_all_anim_and_palts)

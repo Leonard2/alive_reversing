@@ -103,9 +103,9 @@ void NakedSligButton::vUpdate_414B20()
         Event_Broadcast_422BC0(kEventNoise, this);
         Event_Broadcast_422BC0(kEventSuspiciousNoise, this);
 
-        const s32 old_switch_state = SwitchStates_Get_466020(field_F8_id);
-        SwitchStates_Do_Operation_465F00(field_F8_id, field_FA_action);
-        const s32 new_switch_state = SwitchStates_Get_466020(field_F8_id);
+        const s32 old_switch_state = sSwitchStates_5C1A28.Get(field_F8_id);
+        sSwitchStates_5C1A28.Operation(field_F8_id, field_FA_action);
+        const s32 new_switch_state = sSwitchStates_5C1A28.Get(field_F8_id);
 
         if (old_switch_state != new_switch_state)
         {

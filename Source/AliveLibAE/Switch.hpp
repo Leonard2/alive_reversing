@@ -3,6 +3,8 @@
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "Path.hpp"
 #include "FunctionFwd.hpp"
+#include "SwitchStates.hpp"
+
 
 enum class SwitchState : s16
 {
@@ -22,8 +24,6 @@ enum class SwitchSoundType : s16
     eLift_6 = 6
 };
 
-enum class SwitchOp : s16;
-
 enum class SwitchSoundDirection : s16
 {
     eLeftAndRight_0 = 0,
@@ -38,7 +38,7 @@ struct Path_Switch final : public Path_TLV
     SwitchSoundType field_14_on_sound;
     SwitchSoundType field_16_off_sound;
     SwitchSoundDirection field_18_sound_direction;
-    s16 field_1A_trigger_id;
+    SwitchId field_1A_trigger_id;
     Choice_short field_1C_persist_offscreen;
     s16 field_1E_padding;
 };
@@ -61,7 +61,7 @@ private:
     EXPORT s16 vPull_4D6050(s16 bLeftDirection);
 
 private:
-    s16 field_F4_trigger_id;
+    SwitchId field_F4_trigger_id;
     s16 field_F6_padding;
     SwitchState field_F8_state;
     s32 field_FC_tlvInfo;

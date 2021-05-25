@@ -137,7 +137,7 @@ SlamDoor* SlamDoor::ctor_4AF700(Path_SlamDoor* pTlv, TlvItemInfoUnion tlvInfo)
         field_D8_yOffset = FP_GetExponent(field_CC_sprite_scale * FP_FromDouble(-68.0));
     }
 
-    s32 switchState = SwitchStates_Get_466020(field_128_switch_id);
+    s32 switchState = sSwitchStates_5C1A28.Get(field_128_switch_id);
     s32 bitIsOpen = static_cast<s32>(field_118_flags.Get(SlamDoor_Flags_118::e118_Bit2_Open));
 
     if (switchState == bitIsOpen)
@@ -281,7 +281,7 @@ void SlamDoor::vUpdate_4AFD50()
         field_6_flags.Set(BaseGameObject::eDead_Bit3);
     }
 
-    const bool stateUnchanged = SwitchStates_Get_466020(field_128_switch_id) == static_cast<s32>(field_118_flags.Get(SlamDoor_Flags_118::e118_Bit2_Open));
+    const bool stateUnchanged = sSwitchStates_5C1A28.Get(field_128_switch_id) == static_cast<s32>(field_118_flags.Get(SlamDoor_Flags_118::e118_Bit2_Open));
     if (!field_118_flags.Get(SlamDoor_Flags_118::e118_Bit1_bClosed))
     {
         if (field_20_animation.field_4_flags.Get(AnimFlags::eBit18_IsLastFrame))

@@ -1050,7 +1050,7 @@ void BirdPortal::dtor_4980A0()
         field_90_sfx_ret = 0;
     }
 
-    if (SwitchStates_Get_466020(field_66_delete_id))
+    if (sSwitchStates_5C1A28.Get(field_66_delete_id))
     {
         // Never come back
         Path::TLV_Reset_4DB8E0(field_20_tlvInfo, -1, 0, 1);

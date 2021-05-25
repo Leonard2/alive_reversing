@@ -110,7 +110,7 @@ EXPORT TrapDoor* TrapDoor::ctor_4DD570(Path_TrapDoor* pTlv, Map* pMap, s32 tlvIn
     const s32 levelIdx = static_cast<s32>(gMap_5C3030.field_0_current_level);
 
     s32 frameTableOffset = 0;
-    if (field_138_switch_state == SwitchStates_Get_466020(field_134_switch_idx))
+    if (field_138_switch_state == sSwitchStates_5C1A28.Get(field_134_switch_idx))
     {
         field_136_state = TrapDoorState::eOpen_2;
         frameTableOffset = sTrapDoorData_547B78[levelIdx].field_0;
@@ -250,7 +250,7 @@ EXPORT void TrapDoor::vUpdate_4DDA90()
     switch (field_136_state)
     {
         case TrapDoorState::eClosed_0:
-            if (SwitchStates_Get_466020(field_134_switch_idx) == field_138_switch_state)
+            if (sSwitchStates_5C1A28.Get(field_134_switch_idx) == field_138_switch_state)
             {
                 Open_4DD960();
                 field_136_state = TrapDoorState::eOpening_1;
@@ -276,7 +276,7 @@ EXPORT void TrapDoor::vUpdate_4DDA90()
         case TrapDoorState::eOpen_2:
             field_130_stay_open_time2--;
 
-            if ((field_13E_self_closing == Choice_short::eYes_1 && field_130_stay_open_time2 + 1 <= 0) || SwitchStates_Get_466020(field_134_switch_idx) != field_138_switch_state)
+            if ((field_13E_self_closing == Choice_short::eYes_1 && field_130_stay_open_time2 + 1 <= 0) || sSwitchStates_5C1A28.Get(field_134_switch_idx) != field_138_switch_state)
             {
                 field_20_animation.Set_Animation_Data_409C80(sTrapDoorData_547B78[static_cast<s32>(gMap_5C3030.field_0_current_level)].field_C, 0);
 
@@ -296,7 +296,7 @@ EXPORT void TrapDoor::vUpdate_4DDA90()
                 SFX_Play_46FC20(SoundEffect::TrapdoorClose_42, 70, direction);
                 Add_To_Collisions_Array_4DDA20();
                 field_136_state = TrapDoorState::eClosed_0;
-                SwitchStates_Set_465FF0(field_134_switch_idx, field_138_switch_state == 0);
+                sSwitchStates_5C1A28.Set(field_134_switch_idx, field_138_switch_state == 0);
             }
             break;
 
@@ -319,7 +319,7 @@ EXPORT void TrapDoor::vScreenChanged_4DDE40()
         field_6_flags.Set(BaseGameObject::eDead_Bit3);
         if (field_13E_self_closing == Choice_short::eYes_1)
         {
-            SwitchStates_Set_465FF0(field_134_switch_idx, field_138_switch_state == 0);
+            sSwitchStates_5C1A28.Set(field_134_switch_idx, field_138_switch_state == 0);
         }
     }
 }

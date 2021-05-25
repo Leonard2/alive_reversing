@@ -186,9 +186,9 @@ void Switch::vUpdate_4D5C00()
                 field_20_animation.Set_Animation_Data_409C80(animRec.mFrameTableOffset, nullptr);
             }
 
-            const s32 switch_state = SwitchStates_Get_466020(field_F4_trigger_id);
-            SwitchStates_Do_Operation_465F00(field_F4_trigger_id, field_102_target_action);
-            const s32 switch_state_after_op = SwitchStates_Get_466020(field_F4_trigger_id);
+            const s32 switch_state = sSwitchStates_5C1A28.Get(field_F4_trigger_id);
+            sSwitchStates_5C1A28.Operation(field_F4_trigger_id, field_102_target_action);
+            const s32 switch_state_after_op = sSwitchStates_5C1A28.Get(field_F4_trigger_id);
             if (switch_state != switch_state_after_op)
             {
                 s32 volLeft = 0;

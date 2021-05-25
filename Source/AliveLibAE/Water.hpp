@@ -3,6 +3,8 @@
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "Path.hpp"
 #include "FunctionFwd.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Water_Res final
 {
@@ -23,7 +25,7 @@ ALIVE_ASSERT_SIZEOF(Water_Res, 0x78);
 struct Path_Water_Data final
 {
     s16 field_10_max_drops;
-    s16 field_12_id;
+    SwitchId field_12_id;
     s16 field_14_splash_time;
     s16 field_16_splash_x_velocity;
     s16 field_18_splash_y_velocity;

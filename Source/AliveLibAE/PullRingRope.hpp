@@ -3,8 +3,8 @@
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "Path.hpp"
 #include "FunctionFwd.hpp"
+#include "SwitchStates.hpp"
 
-enum class SwitchOp : s16;
 
 enum class PullRingSwitchSound : s16
 {
@@ -23,7 +23,7 @@ enum class PullRingSoundDirection : s16
 
 struct Path_PullRingRope final : public Path_TLV
 {
-    s16 field_10_id;
+    SwitchId field_10_id;
     SwitchOp field_12_target_action;
     s16 field_14_rope_length;
     Scale_short field_16_scale;
@@ -67,7 +67,7 @@ private:
         eReturnToIdle_3 = 3,
     };
     States field_100_state;
-    s16 field_102_id;
+    SwitchId field_102_id;
     SwitchOp field_104_target_action;
     PullRingSwitchSound field_106_on_sound;
     PullRingSwitchSound field_108_off_sound;

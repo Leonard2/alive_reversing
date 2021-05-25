@@ -3,6 +3,8 @@
 #include "Function.hpp"
 #include "EffectBase.hpp"
 #include "Layer.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_Alarm;
 
@@ -14,7 +16,7 @@ public:
     virtual void VRender(PrimHeader** ppOt) override;
 
     EXPORT Alarm* ctor_409300(Path_Alarm* pTlv, s32 tlvInfo);
-    EXPORT Alarm* ctor_4091F0(s16 durationOffset, s16 switchId, s16 timerOffset, Layer layer);
+    EXPORT Alarm* ctor_4091F0(s16 durationOffset, SwitchId switchId, s16 timerOffset, Layer layer);
 
 private:
     EXPORT void dtor_409380();
@@ -28,7 +30,7 @@ private:
     s32 field_7C_15_timer;
     s32 field_80_duration_timer;
     s32 field_84_tlvOffsetLevelPathCamId;
-    s16 field_88_switch_id;
+    SwitchId field_88_switch_id;
     u16 field_8A_duration;
     s32 field_8C_padding;
     enum class States : s16

@@ -116,7 +116,7 @@ EXPORT void CC Init_GameStates_43BF40()
 
     gAbeBulletProof_5C1BDA = 0;
 
-    SwitchStates_SetRange_465FA0(2u, 255u);
+    sSwitchStates_5C1A28.ClearRange({2}, {255});
 }
 
 FP CC ScaleToGridSize_4498B0(FP scaleFP)

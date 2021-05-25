@@ -49,7 +49,7 @@ Alarm* Alarm::ctor_409300(Path_Alarm* pTlv, s32 tlvInfo)
     return this;
 }
 
-Alarm* Alarm::ctor_4091F0(s16 durationOffset, s16 switchId, s16 timerOffset, Layer layer)
+Alarm* Alarm::ctor_4091F0(s16 durationOffset, SwitchId switchId, s16 timerOffset, Layer layer)
 {
     ctor_4AB7A0(layer, TPageAbr::eBlend_3);
 
@@ -98,9 +98,9 @@ void Alarm::dtor_409380()
 
     if (field_84_tlvOffsetLevelPathCamId == 0xFFFF)
     {
-        if (field_88_switch_id)
+        if (field_88_switch_id.mId)
         {
-            SwitchStates_Set_465FF0(field_88_switch_id, 0);
+            sSwitchStates_5C1A28.Set(field_88_switch_id, 0);
         }
     }
     else
@@ -149,7 +149,7 @@ void Alarm::vUpdate_409460()
                 field_6_flags.Set(BaseGameObject::eDead_Bit3);
             }
 
-            if (!SwitchStates_Get_466020(field_88_switch_id))
+            if (!sSwitchStates_5C1A28.Get(field_88_switch_id))
             {
                 field_6E_r = field_78_r_value;
                 return;
@@ -187,13 +187,13 @@ void Alarm::vUpdate_409460()
                 field_90_state = States::eEnabling_2;
                 SFX_Play_46FA90(SoundEffect::SecurityDoorDeny_38, 0);
 
-                if (!field_88_switch_id)
+                if (!field_88_switch_id.mId)
                 {
                     field_6E_r = field_78_r_value;
                     return;
                 }
 
-                SwitchStates_Set_465FF0(field_88_switch_id, 1);
+                sSwitchStates_5C1A28.Set(field_88_switch_id, 1);
                 field_6E_r = field_78_r_value;
             }
             break;

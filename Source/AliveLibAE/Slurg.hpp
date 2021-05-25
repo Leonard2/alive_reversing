@@ -2,6 +2,8 @@
 
 #include "BaseAliveGameObject.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Slurg_Step_Watch_Point final
 {
@@ -21,7 +23,7 @@ struct Slurg_Path_Data final
     s16 field_0_moving_timer;
     XDirection_short field_2_direction;
     Scale_short field_4_scale;
-    s16 field_6_id;
+    SwitchId field_6_id;
 };
 
 struct Path_Slurg : public Path_TLV
@@ -97,7 +99,7 @@ private:
 private:
     s16 field_116_padding;
     BitField16<SlurgFlags> field_118_flags;
-    s16 field_11A_switch_id;
+    SwitchId field_11A_switch_id;
     Slurg_States field_11C_state;
     s16 field_11E_moving_timer;
     s16 field_120_delay_random;

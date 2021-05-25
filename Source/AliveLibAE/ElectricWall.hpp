@@ -3,6 +3,8 @@
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "Path.hpp"
 #include "FunctionFwd.hpp"
+#include "SwitchStates.hpp"
+
 
 enum ElectricWallStartState : s16
 {
@@ -13,7 +15,7 @@ enum ElectricWallStartState : s16
 struct Path_ElectricWall final : public Path_TLV
 {
     Scale_short field_10_scale;
-    s16 field_12_id;
+    SwitchId field_12_id;
     ElectricWallStartState field_14_start_state;
     s16 field_16_pad;
 };
@@ -35,7 +37,7 @@ private:
 
 private:
     s32 field_F4_tlvInfo;
-    s16 field_F8_switch_id;
+    SwitchId field_F8_switch_id;
     ElectricWallStartState field_FA_start_state;
     s32 field_FC_sound_timer;
 };

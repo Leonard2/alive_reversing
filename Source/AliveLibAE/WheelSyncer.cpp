@@ -41,14 +41,14 @@ WheelSyncer* WheelSyncer::ctor_466090(Path_WheelSyncer* pTlv, u32 tlvInfo)
 
 void WheelSyncer::vUpdate_4661D0()
 {
-    const s32 state1 = SwitchStates_Get_466020(field_20_id1);
-    const s32 state2 = SwitchStates_Get_466020(field_22_id2);
-    const s32 state3 = SwitchStates_Get_466020(field_26_id3);
-    const s32 state4 = SwitchStates_Get_466020(field_28_id4);
-    const s32 state5 = SwitchStates_Get_466020(field_2A_id5);
-    const s32 state6 = SwitchStates_Get_466020(field_2C_id6);
+    const s8 state1 = sSwitchStates_5C1A28.Get(field_20_id1);
+    const s8 state2 = sSwitchStates_5C1A28.Get(field_22_id2);
+    const s8 state3 = sSwitchStates_5C1A28.Get(field_26_id3);
+    const s8 state4 = sSwitchStates_5C1A28.Get(field_28_id4);
+    const s8 state5 = sSwitchStates_5C1A28.Get(field_2A_id5);
+    const s8 state6 = sSwitchStates_5C1A28.Get(field_2C_id6);
 
-    s32 switchValue = 0;
+    s8 switchValue = 0;
 
     switch (field_2E_action)
     {
@@ -101,7 +101,7 @@ void WheelSyncer::vUpdate_4661D0()
             break;
     }
 
-    SwitchStates_Set_465FF0(field_24_trigger_id, static_cast<s8>(switchValue));
+    sSwitchStates_5C1A28.Set(field_24_trigger_id, switchValue);
 
     if (Event_Get_422C00(kEventDeathReset))
     {

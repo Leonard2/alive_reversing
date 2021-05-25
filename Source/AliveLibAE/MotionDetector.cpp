@@ -142,7 +142,7 @@ MotionDetector* MotionDetector::ctor_4683B0(Path_MotionDetector* pTlv, s32 tlvIn
             field_F8_laser_id = pLaser->field_8_object_id;
             field_108_disable_id = pTlv->field_1C_disable_id;
 
-            if (SwitchStates_Get_466020(field_108_disable_id) == 0)
+            if (sSwitchStates_5C1A28.Get(field_108_disable_id) == 0)
             {
                 pLaser->field_20_animation.field_4_flags.Set(AnimFlags::eBit3_Render);
             }
@@ -180,7 +180,7 @@ MotionDetector* MotionDetector::ctor_4683B0(Path_MotionDetector* pTlv, s32 tlvIn
     field_F8_laser_id = pLaserMem->field_8_object_id;
     field_20_animation.field_4_flags.Set(AnimFlags::eBit3_Render);
     field_FC_owner_id = pOwner->field_8_object_id;
-    field_10A_alarm_id = 0;
+    field_10A_alarm_id = {0};
     field_10C_alarm_ticks = 0;
     return this;
 }
@@ -361,7 +361,7 @@ void MotionDetector::vUpdate_468A90()
         if (!pOwner)
         {
             // A laser not part of greeter and disabled, do nothing.
-            if (SwitchStates_Get_466020(field_108_disable_id))
+            if (sSwitchStates_5C1A28.Get(field_108_disable_id))
             {
                 pLaser->field_20_animation.field_4_flags.Clear(AnimFlags::eBit3_Render);
                 return;

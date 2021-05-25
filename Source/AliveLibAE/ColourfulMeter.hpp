@@ -8,7 +8,7 @@
 
 struct Path_ColourfulMeter final : public Path_TLV
 {
-    s16 field_10_id;
+    SwitchId field_10_id;
     s16 field_12_number_of_meter_bars;
     s16 field_14_mines_alarm_countdown;
     Choice_short field_16_bStartFilled;
@@ -48,7 +48,7 @@ private:
     s16 field_6C_text_x;
     s16 field_6E_text_y;
     s16 field_70_polys_to_render_count;
-    s16 field_72_switch_id;
+    SwitchId field_72_switch_id;
     s16 field_74_tlv_x;
     s16 field_76_tlv_y;
     s16 field_78_count;

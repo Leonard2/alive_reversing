@@ -54,7 +54,7 @@ ElectricWall* ElectricWall::ctor_421DA0(Path_ElectricWall* pTlv, s32 tlvInfo)
     field_F8_switch_id = pTlv->field_12_id;
     field_FA_start_state = pTlv->field_14_start_state;
 
-    if (SwitchStates_Get_466020(field_F8_switch_id) == field_FA_start_state)
+    if (sSwitchStates_5C1A28.Get(field_F8_switch_id) == field_FA_start_state)
     {
         field_20_animation.field_4_flags.Clear(AnimFlags::eBit3_Render);
     }
@@ -116,7 +116,7 @@ void ElectricWall::vUpdate_422030()
         field_6_flags.Set(BaseGameObject::eDead_Bit3);
     }
 
-    if (SwitchStates_Get_466020(field_F8_switch_id) == field_FA_start_state)
+    if (sSwitchStates_5C1A28.Get(field_F8_switch_id) == field_FA_start_state)
     {
         field_20_animation.field_4_flags.Clear(AnimFlags::eBit3_Render);
     }

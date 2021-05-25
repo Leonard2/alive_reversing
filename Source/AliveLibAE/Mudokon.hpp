@@ -4,6 +4,8 @@
 #include "BaseAliveGameObject.hpp"
 #include "Path.hpp"
 #include "GameSpeak.hpp"
+#include "SwitchStates.hpp"
+
 
 enum class RingTypes : s16;
 
@@ -31,13 +33,13 @@ struct Path_Mudokon final : public Path_TLV
     Mud_State field_12_state;
     XDirection_short field_14_direction;
     s16 field_16_voice_pitch;
-    s16 field_18_rescue_id;
+    SwitchId field_18_rescue_id;
     Choice_short field_1A_bDeaf;
     s16 field_1C_disabled_resources;
     Choice_short field_1E_reset_pos_on_screen_change;
     Mud_TLV_Emotion field_20_emotion;
     Choice_short field_22_bBlind;
-    s16 field_24_angry_trigger;
+    SwitchId field_24_angry_trigger;
     Choice_short field_26_stop_turning_work_wheel;
     Choice_short field_28_bGets_depressed;
     s16 field_2A_ring_timeout;
@@ -212,7 +214,7 @@ struct Mudokon_State final
     FP field_44_velx_slow_by;
     s32 field_48_unused;
     s32 field_4C_portal_id;
-    s16 field_50_angry_trigger;
+    SwitchId field_50_angry_trigger;
     s16 field_52_padding;
     s32 field_54_savedfield124; //TODO: Find out what field_124 is. It appears to be some sort of timer. -- Nemin (5/7/2020)
     s32 field_58_angry_timer;
@@ -484,7 +486,7 @@ private:
 private:
     s32 field_118_tlvInfo;
     s32 field_11C_bird_portal_id;
-    s16 field_120_angry_trigger;
+    SwitchId field_120_angry_trigger;
     s16 field_122_padding;
     s32 field_124;
     s32 field_128_angry_timer;
@@ -555,7 +557,7 @@ private:
     s16 field_174_padding;
     s16 field_176_padding;
     s16 field_178_sub_state2;
-    s16 field_17A_rescue_id;
+    SwitchId field_17A_rescue_id;
     s16 field_17C_stand_idle_timer;
     MudAction field_17E_delayed_speak;
     Mud_Emotion field_180_emo_tbl;

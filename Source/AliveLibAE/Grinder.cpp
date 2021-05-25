@@ -65,7 +65,7 @@ Grinder* Grinder::ctor_4200D0(Path_Grinder* pTlv, u32 tlvInfo)
 
     field_F8_id = tlvData.field_16_id;
 
-    if (SwitchStates_Get_466020(field_F8_id) && field_128_flags.Get(Flags::eBit1_StartOff))
+    if (sSwitchStates_5C1A28.Get(field_F8_id) && field_128_flags.Get(Flags::eBit1_StartOff))
     {
         field_128_flags.Set(Flags::eBit2_ToggleStartState_StartOn);
     }
@@ -349,7 +349,7 @@ void Grinder::vUpdate_420C50()
         case GrinderStates::State_0_Restart_Cycle:
             if (Expired(field_108_off_timer) || field_128_flags.Get(eBit4_Toggle))
             {
-                if ((!field_128_flags.Get(Flags::eBit3_UseId)) || (!!SwitchStates_Get_466020(field_F8_id) == (field_128_flags.Get(eBit1_StartOff))))
+                if ((!field_128_flags.Get(Flags::eBit3_UseId)) || (!!sSwitchStates_5C1A28.Get(field_F8_id) == (field_128_flags.Get(eBit1_StartOff))))
                 {
                     field_F4_state = GrinderStates::State_1_Going_Down;
 
@@ -477,7 +477,7 @@ void Grinder::vUpdate_420C50()
 
                 if (field_128_flags.Get(eBit4_Toggle))
                 {
-                    SwitchStates_Set_465FF0(field_F8_id, !field_128_flags.Get(eBit1_StartOff));
+                    sSwitchStates_5C1A28.Set(field_F8_id, !field_128_flags.Get(eBit1_StartOff));
                 }
             }
 
@@ -496,7 +496,7 @@ void Grinder::dtor_420B60()
         field_10C_audio_channels_mask = 0;
     }
 
-    if (field_128_flags.Get(Flags::eBit3_UseId) && !!SwitchStates_Get_466020(field_F8_id) != field_128_flags.Get(Flags::eBit1_StartOff))
+    if (field_128_flags.Get(Flags::eBit3_UseId) && !!sSwitchStates_5C1A28.Get(field_F8_id) != field_128_flags.Get(Flags::eBit1_StartOff))
     {
         Path::TLV_Reset_4DB8E0(field_104_tlv, 1, 0, 0);
     }

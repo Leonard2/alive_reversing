@@ -4,12 +4,14 @@
 #include "BaseGameObject.hpp"
 #include "Path.hpp"
 #include "Primitives.hpp"
+#include "SwitchStates.hpp"
+
 
 // TODO: These can be combined
 struct Path_LaughingGas_Data final
 {
     Choice_short field_0_bLaughing_gas;
-    s16 field_2_laughing_gas_id;
+    SwitchId field_2_laughing_gas_id;
     s16 field_4_red_percent;
     s16 field_6_blue_percent;
     s16 field_8_green_percent;
@@ -20,7 +22,7 @@ ALIVE_ASSERT_SIZEOF_ALWAYS(Path_LaughingGas_Data, 0xC);
 struct Path_LaughingGas final : public Path_TLV
 {
     Choice_short field_10_bLaughing_gas;
-    s16 field_12_laughing_gas_id;
+    SwitchId field_12_laughing_gas_id;
     s16 field_14_red_percent;
     s16 field_16_green_percent;
     s16 field_18_blue_percent;

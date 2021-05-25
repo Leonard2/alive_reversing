@@ -3,6 +3,8 @@
 #include "FunctionFwd.hpp"
 #include "BaseAliveGameObject.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
+
 
 #define SLIG_MOTIONS_ENUM(ENTRY)         \
     ENTRY(M_StandIdle_0_4B4EC0)          \
@@ -134,7 +136,7 @@ struct Path_Slig final : public Path_TLV
     Choice_short field_46_stay_awake;
     s16 field_48_disable_resources;
     s16 field_4A_noise_wake_up_distance;
-    s16 field_4C_id;
+    SwitchId field_4C_id;
     s16 field_4E_unknown;
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Path_Slig, 0x50);

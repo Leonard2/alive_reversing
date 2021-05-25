@@ -4,8 +4,8 @@
 #include "BaseGameObject.hpp"
 #include "Path.hpp"
 #include "Psx.hpp"
+#include "SwitchStates.hpp"
 
-enum class SwitchOp : s16;
 
 enum class InvisibleSwitchScale : s16
 {
@@ -16,7 +16,7 @@ enum class InvisibleSwitchScale : s16
 
 struct Path_InvisibleSwitch final : public Path_TLV
 {
-    s16 field_10_id;
+    SwitchId field_10_id;
     SwitchOp field_12_action;
     s16 field_14_delay;
     Choice_short field_16_set_off_alarm;
@@ -41,7 +41,7 @@ private:
     EXPORT void vScreenChanged_45FD80();
 
 private:
-    s16 field_20_id;
+    SwitchId field_20_id;
     SwitchOp field_22_action;
     s32 field_24_tlvInfo;
     s32 field_28_delay_timer;

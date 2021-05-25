@@ -102,7 +102,7 @@ EXPORT FallingItem* FallingItem::ctor_4272C0(Path_FallingItem* pTlv, s32 tlvInfo
     return this;
 }
 
-FallingItem* FallingItem::ctor_427560(s16 xpos, s16 ypos, s16 scale, s16 id, s16 delayTime, s16 numItems, s16 resetId)
+FallingItem* FallingItem::ctor_427560(s16 xpos, s16 ypos, s16 scale, SwitchId id, s16 delayTime, s16 numItems, s16 resetId)
 {
     ctor_408240(0);
 
@@ -120,13 +120,13 @@ FallingItem* FallingItem::ctor_427560(s16 xpos, s16 ypos, s16 scale, s16 id, s16
 
     field_20_animation.field_C_render_layer = Layer::eLayer_FallingItemPortalClip_31;
 
-    if (id)
+    if (id.mId)
     {
         field_11E_id = id;
     }
     else
     {
-        field_11E_id = 1;
+        field_11E_id = {1};
     }
 
     if (scale)
@@ -256,7 +256,7 @@ EXPORT void FallingItem::vUpdate_427780()
     switch (field_11C_state)
     {
         case State::eState_0_WaitForIdEnable:
-            if (field_11E_id && SwitchStates_Get_466020(field_11E_id))
+            if (field_11E_id.mId && sSwitchStates_5C1A28.Get(field_11E_id))
             {
                 field_6_flags.Clear(BaseGameObject::eCanExplode_Bit7);
                 field_11C_state = State::eState_2_WaitForFallDelay;
@@ -426,11 +426,11 @@ EXPORT void FallingItem::vUpdate_427780()
                 SFX_Play_46FBA0(SoundEffect::FallingItemHit_47, 55, -1536);
             }
 
-            if (field_11E_id)
+            if (field_11E_id.mId)
             {
                 if (field_12C_reset_id)
                 {
-                    SwitchStates_Do_Operation_465F00(field_11E_id, SwitchOp::eSetFalse_1);
+                    sSwitchStates_5C1A28.Operation(field_11E_id, SwitchOp::eSetFalse_1);
                 }
             }
 

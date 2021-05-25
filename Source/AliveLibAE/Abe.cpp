@@ -2665,11 +2665,11 @@ void Abe::vOn_TLV_Collision_44B5D0(Path_TLV* pTlv)
                 pResetSwitchRange->field_1_tlv_state = 1;
                 if (pResetSwitchRange->field_10_set_switches)
                 {
-                    for (s16 i = pResetSwitchRange->field_12_start_id; i <= pResetSwitchRange->field_14_end_id; i++)
+                    for (SwitchId i = pResetSwitchRange->field_12_start_id; i.mId <= pResetSwitchRange->field_14_end_id.mId; i.mId++)
                     {
-                        if (i != pResetSwitchRange->field_16_skip_id && i > 1)
+                        if (i.mId != pResetSwitchRange->field_16_skip_id.mId && i.mId > 1)
                         {
-                            SwitchStates_Set_465FF0(i, 0);
+                            sSwitchStates_5C1A28.Set(i, 0);
                         }
                     }
                 }
@@ -3229,7 +3229,7 @@ void Abe::State_0_Idle_44EEB0()
 
                     // Bail if scale doesn't match
                     Path_WellLocal* pWell = static_cast<Path_WellLocal*>(pTlv);
-                    if ((pWell->field_0_scale != Scale_short::eFull_0 || field_CC_sprite_scale != FP_FromDouble(1.0)) && (pWell->field_0_scale != Scale_short::eHalf_1 || field_CC_sprite_scale != FP_FromDouble(0.5)))
+                    if ((pWell->field_10_scale != Scale_short::eFull_0 || field_CC_sprite_scale != FP_FromDouble(1.0)) && (pWell->field_10_scale != Scale_short::eHalf_1 || field_CC_sprite_scale != FP_FromDouble(0.5)))
                     {
                         break;
                     }
@@ -3249,7 +3249,7 @@ void Abe::State_0_Idle_44EEB0()
 
                     // Bail if scale doesn't match
                     Path_WellBase* pWell = static_cast<Path_WellBase*>(pTlv);
-                    if ((pWell->field_0_scale != Scale_short::eFull_0 || field_CC_sprite_scale != FP_FromDouble(1.0)) && (pWell->field_0_scale != Scale_short::eHalf_1 || field_CC_sprite_scale != FP_FromDouble(0.5)))
+                    if ((pWell->field_10_scale != Scale_short::eFull_0 || field_CC_sprite_scale != FP_FromDouble(1.0)) && (pWell->field_10_scale != Scale_short::eHalf_1 || field_CC_sprite_scale != FP_FromDouble(0.5)))
                     {
                         break;
                     }
@@ -3632,8 +3632,8 @@ void Abe::State_3_Fall_459B60()
             {
                 // The well must be on the same scale/layer
                 Path_WellBase* pWellBase = static_cast<Path_WellBase*>(field_FC_pPathTLV);
-                if ((pWellBase->field_0_scale == Scale_short::eFull_0 && field_CC_sprite_scale == FP_FromInteger(1))
-                    || (pWellBase->field_0_scale == Scale_short::eHalf_1 && field_CC_sprite_scale == FP_FromDouble(0.5)))
+                if ((pWellBase->field_10_scale == Scale_short::eFull_0 && field_CC_sprite_scale == FP_FromInteger(1))
+                    || (pWellBase->field_10_scale == Scale_short::eHalf_1 && field_CC_sprite_scale == FP_FromDouble(0.5)))
                 {
                     field_1AC_flags.Set(Flags_1AC::e1AC_Bit3_WalkToRun);
                     field_106_current_motion = eAbeStates::State_75_JumpIntoWell_45C7B0;
@@ -3668,7 +3668,7 @@ void Abe::State_3_Fall_459B60()
 
                 if (pSoftLanding)
                 {
-                    if (!SwitchStates_Get_466020(static_cast<s16>(pSoftLanding->field_10_id)))
+                    if (!sSwitchStates_5C1A28.Get(pSoftLanding->field_10_id))
                     {
                         pSoftLanding = nullptr;
                     }
@@ -6491,7 +6491,7 @@ void Abe::State_79_InsideWellLocal_45CA60()
         if (pBaseWell->field_4_type == TlvTypes::LocalWell_8)
         {
             Path_WellLocal* pLocal = static_cast<Path_WellLocal*>(pBaseWell);
-            if (SwitchStates_Get_466020(pBaseWell->field_2_trigger_id))
+            if (sSwitchStates_5C1A28.Get(pBaseWell->field_12_trigger_id))
             {
                 Calc_Well_Velocity_45C530(
                     FP_GetExponent(field_B8_xpos),
@@ -6618,7 +6618,7 @@ void Abe::State_82_InsideWellExpress_45CC80()
     }
 
     Path_WellExpress* pExpressWell = static_cast<Path_WellExpress*>(field_FC_pPathTLV);
-    if (SwitchStates_Get_466020(pExpressWell->field_2_trigger_id))
+    if (sSwitchStates_5C1A28.Get(pExpressWell->field_12_trigger_id))
     {
         field_19A_to_level = pExpressWell->field_24_enabled_well_level;
         field_19C_to_path = pExpressWell->field_26_enabled_well_path;
@@ -6707,7 +6707,7 @@ void Abe::State_83_WellExpressShotOut_45CF70()
         {
             // Is it the target of the previous well?
             Path_WellBase* pWellBase = static_cast<Path_WellBase*>(pTlvIter);
-            if (pWellBase->field_4_well_id == field_1A0_door_id)
+            if (pWellBase->field_14_well_id == field_1A0_door_id)
             {
                 pWell = pWellBase;
                 break;
@@ -6720,7 +6720,7 @@ void Abe::State_83_WellExpressShotOut_45CF70()
 
     if (pWell)
     {
-        if (pWell->field_0_scale == Scale_short::eHalf_1)
+        if (pWell->field_10_scale == Scale_short::eHalf_1)
         {
             field_CC_sprite_scale = FP_FromDouble(0.5);
             field_D6_scale = 0;
@@ -6824,7 +6824,7 @@ void Abe::State_86_HandstoneBegin_45BD00()
 
                 sHandstoneSoundChannels_5C2C68 = SFX_Play_46FBA0(SoundEffect::HandstoneTransition_12, 127, -300);
 
-                s32 id = 0;
+                SwitchId id = {0};
                 Path_MovieStone* pMovieStoneTlv = static_cast<Path_MovieStone*>(field_FC_pPathTLV);
                 if (!pMovieStoneTlv)
                 {
@@ -6847,7 +6847,7 @@ void Abe::State_86_HandstoneBegin_45BD00()
                         field_186_to_camera_id[1] = pHandStoneTlv->field_12_camera_id2;
                         field_186_to_camera_id[2] = pHandStoneTlv->field_12_camera_id3;
 
-                        field_18C_unused = static_cast<s16>(pHandStoneTlv->field_18_trigger_id); // TODO: Never used?
+                        field_18C_unused = pHandStoneTlv->field_18_trigger_id; // TODO: Never used?
                     }
                 }
                 else
@@ -6856,14 +6856,14 @@ void Abe::State_86_HandstoneBegin_45BD00()
 
                     field_184_fmv_id = pMovieStoneTlv->field_10_movie_number;
                     field_186_to_camera_id[0] = static_cast<s16>(pMovieStoneTlv->field_12_scale); // TODO: Never used?
-                    field_186_to_camera_id[1] = static_cast<s16>(pMovieStoneTlv->field_14_id);    // TODO: Never used?
+                    field_186_to_camera_id[1] = static_cast<s16>(pMovieStoneTlv->field_14_id.mId);    // TODO: Never used?
                 }
 
                 if (field_FC_pPathTLV)
                 {
-                    if (id > 1)
+                    if (id.mId > 1)
                     {
-                        SwitchStates_Set_465FF0(static_cast<s16>(id), 1);
+                        sSwitchStates_5C1A28.Set(id, 1);
                     }
 
                     field_180_hand_stone_type = field_FC_pPathTLV->field_4_type.mType;
@@ -8297,7 +8297,7 @@ void Abe::State_127_TurnWheelLoop_456750()
     if (field_120_state.wheel == WorkWheelStates::eTurningWheel_0 || field_120_state.wheel == WorkWheelStates::eCheckForNoLongerTurningWheel_1) // The state we enter the main state at.
     {
         Path_LevelLoader* pLevelLoader = static_cast<Path_LevelLoader*>(sPath_dword_BB47C0->TLV_First_Of_Type_In_Camera_4DB6D0(TlvTypes::LevelLoader_86, 0));
-        if (pLevelLoader && SwitchStates_Get_466020(pLevelLoader->field_10_id))
+        if (pLevelLoader && sSwitchStates_5C1A28.Get(pLevelLoader->field_10_id))
         {
             field_120_state.wheel = WorkWheelStates::eMapChanging_2;
             SND_SEQ_Play_4CAB10(SeqId::SaveTriggerMusic_31, 1, 127, 127);
@@ -9071,7 +9071,7 @@ s16 Abe::RunTryEnterWell_451060()
     {
         if (!(field_114_flags.Get(Flags_114::e114_Bit10_Teleporting)))
         {
-            if ((pWellLocal->field_0_scale == Scale_short::eFull_0 && field_CC_sprite_scale == FP_FromInteger(1)) || (pWellLocal->field_0_scale == Scale_short::eHalf_1 && field_CC_sprite_scale == FP_FromDouble(0.5)))
+            if ((pWellLocal->field_10_scale == Scale_short::eFull_0 && field_CC_sprite_scale == FP_FromInteger(1)) || (pWellLocal->field_10_scale == Scale_short::eHalf_1 && field_CC_sprite_scale == FP_FromDouble(0.5)))
             {
                 field_1AC_flags.Clear(Flags_1AC::e1AC_Bit3_WalkToRun);
                 field_FC_pPathTLV = pWellLocal;
@@ -9091,7 +9091,7 @@ s16 Abe::RunTryEnterWell_451060()
     {
         if (!(field_114_flags.Get(Flags_114::e114_Bit10_Teleporting)))
         {
-            if ((pWellExpress->field_0_scale == Scale_short::eFull_0 && field_CC_sprite_scale == FP_FromInteger(1)) || (pWellExpress->field_0_scale == Scale_short::eHalf_1 && field_CC_sprite_scale == FP_FromDouble(0.5)))
+            if ((pWellExpress->field_10_scale == Scale_short::eFull_0 && field_CC_sprite_scale == FP_FromInteger(1)) || (pWellExpress->field_10_scale == Scale_short::eHalf_1 && field_CC_sprite_scale == FP_FromDouble(0.5)))
             {
                 field_1AC_flags.Clear(Flags_1AC::e1AC_Bit3_WalkToRun);
                 field_FC_pPathTLV = pWellExpress;

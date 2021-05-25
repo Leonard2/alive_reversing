@@ -3,13 +3,13 @@
 #include "FunctionFwd.hpp"
 #include "BaseAnimatedWithPhysicsGameObject.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
 
-enum class SwitchOp : s16;
 
 struct Path_NakedSligButton final : public Path_TLV
 {
     Scale_short field_10_scale;
-    s16 field_12_id;
+    SwitchId field_12_id;
     SwitchOp field_14_action;
     s16 field_16_on_sound;
     s16 field_18_off_sound;
@@ -32,7 +32,7 @@ private:
 
 private:
     s32 field_F4_tlvInfo;
-    s16 field_F8_id;
+    SwitchId field_F8_id;
     SwitchOp field_FA_action;
     s16 field_FC_on_sound;
     s16 field_FE_off_sound;

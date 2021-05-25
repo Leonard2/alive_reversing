@@ -747,10 +747,10 @@ struct Path_WellExpress final : public TlvObjectBaseAE
     CTOR_AE(Path_WellExpress, "WellExpress", TlvTypes::WellExpress_23)
     {
         // Path_WellBase
-        ADD("Scale", mTlv.field_0_scale);
-        ADD("Trigger ID", mTlv.field_2_trigger_id);
-        ADD("Well ID", mTlv.field_4_well_id);
-        ADD("Resource ID", mTlv.field_6_res_id);
+        ADD("Scale", mTlv.field_10_scale);
+        ADD("Trigger ID", mTlv.field_12_trigger_id);
+        ADD("Well ID", mTlv.field_14_well_id);
+        ADD("Resource ID", mTlv.field_16_res_id);
 
         // Path_WellExpress
         ADD("Exit X", mTlv.field_18_exit_x);
@@ -1227,10 +1227,10 @@ struct Path_WellLocal final : public TlvObjectBaseAE
     CTOR_AE(Path_WellLocal, "WellLocal", TlvTypes::LocalWell_8)
     {
         // Path_WellBase
-        ADD("scale", mTlv.field_0_scale);
-        ADD("trigger_id", mTlv.field_2_trigger_id);
-        ADD("well_id", mTlv.field_4_well_id);
-        ADD("resource_id", mTlv.field_6_res_id);
+        ADD("scale", mTlv.field_10_scale);
+        ADD("trigger_id", mTlv.field_12_trigger_id);
+        ADD("well_id", mTlv.field_14_well_id);
+        ADD("resource_id", mTlv.field_16_res_id);
 
         // Path_WellLocal
         ADD("off_dx", mTlv.field_18_off_dx);

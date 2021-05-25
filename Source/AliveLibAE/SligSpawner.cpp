@@ -105,13 +105,13 @@ void SligSpawner::vUpdate_409830()
     {
         if (!pSpawnedSlig || pSpawnedSlig->field_6_flags.Get(BaseGameObject::eDead_Bit3) || pSpawnedSlig->field_10C_health <= FP_FromInteger(0))
         {
-            SwitchStates_Set_465FF0(field_24_slig_id, 0);
+            sSwitchStates_5C1A28.Set(field_24_slig_id, 0);
             field_38_state = 0;
         }
     }
     else if (field_38_state == 0)
     {
-        if (SwitchStates_Get_466020(field_24_slig_id))
+        if (sSwitchStates_5C1A28.Get(field_24_slig_id))
         {
             Path_TLV* pSpawnerTlv = sPath_dword_BB47C0->TLV_Get_At_4DB4B0(field_28_tlv.field_8_top_left.field_0_x, field_28_tlv.field_8_top_left.field_2_y, field_28_tlv.field_8_top_left.field_0_x, field_28_tlv.field_8_top_left.field_2_y, TlvTypes::SligSpawner_37);
             if (pSpawnerTlv)

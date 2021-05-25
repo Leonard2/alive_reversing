@@ -2,17 +2,19 @@
 
 #include "BaseAliveGameObject.hpp"
 #include "Path.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_SlapLock final : public Path_TLV
 {
     Scale_short field_10_scale;
     s16 field_12_target_tomb_id1;
-    s16 field_14_target_tomb_id2;
+    SwitchId field_14_target_tomb_id2;
     Choice_short field_16_bPersistant;
     Choice_short field_18_has_ghost;
     Choice_short field_1A_give_invisibility_powerup;
     s16 field_1C_invisibility_id;
-    s16 field_1E_option_id;
+    SwitchId field_1E_option_id;
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Path_SlapLock, 0x20);
 

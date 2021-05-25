@@ -12,11 +12,11 @@
 s32 CC SlapLockWhirlWind::CreateFromSaveState_43DC20(const u8* pBuffer)
 {
     auto pSaveState = reinterpret_cast<const SlapLockWhirlWind_State*>(pBuffer);
-    SwitchStates_Do_Operation_465F00(pSaveState->field_2_switch_id, SwitchOp::eSetTrue_0);
+    sSwitchStates_5C1A28.Operation(pSaveState->field_2_switch_id, SwitchOp::eSetTrue_0);
     return sizeof(SlapLockWhirlWind_State);
 }
 
-SlapLockWhirlWind* SlapLockWhirlWind::ctor_43D7E0(s16 doorNumber, s16 switchId, FP xpos, FP ypos, FP scale)
+SlapLockWhirlWind* SlapLockWhirlWind::ctor_43D7E0(s16 doorNumber, SwitchId switchId, FP xpos, FP ypos, FP scale)
 {
     BaseGameObject_ctor_4DBFA0(TRUE, 0);
     SetVTable(this, 0x545208);
@@ -140,7 +140,7 @@ void SlapLockWhirlWind::vUpdate_43DA90()
 
             if (!pWhirlWind || pWhirlWind->field_6_flags.Get(BaseGameObject::eDead_Bit3))
             {
-                SwitchStates_Do_Operation_465F00(field_44_switch_id, SwitchOp::eSetTrue_0);
+                sSwitchStates_5C1A28.Operation(field_44_switch_id, SwitchOp::eSetTrue_0);
                 field_6_flags.Set(BaseGameObject::eDead_Bit3);
             }
         }
@@ -170,7 +170,7 @@ void SlapLockWhirlWind::vUpdate_43DA90()
     }
 }
 
-s16 SlapLockWhirlWind::SwitchId() const
+SwitchId SlapLockWhirlWind::GetSwitch() const
 {
     return field_44_switch_id;
 }

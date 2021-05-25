@@ -190,7 +190,7 @@ void TorturedMudokon::vUpdate_47BF80()
     switch (field_23E_state)
     {
         case TorturedMudokonState::eBeingTortured_0:
-            if (SwitchStates_Get_466020(field_23A_speed_id))
+            if (sSwitchStates_5C1A28.Get(field_23A_speed_id))
             {
                 field_23E_state = TorturedMudokonState::eKilled_1;
                 const AnimRecord& animRec = AnimRec(AnimId::Tortured_Modukon_Zap);
@@ -284,7 +284,7 @@ void TorturedMudokon::vUpdate_47BF80()
         }
     }
 
-    if (SwitchStates_Get_466020(field_23C_release_id))
+    if (sSwitchStates_5C1A28.Get(field_23C_release_id))
     {
         field_23E_state = TorturedMudokonState::eReleased_2;
         const AnimRecord& animRec = AnimRec(AnimId::Tortured_Modukon_Released);

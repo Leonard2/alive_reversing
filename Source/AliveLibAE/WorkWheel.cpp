@@ -193,22 +193,22 @@ void WorkWheel::vUpdate_4E38E0()
         field_100_on_counter = 0;
     }
 
-    if (field_F8_id)
+    if (field_F8_id.mId)
     {
         if (field_100_on_counter > field_FE_activation_time)
         {
-            if (gMap_5C3030.field_0_current_level == LevelIds::eBrewery_Ender_10 && field_F8_id == 100)
+            if (gMap_5C3030.field_0_current_level == LevelIds::eBrewery_Ender_10 && field_F8_id.mId == 100) //
             {
                 CreateGameEnderController_43B7A0();
             }
 
             if (field_102_off_time > 0 && field_100_on_counter > field_102_off_time)
             {
-                SwitchStates_Set_465FF0(field_F8_id, 0);
+                sSwitchStates_5C1A28.Set(field_F8_id, 0);
             }
             else
             {
-                SwitchStates_Set_465FF0(field_F8_id, 1);
+                sSwitchStates_5C1A28.Set(field_F8_id, 1);
             }
         }
     }
@@ -246,7 +246,7 @@ void WorkWheel::vStopTurning_4E3A60(s16 bResetSwitch)
         {
             if (bResetSwitch)
             {
-                SwitchStates_Set_465FF0(field_F8_id, 0);
+                sSwitchStates_5C1A28.Set(field_F8_id, 0);
             }
         }
     }

@@ -3,6 +3,8 @@
 #include "FunctionFwd.hpp"
 #include "Path.hpp"
 #include "BaseGameObject.hpp"
+#include "SwitchStates.hpp"
+
 
 struct Path_FlyingSlig_Data final
 {
@@ -17,10 +19,10 @@ struct Path_FlyingSlig_Data final
     s16 field_10_prechase_delay;
     s16 field_12_slig_id;
     s16 field_14_listen_time;
-    s16 field_16_trigger_id;
+    SwitchId field_16_trigger_id;
     s16 field_18_grenade_delay;
     s16 field_1A_max_velocity;
-    s16 field_1C_launch_id;
+    SwitchId field_1C_launch_id;
     s16 field_1E_persistant;
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(Path_FlyingSlig_Data, 0x20);
@@ -67,7 +69,7 @@ private:
 private:
     s32 field_20_tlvInfo;
     s32 field_24_spawned_slig_id;
-    s16 field_28_trigger_id;
+    SwitchId field_28_trigger_id;
     s16 field_2A_pad;
     Path_TLV field_2C_tlv_header;
     s32 field_3C_bSpawned;

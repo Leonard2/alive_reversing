@@ -63,13 +63,13 @@ SlapLock* SlapLock::ctor_43DC80(Path_SlapLock* pTlv, s32 tlvInfo)
             break;
         }
 
-        if (pObj->field_4_typeId == AETypes::eSlapLock_OrbWhirlWind_60 && static_cast<SlapLockWhirlWind*>(pObj)->SwitchId() == field_118_pTlv->field_14_target_tomb_id2)
+        if (pObj->field_4_typeId == AETypes::eSlapLock_OrbWhirlWind_60 && static_cast<SlapLockWhirlWind*>(pObj)->GetSwitch().mId == field_118_pTlv->field_14_target_tomb_id2.mId)
         {
             field_130_has_ghost = Choice_short::eNo_0;
         }
     }
 
-    if (SwitchStates_Get_466020(pTlv->field_14_target_tomb_id2))
+    if (sSwitchStates_5C1A28.Get(pTlv->field_14_target_tomb_id2))
     {
         field_130_has_ghost = Choice_short::eNo_0;
     }
@@ -229,7 +229,7 @@ void SlapLock::vUpdate_43DF90()
 
             if (field_118_pTlv->field_1_tlv_state)
             {
-                SwitchStates_Do_Operation_465F00(field_118_pTlv->field_14_target_tomb_id2, SwitchOp::eSetTrue_0);
+                sSwitchStates_5C1A28.Operation(field_118_pTlv->field_14_target_tomb_id2, SwitchOp::eSetTrue_0);
             }
 
             if (field_134_id != -1)
@@ -513,7 +513,7 @@ s16 SlapLock::vTakeDamage_43E5D0(BaseGameObject* pFrom)
     }
 
     field_120_state = SlapLockStates::eSlapped_2;
-    SwitchStates_Do_Operation_465F00(field_118_pTlv->field_1E_option_id, SwitchOp::eToggle_2);
+    sSwitchStates_5C1A28.Operation(field_118_pTlv->field_1E_option_id, SwitchOp::eToggle_2);
     SFX_Play_46FA90(SoundEffect::SpiritLockBreak_106, 0, field_CC_sprite_scale);
     Event_Broadcast_422BC0(kEventLoudNoise, this);
 
