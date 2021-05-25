@@ -12,6 +12,9 @@
 #include <unordered_set>
 #include <memory>
 
+//
+struct SwitchId;
+
 class PropertyCollection
 {
 private:
@@ -74,3 +77,7 @@ protected:
     std::unordered_map<const void*, std::unique_ptr<BaseProperty>> mProperties;
     std::unordered_set<std::string> mRegisteredPropertyNames;
 };
+
+// Specialization for special types.
+extern template void PropertyCollection::ReadBasicType<SwitchId>(SwitchId&, const jsonxx::Object&) const;
+extern template void PropertyCollection::WriteBasicType<SwitchId>(const SwitchId&, jsonxx::Object&) const;

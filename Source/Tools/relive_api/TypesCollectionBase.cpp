@@ -4,6 +4,8 @@
 #include "../AliveLibAO/PathData.hpp"
 #include "../AliveLibAO/Map.hpp"
 #include "../AliveLibAE/Path.hpp"
+#include "../AliveLibCommon/SwitchStates_common.hpp"
+
 
 TypesCollectionBase::TypesCollectionBase()
 {
@@ -16,6 +18,18 @@ TypesCollectionBase::TypesCollectionBase()
     ADD_BASIC_TYPE("SInt32", s32);
 
 #undef ADD_BASIC_TYPE
+
+    // Common types.
+    // Should we put these elsewhere?
+    AddBasicType<SwitchId>("SwitchID", std::numeric_limits<u8>::min(), std::numeric_limits<u8>::max());
+    AddEnum<SwitchOp>("Enum_SwitchOp",
+    {
+        {SwitchOp::eSetTrue_0, "SetTrue"},
+        {SwitchOp::eSetFalse_1, "SetFalse"},
+        {SwitchOp::eToggle_2, "Toggle"},
+        {SwitchOp::eIncrement_3, "Increment"},
+        {SwitchOp::eDecrement_4, "Decrement"},
+    });
 }
 
 TypesCollectionBase::~TypesCollectionBase() = default;

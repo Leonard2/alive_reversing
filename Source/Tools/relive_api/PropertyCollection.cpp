@@ -89,3 +89,19 @@ void PropertyCollection::PropertiesToJson(const TypesCollectionBase& types, json
         value->Write(*this, types, properties);
     }
 }
+
+
+// Special handling for special types.
+#include "../AliveLibCommon/SwitchStates_common.hpp"
+
+template<>
+void PropertyCollection::ReadBasicType<SwitchId>(SwitchId& field, const jsonxx::Object& properties) const
+{
+    field.mId = static_cast<u8>(properties.get<jsonxx::Number>(PropName(&field)));
+}
+
+template <>
+void PropertyCollection::WriteBasicType<SwitchId>(const SwitchId& field, jsonxx::Object& properties) const
+{
+    properties << PropName(&field) << static_cast<s32>(field.mId);
+}

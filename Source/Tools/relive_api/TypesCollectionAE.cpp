@@ -181,15 +181,6 @@ void TypesCollectionAE::AddAETypes()
                            {Scale_int::eHalf_1, "Half"},
                        });
 
-    AddEnum<SwitchOp>("Enum_SwitchOp",
-                      {
-                          {SwitchOp::eSetTrue_0, "SetTrue"},
-                          {SwitchOp::eSetFalse_1, "SetFalse"},
-                          {SwitchOp::eToggle_2, "Toggle"},
-                          {SwitchOp::eIncrement_3, "Increment"},
-                          {SwitchOp::eDecrement_4, "Decrement"},
-                      });
-
     AddEnum<LevelIds>("Enum_LevelIds",
                       {
                           {LevelIds::eNone, "None"},

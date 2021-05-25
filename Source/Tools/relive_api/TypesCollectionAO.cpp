@@ -136,15 +136,6 @@ void TypesCollectionAO::AddAOTypes()
 
 #undef REGISTER_TYPE_AO
 
-    AddEnum<AO::SwitchOp>("Enum_SwitchOp",
-                          {
-                              {AO::SwitchOp::eSetTrue_0, "SetTrue"},
-                              {AO::SwitchOp::eSetFalse_1, "SetFalse"},
-                              {AO::SwitchOp::eToggle_2, "Toggle"},
-                              {AO::SwitchOp::eIncrement_3, "Increment"},
-                              {AO::SwitchOp::eDecrement_4, "Decrement"},
-                          });
-
     AddEnum<AO::LevelIds>("Enum_LevelIds",
                           {
                               {AO::LevelIds::eNone, "None"},
