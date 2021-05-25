@@ -25,6 +25,7 @@ struct SwitchStates
 public:
     s8 Get(SwitchId id);
     void Set(SwitchId id, s8 value);
+    void Add(SwitchId id, s8 value);
     void Operation(SwitchId id, SwitchOp op);
 
     void Clear();

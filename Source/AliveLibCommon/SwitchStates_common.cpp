@@ -17,6 +17,11 @@ void SwitchStates::Set(SwitchId id, s8 val)
 	mData[id.mId] = val;
 }
 
+void SwitchStates::Add(SwitchId id, s8 val)
+{
+    mData[id.mId] += val;
+}
+
 void SwitchStates::Operation(SwitchId id, SwitchOp op)
 {
     if (id.mId >= 2)
