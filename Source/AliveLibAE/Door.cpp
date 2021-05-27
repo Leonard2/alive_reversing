@@ -88,18 +88,18 @@ Door* Door::ctor_41E250(Path_Door* pTlvData, s32 tlvInfo)
             case 30002:
                 if (sVisitedBonewerks_5C1C02)
                 {
-                    sSwitchStates_5C1A28.Set({255}, 1); //
+                    sSwitchStates_5C1A28.Set(NamedSwitchIDs::Feeco_BonewerkzToFeecoEnder, 1);
                 }
 
                 if (sVisitedBarracks_5C1C04)
                 {
-                    sSwitchStates_5C1A28.Set({254}, 1);
+                    sSwitchStates_5C1A28.Set(NamedSwitchIDs::Feeco_SligsToFeecoEnder, 1);
                 }
 
                 if (sVisitedFeecoEnder_5C1C06)
                 {
-                    sSwitchStates_5C1A28.Set({255}, 0);
-                    sSwitchStates_5C1A28.Set({254}, 0);
+                    sSwitchStates_5C1A28.Set(NamedSwitchIDs::Feeco_BonewerkzToFeecoEnder, 0);
+                    sSwitchStates_5C1A28.Set(NamedSwitchIDs::Feeco_SligsToFeecoEnder, 0);
                 }
                 break;
 
@@ -115,17 +115,17 @@ Door* Door::ctor_41E250(Path_Door* pTlvData, s32 tlvInfo)
                     }
                     if (sVisitedBonewerks_5C1C02)
                     {
-                        sSwitchStates_5C1A28.Set({250}, 1);
+                        sSwitchStates_5C1A28.Set(NamedSwitchIDs::Feeco_BonewerkzToSoulstorm, 1);
                     }
                 }
 
                 if (sVisitedBarracks_5C1C04)
                 {
-                    sSwitchStates_5C1A28.Set({251}, 1);
+                    sSwitchStates_5C1A28.Set(NamedSwitchIDs::Feeco_SligsToSoulstorm, 1);
                 }
                 if (sVisitedFeecoEnder_5C1C06)
                 {
-                    sSwitchStates_5C1A28.Set({253}, 1);
+                    sSwitchStates_5C1A28.Set(NamedSwitchIDs::Feeco_FeecoEnderToSoulstorm, 1);
                 }
                 break;
             default:

@@ -149,7 +149,7 @@ Slog* Slog::ctor_4C4540(FP xpos, FP ypos, FP scale, s16 bListenToSligs, s16 chas
 
     field_144_wake_up_anger = 0;
     field_158_chase_delay = chaseDelay;
-    field_154_angry_id = {0};
+    field_154_angry_id = NamedSwitchIDs::None;
     field_106_current_motion = eSlogMotions::M_Idle_0_4C5F90;
     field_146_total_anger = 10;
     field_148_chase_anger = 20;

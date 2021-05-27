@@ -102,7 +102,7 @@ void GameEnderController::vScreenChanged_43BC80()
     {
         if (sRescuedMudokons_5C1BC2 < 150)
         {
-            sSwitchStates_5C1A28.Set({100}, 0); //
+            sSwitchStates_5C1A28.Set(NamedSwitchIDs::GameEnder_GoodEndingTrap, 0);
         }
     }
 
@@ -131,7 +131,7 @@ void GameEnderController::vUpdate_43B920()
     switch (field_24_state)
     {
         case GameEnderController_States::eInit_0:
-            if (sSwitchStates_5C1A28.Get({100}))
+            if (sSwitchStates_5C1A28.Get(NamedSwitchIDs::GameEnder_GoodEndingTrap))
             {
                 field_24_state = GameEnderController_States::eDetermineEnding_1;
             }

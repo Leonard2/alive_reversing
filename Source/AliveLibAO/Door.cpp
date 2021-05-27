@@ -425,7 +425,7 @@ void Door::VUpdate_40E870()
                     auto pMusicTrigger = ao_new<MusicTrigger>();
                     if (pMusicTrigger)
                     {
-                        pMusicTrigger->ctor_443A60(5, 0, { 0 }, 300);
+                        pMusicTrigger->ctor_443A60(5, 0, NamedSwitchIDs::None, 300);
                     }
                 }
                 sSwitchStates_505568.Operation(field_F0_switch_id, SwitchOp::eSetTrue_0);

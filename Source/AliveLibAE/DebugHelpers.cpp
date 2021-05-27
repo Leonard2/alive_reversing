@@ -2266,7 +2266,7 @@ std::string EscapeUnknownCharacters(std::string text)
 
 void Cheat_OpenAllDoors()
 {
-    for (SwitchId i = {0}; i.mId < 256; i.mId++)
+    for (SwitchId i = NamedSwitchIDs::None; i.mId < 256; i.mId++)
     {
         sSwitchStates_5C1A28.Set(i, 1);
     }

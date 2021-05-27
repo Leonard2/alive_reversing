@@ -6824,7 +6824,7 @@ void Abe::State_86_HandstoneBegin_45BD00()
 
                 sHandstoneSoundChannels_5C2C68 = SFX_Play_46FBA0(SoundEffect::HandstoneTransition_12, 127, -300);
 
-                SwitchId id = {0};
+                SwitchId id = NamedSwitchIDs::None;
                 Path_MovieStone* pMovieStoneTlv = static_cast<Path_MovieStone*>(field_FC_pPathTLV);
                 if (!pMovieStoneTlv)
                 {

@@ -126,7 +126,7 @@ FallingItem* FallingItem::ctor_427560(s16 xpos, s16 ypos, s16 scale, SwitchId id
     }
     else
     {
-        field_11E_id = {1};
+        field_11E_id = { 1 };
     }
 
     if (scale)

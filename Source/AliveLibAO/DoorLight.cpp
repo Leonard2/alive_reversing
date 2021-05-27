@@ -189,7 +189,7 @@ void DoorLight::VUpdate_4060A0()
                         auto pMusic = ao_new<MusicTrigger>();
                         if (pMusic)
                         {
-                            pMusic->ctor_443A60(6, 1, { 0 }, 15);
+                            pMusic->ctor_443A60(6, 1, NamedSwitchIDs::None, 15);
                         }
                     }
                     else

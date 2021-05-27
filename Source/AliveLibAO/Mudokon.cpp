@@ -2318,7 +2318,7 @@ void Mudokon::State_44_JumpMid_43E960()
         auto pMusicMem = ao_new<MusicTrigger>();
         if (pMusicMem)
         {
-            pMusicMem->ctor_443A60(5, 0, { 0 }, 300);
+            pMusicMem->ctor_443A60(5, 0, NamedSwitchIDs::None, 300);
         }
 
         sRescuedMudokons_5076C0++;

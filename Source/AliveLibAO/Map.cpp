@@ -1746,7 +1746,8 @@ void Map::GoTo_Camera_445050()
         auto pBackgroundMusic = ao_new<BackgroundMusic>();
         pBackgroundMusic->ctor_476370(rPathRoot.field_12_bg_music_id);
 
-        sSwitchStates_505568.ClearRange({0}, {236});
+        // No idea why you wouldn't go to the max here.
+        sSwitchStates_505568.ClearRange(NamedSwitchIDs::None, NamedSwitchIDs::OneShotIDSetter_Init);
 
         if (field_DC_free_all_anim_and_palts)
         {

@@ -180,7 +180,7 @@ MotionDetector* MotionDetector::ctor_4683B0(Path_MotionDetector* pTlv, s32 tlvIn
     field_F8_laser_id = pLaserMem->field_8_object_id;
     field_20_animation.field_4_flags.Set(AnimFlags::eBit3_Render);
     field_FC_owner_id = pOwner->field_8_object_id;
-    field_10A_alarm_id = {0};
+    field_10A_alarm_id = NamedSwitchIDs::None;
     field_10C_alarm_ticks = 0;
     return this;
 }

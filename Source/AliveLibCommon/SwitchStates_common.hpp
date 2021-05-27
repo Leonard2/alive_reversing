@@ -11,6 +11,12 @@ struct SwitchId final
 };
 ALIVE_ASSERT_SIZEOF_ALWAYS(SwitchId, 2);
 
+namespace NamedSwitchIDs
+{
+    constexpr SwitchId None =   {0};
+    constexpr SwitchId Max =    {255};
+}
+
 enum class SwitchOp : s16
 {
     eSetTrue_0 = 0,

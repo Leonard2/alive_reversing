@@ -4436,8 +4436,7 @@ s16 Slig::Brain_Sleeping_46B4E0()
         }
     }
 
-    // TODO: Should probably give a name to those odd switch id constants.
-    if (sSwitchStates_505568.Get({ 120 }) && field_114_timer <= static_cast<s32>(gnFrameCount_507670) && gMap_507BA8.Is_Point_In_Current_Camera_4449C0(field_B2_lvl_number, field_B0_path_number, field_A8_xpos, field_AC_ypos, 0) && !Event_Get_417250(kEventResetting_6))
+    if (sSwitchStates_505568.Get(NamedSwitchIDs::Forest_ElumWell) && field_114_timer <= static_cast<s32>(gnFrameCount_507670) && gMap_507BA8.Is_Point_In_Current_Camera_4449C0(field_B2_lvl_number, field_B0_path_number, field_A8_xpos, field_AC_ypos, 0) && !Event_Get_417250(kEventResetting_6))
     {
         WakeUp();
         return 102;

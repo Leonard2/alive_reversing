@@ -218,7 +218,7 @@ void ExplosionSet::vUpdate_414E30()
             auto pFallingItem = ae_new<FallingItem>();
             if (pFallingItem)
             {
-                pFallingItem->ctor_427560(xpos, field_48_tlv_rect.y, field_50_scale < FP_FromInteger(1), {0}, 0, 1, 0);
+                pFallingItem->ctor_427560(xpos, field_48_tlv_rect.y, field_50_scale < FP_FromInteger(1), NamedSwitchIDs::None, 0, 1, 0);
             }
 
             field_46_spacing_multiplicator++;

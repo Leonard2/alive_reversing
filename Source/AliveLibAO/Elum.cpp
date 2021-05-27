@@ -3979,7 +3979,7 @@ Elum* Elum::ctor_410870(s32, anythingForTheTimeBeing, anythingForTheTimeBeing, s
     auto pMusic = ao_new<MusicTrigger>();
     if (pMusic)
     {
-        pMusic->ctor_443A60(6, 1, { 0 }, 30);
+        pMusic->ctor_443A60(6, 1, NamedSwitchIDs::None, 30);
     }
 
     field_D0_pShadow = ao_new<Shadow>();
